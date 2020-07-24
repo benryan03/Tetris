@@ -33,59 +33,44 @@ namespace Tetris
             
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            int currentRow = tableLayoutPanel1.GetRow(activePiece);
-            int currentCol = tableLayoutPanel1.GetColumn(activePiece);
+            int currentRow = grid.GetRow(activePiece);
+            int currentCol = grid.GetColumn(activePiece);
+            Control oldSquare = grid.GetControlFromPosition(currentCol, currentRow);
 
             if (e.KeyCode == Keys.Left & currentCol > 0)
             {
-                textBox1.Text = "Left"; //Debug
-
-                Control oldSquare = tableLayoutPanel1.GetControlFromPosition(currentCol, currentRow);
-                Control newSquare = tableLayoutPanel1.GetControlFromPosition(currentCol - 1, currentRow);
+                Control newSquare = grid.GetControlFromPosition(currentCol - 1, currentRow);
 
                 if (newSquare.BackColor != Color.Red)
                 {
-                    textBox1.Text = "Down"; //Debug
-
                     oldSquare.BackColor = Color.White;
                     newSquare.BackColor = Color.Red;
-
                     activePiece = newSquare;
                 }
             }
             else if (e.KeyCode == Keys.Right & currentCol < 9)
             {
-                textBox1.Text = "Right"; //Debug
-
-                Control oldSquare = tableLayoutPanel1.GetControlFromPosition(currentCol, currentRow);
-                Control newSquare = tableLayoutPanel1.GetControlFromPosition(currentCol + 1, currentRow);
+                Control newSquare = grid.GetControlFromPosition(currentCol + 1, currentRow);
 
                 if (newSquare.BackColor != Color.Red)
                 {
-                    textBox1.Text = "Down";
-
                     oldSquare.BackColor = Color.White;
                     newSquare.BackColor = Color.Red;
-
                     activePiece = newSquare;
                 }
             }
             else if (e.KeyCode == Keys.Up)
             {
-                textBox1.Text = "Up"; //Debug
+                //Rotate
             }
             else if (e.KeyCode == Keys.Down & currentRow < 9)
             {
-                Control oldSquare = tableLayoutPanel1.GetControlFromPosition(currentCol, currentRow);
-                Control newSquare = tableLayoutPanel1.GetControlFromPosition(currentCol, currentRow + 1);
+                Control newSquare = grid.GetControlFromPosition(currentCol, currentRow + 1);
 
                 if (newSquare.BackColor != Color.Red)
                 {
-                    textBox1.Text = "Down"; //Debug
-
                     oldSquare.BackColor = Color.White;
                     newSquare.BackColor = Color.Red;
-
                     activePiece = newSquare;
                 }
             }
@@ -97,37 +82,26 @@ namespace Tetris
             timeElapsed++;
             textBox1.Text = timeElapsed.ToString();
 
-            int currentRow = tableLayoutPanel1.GetRow(activePiece);
-            int currentCol = tableLayoutPanel1.GetColumn(activePiece);
+            int currentRow = grid.GetRow(activePiece);
+            int currentCol = grid.GetColumn(activePiece);
+            Control oldSquare = grid.GetControlFromPosition(currentCol, currentRow);
+            Control newSquare = grid.GetControlFromPosition(currentCol, currentRow + 1);
 
-            if (currentRow < 9)
-            {
-                Control oldSquare = tableLayoutPanel1.GetControlFromPosition(currentCol, currentRow);
-                Control newSquare = tableLayoutPanel1.GetControlFromPosition(currentCol, currentRow + 1);
-
-                if (newSquare.BackColor == Color.Red)
-                {
-                    dropNewPiece();
-                }
-                else
-                {
-                    //Move piece down
-                    oldSquare.BackColor = Color.White;
-                    newSquare.BackColor = Color.Red;
-
-                    activePiece = newSquare;
-
-                    textBox2.Text = "Row: " + tableLayoutPanel1.GetRow(activePiece).ToString();
-                    textBox3.Text = "Col: " + tableLayoutPanel1.GetColumn(activePiece).ToString();
-                }
-
-            }
-            else if (currentRow == 9)
+            if (currentRow == 9)
             {
                 dropNewPiece();
             }
-
-
+            else if (currentRow < 9 & newSquare.BackColor == Color.Red)
+            {
+                dropNewPiece();
+            }
+            else if (currentRow < 9 & newSquare.BackColor != Color.Red)
+            {
+                //Move piece down
+                oldSquare.BackColor = Color.White;
+                newSquare.BackColor = Color.Red;
+                activePiece = newSquare;
+            }
         }
     }
 }
