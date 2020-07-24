@@ -131,9 +131,9 @@
             this.pictureBox99 = new System.Windows.Forms.PictureBox();
             this.pictureBox100 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -237,7 +237,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox100)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // grid
             // 
             this.grid.ColumnCount = 10;
             this.grid.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -352,8 +352,8 @@
             this.grid.Controls.Add(this.pictureBox98, 7, 9);
             this.grid.Controls.Add(this.pictureBox99, 8, 9);
             this.grid.Controls.Add(this.pictureBox100, 9, 9);
-            this.grid.Location = new System.Drawing.Point(12, 304);
-            this.grid.Name = "tableLayoutPanel1";
+            this.grid.Location = new System.Drawing.Point(12, 224);
+            this.grid.Name = "grid";
             this.grid.RowCount = 10;
             this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -371,6 +371,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
@@ -380,6 +381,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Location = new System.Drawing.Point(99, 3);
             this.pictureBox2.Name = "pictureBox2";
@@ -389,6 +391,7 @@
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackColor = System.Drawing.Color.White;
             this.pictureBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox3.Location = new System.Drawing.Point(195, 3);
             this.pictureBox3.Name = "pictureBox3";
@@ -398,6 +401,7 @@
             // 
             // pictureBox4
             // 
+            this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox4.Location = new System.Drawing.Point(291, 3);
             this.pictureBox4.Name = "pictureBox4";
@@ -407,6 +411,7 @@
             // 
             // pictureBox5
             // 
+            this.pictureBox5.BackColor = System.Drawing.Color.White;
             this.pictureBox5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox5.Location = new System.Drawing.Point(387, 3);
             this.pictureBox5.Name = "pictureBox5";
@@ -416,6 +421,7 @@
             // 
             // pictureBox6
             // 
+            this.pictureBox6.BackColor = System.Drawing.Color.White;
             this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox6.Location = new System.Drawing.Point(483, 3);
             this.pictureBox6.Name = "pictureBox6";
@@ -425,6 +431,7 @@
             // 
             // pictureBox7
             // 
+            this.pictureBox7.BackColor = System.Drawing.Color.White;
             this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox7.Location = new System.Drawing.Point(579, 3);
             this.pictureBox7.Name = "pictureBox7";
@@ -434,6 +441,7 @@
             // 
             // pictureBox8
             // 
+            this.pictureBox8.BackColor = System.Drawing.Color.White;
             this.pictureBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox8.Location = new System.Drawing.Point(675, 3);
             this.pictureBox8.Name = "pictureBox8";
@@ -443,6 +451,7 @@
             // 
             // pictureBox9
             // 
+            this.pictureBox9.BackColor = System.Drawing.Color.White;
             this.pictureBox9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox9.Location = new System.Drawing.Point(771, 3);
             this.pictureBox9.Name = "pictureBox9";
@@ -452,6 +461,7 @@
             // 
             // pictureBox10
             // 
+            this.pictureBox10.BackColor = System.Drawing.Color.White;
             this.pictureBox10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox10.Location = new System.Drawing.Point(867, 3);
             this.pictureBox10.Name = "pictureBox10";
@@ -461,6 +471,7 @@
             // 
             // pictureBox11
             // 
+            this.pictureBox11.BackColor = System.Drawing.Color.White;
             this.pictureBox11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox11.Location = new System.Drawing.Point(3, 97);
             this.pictureBox11.Name = "pictureBox11";
@@ -470,6 +481,7 @@
             // 
             // pictureBox12
             // 
+            this.pictureBox12.BackColor = System.Drawing.Color.White;
             this.pictureBox12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox12.Location = new System.Drawing.Point(99, 97);
             this.pictureBox12.Name = "pictureBox12";
@@ -479,6 +491,7 @@
             // 
             // pictureBox13
             // 
+            this.pictureBox13.BackColor = System.Drawing.Color.White;
             this.pictureBox13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox13.Location = new System.Drawing.Point(195, 97);
             this.pictureBox13.Name = "pictureBox13";
@@ -488,6 +501,7 @@
             // 
             // pictureBox14
             // 
+            this.pictureBox14.BackColor = System.Drawing.Color.White;
             this.pictureBox14.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox14.Location = new System.Drawing.Point(291, 97);
             this.pictureBox14.Name = "pictureBox14";
@@ -497,6 +511,7 @@
             // 
             // pictureBox15
             // 
+            this.pictureBox15.BackColor = System.Drawing.Color.White;
             this.pictureBox15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox15.Location = new System.Drawing.Point(387, 97);
             this.pictureBox15.Name = "pictureBox15";
@@ -506,6 +521,7 @@
             // 
             // pictureBox16
             // 
+            this.pictureBox16.BackColor = System.Drawing.Color.White;
             this.pictureBox16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox16.Location = new System.Drawing.Point(483, 97);
             this.pictureBox16.Name = "pictureBox16";
@@ -515,6 +531,7 @@
             // 
             // pictureBox17
             // 
+            this.pictureBox17.BackColor = System.Drawing.Color.White;
             this.pictureBox17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox17.Location = new System.Drawing.Point(579, 97);
             this.pictureBox17.Name = "pictureBox17";
@@ -524,6 +541,7 @@
             // 
             // pictureBox18
             // 
+            this.pictureBox18.BackColor = System.Drawing.Color.White;
             this.pictureBox18.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox18.Location = new System.Drawing.Point(675, 97);
             this.pictureBox18.Name = "pictureBox18";
@@ -533,6 +551,7 @@
             // 
             // pictureBox19
             // 
+            this.pictureBox19.BackColor = System.Drawing.Color.White;
             this.pictureBox19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox19.Location = new System.Drawing.Point(771, 97);
             this.pictureBox19.Name = "pictureBox19";
@@ -542,6 +561,7 @@
             // 
             // pictureBox20
             // 
+            this.pictureBox20.BackColor = System.Drawing.Color.White;
             this.pictureBox20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox20.Location = new System.Drawing.Point(867, 97);
             this.pictureBox20.Name = "pictureBox20";
@@ -551,6 +571,7 @@
             // 
             // pictureBox21
             // 
+            this.pictureBox21.BackColor = System.Drawing.Color.White;
             this.pictureBox21.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox21.Location = new System.Drawing.Point(3, 191);
             this.pictureBox21.Name = "pictureBox21";
@@ -560,6 +581,7 @@
             // 
             // pictureBox22
             // 
+            this.pictureBox22.BackColor = System.Drawing.Color.White;
             this.pictureBox22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox22.Location = new System.Drawing.Point(99, 191);
             this.pictureBox22.Name = "pictureBox22";
@@ -569,6 +591,7 @@
             // 
             // pictureBox23
             // 
+            this.pictureBox23.BackColor = System.Drawing.Color.White;
             this.pictureBox23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox23.Location = new System.Drawing.Point(195, 191);
             this.pictureBox23.Name = "pictureBox23";
@@ -578,6 +601,7 @@
             // 
             // pictureBox24
             // 
+            this.pictureBox24.BackColor = System.Drawing.Color.White;
             this.pictureBox24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox24.Location = new System.Drawing.Point(291, 191);
             this.pictureBox24.Name = "pictureBox24";
@@ -587,6 +611,7 @@
             // 
             // pictureBox25
             // 
+            this.pictureBox25.BackColor = System.Drawing.Color.White;
             this.pictureBox25.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox25.Location = new System.Drawing.Point(387, 191);
             this.pictureBox25.Name = "pictureBox25";
@@ -596,6 +621,7 @@
             // 
             // pictureBox26
             // 
+            this.pictureBox26.BackColor = System.Drawing.Color.White;
             this.pictureBox26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox26.Location = new System.Drawing.Point(483, 191);
             this.pictureBox26.Name = "pictureBox26";
@@ -605,6 +631,7 @@
             // 
             // pictureBox27
             // 
+            this.pictureBox27.BackColor = System.Drawing.Color.White;
             this.pictureBox27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox27.Location = new System.Drawing.Point(579, 191);
             this.pictureBox27.Name = "pictureBox27";
@@ -614,6 +641,7 @@
             // 
             // pictureBox28
             // 
+            this.pictureBox28.BackColor = System.Drawing.Color.White;
             this.pictureBox28.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox28.Location = new System.Drawing.Point(675, 191);
             this.pictureBox28.Name = "pictureBox28";
@@ -623,6 +651,7 @@
             // 
             // pictureBox29
             // 
+            this.pictureBox29.BackColor = System.Drawing.Color.White;
             this.pictureBox29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox29.Location = new System.Drawing.Point(771, 191);
             this.pictureBox29.Name = "pictureBox29";
@@ -632,6 +661,7 @@
             // 
             // pictureBox30
             // 
+            this.pictureBox30.BackColor = System.Drawing.Color.White;
             this.pictureBox30.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox30.Location = new System.Drawing.Point(867, 191);
             this.pictureBox30.Name = "pictureBox30";
@@ -641,6 +671,7 @@
             // 
             // pictureBox31
             // 
+            this.pictureBox31.BackColor = System.Drawing.Color.White;
             this.pictureBox31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox31.Location = new System.Drawing.Point(3, 285);
             this.pictureBox31.Name = "pictureBox31";
@@ -650,6 +681,7 @@
             // 
             // pictureBox32
             // 
+            this.pictureBox32.BackColor = System.Drawing.Color.White;
             this.pictureBox32.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox32.Location = new System.Drawing.Point(99, 285);
             this.pictureBox32.Name = "pictureBox32";
@@ -659,6 +691,7 @@
             // 
             // pictureBox33
             // 
+            this.pictureBox33.BackColor = System.Drawing.Color.White;
             this.pictureBox33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox33.Location = new System.Drawing.Point(195, 285);
             this.pictureBox33.Name = "pictureBox33";
@@ -668,6 +701,7 @@
             // 
             // pictureBox34
             // 
+            this.pictureBox34.BackColor = System.Drawing.Color.White;
             this.pictureBox34.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox34.Location = new System.Drawing.Point(291, 285);
             this.pictureBox34.Name = "pictureBox34";
@@ -677,6 +711,7 @@
             // 
             // pictureBox35
             // 
+            this.pictureBox35.BackColor = System.Drawing.Color.White;
             this.pictureBox35.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox35.Location = new System.Drawing.Point(387, 285);
             this.pictureBox35.Name = "pictureBox35";
@@ -686,6 +721,7 @@
             // 
             // pictureBox36
             // 
+            this.pictureBox36.BackColor = System.Drawing.Color.White;
             this.pictureBox36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox36.Location = new System.Drawing.Point(483, 285);
             this.pictureBox36.Name = "pictureBox36";
@@ -695,6 +731,7 @@
             // 
             // pictureBox37
             // 
+            this.pictureBox37.BackColor = System.Drawing.Color.White;
             this.pictureBox37.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox37.Location = new System.Drawing.Point(579, 285);
             this.pictureBox37.Name = "pictureBox37";
@@ -704,6 +741,7 @@
             // 
             // pictureBox38
             // 
+            this.pictureBox38.BackColor = System.Drawing.Color.White;
             this.pictureBox38.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox38.Location = new System.Drawing.Point(675, 285);
             this.pictureBox38.Name = "pictureBox38";
@@ -713,6 +751,7 @@
             // 
             // pictureBox39
             // 
+            this.pictureBox39.BackColor = System.Drawing.Color.White;
             this.pictureBox39.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox39.Location = new System.Drawing.Point(771, 285);
             this.pictureBox39.Name = "pictureBox39";
@@ -722,6 +761,7 @@
             // 
             // pictureBox40
             // 
+            this.pictureBox40.BackColor = System.Drawing.Color.White;
             this.pictureBox40.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox40.Location = new System.Drawing.Point(867, 285);
             this.pictureBox40.Name = "pictureBox40";
@@ -731,6 +771,7 @@
             // 
             // pictureBox41
             // 
+            this.pictureBox41.BackColor = System.Drawing.Color.White;
             this.pictureBox41.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox41.Location = new System.Drawing.Point(3, 379);
             this.pictureBox41.Name = "pictureBox41";
@@ -740,6 +781,7 @@
             // 
             // pictureBox42
             // 
+            this.pictureBox42.BackColor = System.Drawing.Color.White;
             this.pictureBox42.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox42.Location = new System.Drawing.Point(99, 379);
             this.pictureBox42.Name = "pictureBox42";
@@ -749,6 +791,7 @@
             // 
             // pictureBox43
             // 
+            this.pictureBox43.BackColor = System.Drawing.Color.White;
             this.pictureBox43.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox43.Location = new System.Drawing.Point(195, 379);
             this.pictureBox43.Name = "pictureBox43";
@@ -758,6 +801,7 @@
             // 
             // pictureBox44
             // 
+            this.pictureBox44.BackColor = System.Drawing.Color.White;
             this.pictureBox44.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox44.Location = new System.Drawing.Point(291, 379);
             this.pictureBox44.Name = "pictureBox44";
@@ -767,6 +811,7 @@
             // 
             // pictureBox45
             // 
+            this.pictureBox45.BackColor = System.Drawing.Color.White;
             this.pictureBox45.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox45.Location = new System.Drawing.Point(387, 379);
             this.pictureBox45.Name = "pictureBox45";
@@ -776,6 +821,7 @@
             // 
             // pictureBox46
             // 
+            this.pictureBox46.BackColor = System.Drawing.Color.White;
             this.pictureBox46.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox46.Location = new System.Drawing.Point(483, 379);
             this.pictureBox46.Name = "pictureBox46";
@@ -785,6 +831,7 @@
             // 
             // pictureBox47
             // 
+            this.pictureBox47.BackColor = System.Drawing.Color.White;
             this.pictureBox47.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox47.Location = new System.Drawing.Point(579, 379);
             this.pictureBox47.Name = "pictureBox47";
@@ -794,6 +841,7 @@
             // 
             // pictureBox48
             // 
+            this.pictureBox48.BackColor = System.Drawing.Color.White;
             this.pictureBox48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox48.Location = new System.Drawing.Point(675, 379);
             this.pictureBox48.Name = "pictureBox48";
@@ -803,6 +851,7 @@
             // 
             // pictureBox49
             // 
+            this.pictureBox49.BackColor = System.Drawing.Color.White;
             this.pictureBox49.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox49.Location = new System.Drawing.Point(771, 379);
             this.pictureBox49.Name = "pictureBox49";
@@ -812,6 +861,7 @@
             // 
             // pictureBox50
             // 
+            this.pictureBox50.BackColor = System.Drawing.Color.White;
             this.pictureBox50.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox50.Location = new System.Drawing.Point(867, 379);
             this.pictureBox50.Name = "pictureBox50";
@@ -821,6 +871,7 @@
             // 
             // pictureBox51
             // 
+            this.pictureBox51.BackColor = System.Drawing.Color.White;
             this.pictureBox51.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox51.Location = new System.Drawing.Point(3, 473);
             this.pictureBox51.Name = "pictureBox51";
@@ -830,6 +881,7 @@
             // 
             // pictureBox52
             // 
+            this.pictureBox52.BackColor = System.Drawing.Color.White;
             this.pictureBox52.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox52.Location = new System.Drawing.Point(99, 473);
             this.pictureBox52.Name = "pictureBox52";
@@ -839,6 +891,7 @@
             // 
             // pictureBox53
             // 
+            this.pictureBox53.BackColor = System.Drawing.Color.White;
             this.pictureBox53.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox53.Location = new System.Drawing.Point(195, 473);
             this.pictureBox53.Name = "pictureBox53";
@@ -848,6 +901,7 @@
             // 
             // pictureBox54
             // 
+            this.pictureBox54.BackColor = System.Drawing.Color.White;
             this.pictureBox54.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox54.Location = new System.Drawing.Point(291, 473);
             this.pictureBox54.Name = "pictureBox54";
@@ -857,6 +911,7 @@
             // 
             // pictureBox55
             // 
+            this.pictureBox55.BackColor = System.Drawing.Color.White;
             this.pictureBox55.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox55.Location = new System.Drawing.Point(387, 473);
             this.pictureBox55.Name = "pictureBox55";
@@ -866,6 +921,7 @@
             // 
             // pictureBox56
             // 
+            this.pictureBox56.BackColor = System.Drawing.Color.White;
             this.pictureBox56.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox56.Location = new System.Drawing.Point(483, 473);
             this.pictureBox56.Name = "pictureBox56";
@@ -875,6 +931,7 @@
             // 
             // pictureBox57
             // 
+            this.pictureBox57.BackColor = System.Drawing.Color.White;
             this.pictureBox57.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox57.Location = new System.Drawing.Point(579, 473);
             this.pictureBox57.Name = "pictureBox57";
@@ -884,6 +941,7 @@
             // 
             // pictureBox58
             // 
+            this.pictureBox58.BackColor = System.Drawing.Color.White;
             this.pictureBox58.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox58.Location = new System.Drawing.Point(675, 473);
             this.pictureBox58.Name = "pictureBox58";
@@ -893,6 +951,7 @@
             // 
             // pictureBox59
             // 
+            this.pictureBox59.BackColor = System.Drawing.Color.White;
             this.pictureBox59.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox59.Location = new System.Drawing.Point(771, 473);
             this.pictureBox59.Name = "pictureBox59";
@@ -902,6 +961,7 @@
             // 
             // pictureBox60
             // 
+            this.pictureBox60.BackColor = System.Drawing.Color.White;
             this.pictureBox60.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox60.Location = new System.Drawing.Point(867, 473);
             this.pictureBox60.Name = "pictureBox60";
@@ -911,6 +971,7 @@
             // 
             // pictureBox61
             // 
+            this.pictureBox61.BackColor = System.Drawing.Color.White;
             this.pictureBox61.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox61.Location = new System.Drawing.Point(3, 567);
             this.pictureBox61.Name = "pictureBox61";
@@ -920,6 +981,7 @@
             // 
             // pictureBox62
             // 
+            this.pictureBox62.BackColor = System.Drawing.Color.White;
             this.pictureBox62.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox62.Location = new System.Drawing.Point(99, 567);
             this.pictureBox62.Name = "pictureBox62";
@@ -929,6 +991,7 @@
             // 
             // pictureBox63
             // 
+            this.pictureBox63.BackColor = System.Drawing.Color.White;
             this.pictureBox63.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox63.Location = new System.Drawing.Point(195, 567);
             this.pictureBox63.Name = "pictureBox63";
@@ -938,6 +1001,7 @@
             // 
             // pictureBox64
             // 
+            this.pictureBox64.BackColor = System.Drawing.Color.White;
             this.pictureBox64.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox64.Location = new System.Drawing.Point(291, 567);
             this.pictureBox64.Name = "pictureBox64";
@@ -947,6 +1011,7 @@
             // 
             // pictureBox65
             // 
+            this.pictureBox65.BackColor = System.Drawing.Color.White;
             this.pictureBox65.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox65.Location = new System.Drawing.Point(387, 567);
             this.pictureBox65.Name = "pictureBox65";
@@ -956,6 +1021,7 @@
             // 
             // pictureBox66
             // 
+            this.pictureBox66.BackColor = System.Drawing.Color.White;
             this.pictureBox66.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox66.Location = new System.Drawing.Point(483, 567);
             this.pictureBox66.Name = "pictureBox66";
@@ -965,6 +1031,7 @@
             // 
             // pictureBox67
             // 
+            this.pictureBox67.BackColor = System.Drawing.Color.White;
             this.pictureBox67.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox67.Location = new System.Drawing.Point(579, 567);
             this.pictureBox67.Name = "pictureBox67";
@@ -974,6 +1041,7 @@
             // 
             // pictureBox68
             // 
+            this.pictureBox68.BackColor = System.Drawing.Color.White;
             this.pictureBox68.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox68.Location = new System.Drawing.Point(675, 567);
             this.pictureBox68.Name = "pictureBox68";
@@ -983,6 +1051,7 @@
             // 
             // pictureBox69
             // 
+            this.pictureBox69.BackColor = System.Drawing.Color.White;
             this.pictureBox69.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox69.Location = new System.Drawing.Point(771, 567);
             this.pictureBox69.Name = "pictureBox69";
@@ -992,6 +1061,7 @@
             // 
             // pictureBox70
             // 
+            this.pictureBox70.BackColor = System.Drawing.Color.White;
             this.pictureBox70.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox70.Location = new System.Drawing.Point(867, 567);
             this.pictureBox70.Name = "pictureBox70";
@@ -1001,6 +1071,7 @@
             // 
             // pictureBox71
             // 
+            this.pictureBox71.BackColor = System.Drawing.Color.White;
             this.pictureBox71.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox71.Location = new System.Drawing.Point(3, 661);
             this.pictureBox71.Name = "pictureBox71";
@@ -1010,6 +1081,7 @@
             // 
             // pictureBox72
             // 
+            this.pictureBox72.BackColor = System.Drawing.Color.White;
             this.pictureBox72.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox72.Location = new System.Drawing.Point(99, 661);
             this.pictureBox72.Name = "pictureBox72";
@@ -1019,6 +1091,7 @@
             // 
             // pictureBox73
             // 
+            this.pictureBox73.BackColor = System.Drawing.Color.White;
             this.pictureBox73.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox73.Location = new System.Drawing.Point(195, 661);
             this.pictureBox73.Name = "pictureBox73";
@@ -1028,6 +1101,7 @@
             // 
             // pictureBox74
             // 
+            this.pictureBox74.BackColor = System.Drawing.Color.White;
             this.pictureBox74.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox74.Location = new System.Drawing.Point(291, 661);
             this.pictureBox74.Name = "pictureBox74";
@@ -1037,6 +1111,7 @@
             // 
             // pictureBox75
             // 
+            this.pictureBox75.BackColor = System.Drawing.Color.White;
             this.pictureBox75.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox75.Location = new System.Drawing.Point(387, 661);
             this.pictureBox75.Name = "pictureBox75";
@@ -1046,6 +1121,7 @@
             // 
             // pictureBox76
             // 
+            this.pictureBox76.BackColor = System.Drawing.Color.White;
             this.pictureBox76.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox76.Location = new System.Drawing.Point(483, 661);
             this.pictureBox76.Name = "pictureBox76";
@@ -1055,6 +1131,7 @@
             // 
             // pictureBox77
             // 
+            this.pictureBox77.BackColor = System.Drawing.Color.White;
             this.pictureBox77.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox77.Location = new System.Drawing.Point(579, 661);
             this.pictureBox77.Name = "pictureBox77";
@@ -1064,6 +1141,7 @@
             // 
             // pictureBox78
             // 
+            this.pictureBox78.BackColor = System.Drawing.Color.White;
             this.pictureBox78.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox78.Location = new System.Drawing.Point(675, 661);
             this.pictureBox78.Name = "pictureBox78";
@@ -1073,6 +1151,7 @@
             // 
             // pictureBox79
             // 
+            this.pictureBox79.BackColor = System.Drawing.Color.White;
             this.pictureBox79.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox79.Location = new System.Drawing.Point(771, 661);
             this.pictureBox79.Name = "pictureBox79";
@@ -1082,6 +1161,7 @@
             // 
             // pictureBox80
             // 
+            this.pictureBox80.BackColor = System.Drawing.Color.White;
             this.pictureBox80.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox80.Location = new System.Drawing.Point(867, 661);
             this.pictureBox80.Name = "pictureBox80";
@@ -1091,6 +1171,7 @@
             // 
             // pictureBox81
             // 
+            this.pictureBox81.BackColor = System.Drawing.Color.White;
             this.pictureBox81.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox81.Location = new System.Drawing.Point(3, 755);
             this.pictureBox81.Name = "pictureBox81";
@@ -1100,6 +1181,7 @@
             // 
             // pictureBox82
             // 
+            this.pictureBox82.BackColor = System.Drawing.Color.White;
             this.pictureBox82.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox82.Location = new System.Drawing.Point(99, 755);
             this.pictureBox82.Name = "pictureBox82";
@@ -1109,6 +1191,7 @@
             // 
             // pictureBox83
             // 
+            this.pictureBox83.BackColor = System.Drawing.Color.White;
             this.pictureBox83.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox83.Location = new System.Drawing.Point(195, 755);
             this.pictureBox83.Name = "pictureBox83";
@@ -1118,6 +1201,7 @@
             // 
             // pictureBox84
             // 
+            this.pictureBox84.BackColor = System.Drawing.Color.White;
             this.pictureBox84.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox84.Location = new System.Drawing.Point(291, 755);
             this.pictureBox84.Name = "pictureBox84";
@@ -1127,6 +1211,7 @@
             // 
             // pictureBox85
             // 
+            this.pictureBox85.BackColor = System.Drawing.Color.White;
             this.pictureBox85.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox85.Location = new System.Drawing.Point(387, 755);
             this.pictureBox85.Name = "pictureBox85";
@@ -1136,6 +1221,7 @@
             // 
             // pictureBox86
             // 
+            this.pictureBox86.BackColor = System.Drawing.Color.White;
             this.pictureBox86.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox86.Location = new System.Drawing.Point(483, 755);
             this.pictureBox86.Name = "pictureBox86";
@@ -1145,6 +1231,7 @@
             // 
             // pictureBox87
             // 
+            this.pictureBox87.BackColor = System.Drawing.Color.White;
             this.pictureBox87.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox87.Location = new System.Drawing.Point(579, 755);
             this.pictureBox87.Name = "pictureBox87";
@@ -1154,6 +1241,7 @@
             // 
             // pictureBox88
             // 
+            this.pictureBox88.BackColor = System.Drawing.Color.White;
             this.pictureBox88.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox88.Location = new System.Drawing.Point(675, 755);
             this.pictureBox88.Name = "pictureBox88";
@@ -1163,6 +1251,7 @@
             // 
             // pictureBox89
             // 
+            this.pictureBox89.BackColor = System.Drawing.Color.White;
             this.pictureBox89.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox89.Location = new System.Drawing.Point(771, 755);
             this.pictureBox89.Name = "pictureBox89";
@@ -1172,6 +1261,7 @@
             // 
             // pictureBox90
             // 
+            this.pictureBox90.BackColor = System.Drawing.Color.White;
             this.pictureBox90.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox90.Location = new System.Drawing.Point(867, 755);
             this.pictureBox90.Name = "pictureBox90";
@@ -1181,6 +1271,7 @@
             // 
             // pictureBox91
             // 
+            this.pictureBox91.BackColor = System.Drawing.Color.White;
             this.pictureBox91.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox91.Location = new System.Drawing.Point(3, 849);
             this.pictureBox91.Name = "pictureBox91";
@@ -1190,6 +1281,7 @@
             // 
             // pictureBox92
             // 
+            this.pictureBox92.BackColor = System.Drawing.Color.White;
             this.pictureBox92.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox92.Location = new System.Drawing.Point(99, 849);
             this.pictureBox92.Name = "pictureBox92";
@@ -1199,6 +1291,7 @@
             // 
             // pictureBox93
             // 
+            this.pictureBox93.BackColor = System.Drawing.Color.White;
             this.pictureBox93.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox93.Location = new System.Drawing.Point(195, 849);
             this.pictureBox93.Name = "pictureBox93";
@@ -1208,6 +1301,7 @@
             // 
             // pictureBox94
             // 
+            this.pictureBox94.BackColor = System.Drawing.Color.White;
             this.pictureBox94.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox94.Location = new System.Drawing.Point(291, 849);
             this.pictureBox94.Name = "pictureBox94";
@@ -1217,6 +1311,7 @@
             // 
             // pictureBox95
             // 
+            this.pictureBox95.BackColor = System.Drawing.Color.White;
             this.pictureBox95.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox95.Location = new System.Drawing.Point(387, 849);
             this.pictureBox95.Name = "pictureBox95";
@@ -1226,6 +1321,7 @@
             // 
             // pictureBox96
             // 
+            this.pictureBox96.BackColor = System.Drawing.Color.White;
             this.pictureBox96.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox96.Location = new System.Drawing.Point(483, 849);
             this.pictureBox96.Name = "pictureBox96";
@@ -1235,6 +1331,7 @@
             // 
             // pictureBox97
             // 
+            this.pictureBox97.BackColor = System.Drawing.Color.White;
             this.pictureBox97.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox97.Location = new System.Drawing.Point(579, 849);
             this.pictureBox97.Name = "pictureBox97";
@@ -1244,6 +1341,7 @@
             // 
             // pictureBox98
             // 
+            this.pictureBox98.BackColor = System.Drawing.Color.White;
             this.pictureBox98.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox98.Location = new System.Drawing.Point(675, 849);
             this.pictureBox98.Name = "pictureBox98";
@@ -1253,6 +1351,7 @@
             // 
             // pictureBox99
             // 
+            this.pictureBox99.BackColor = System.Drawing.Color.White;
             this.pictureBox99.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox99.Location = new System.Drawing.Point(771, 849);
             this.pictureBox99.Name = "pictureBox99";
@@ -1262,6 +1361,7 @@
             // 
             // pictureBox100
             // 
+            this.pictureBox100.BackColor = System.Drawing.Color.White;
             this.pictureBox100.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox100.Location = new System.Drawing.Point(867, 849);
             this.pictureBox100.Name = "pictureBox100";
@@ -1274,41 +1374,44 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // textBox1
+            // label1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 62);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "0";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(285, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(387, 108);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "TETRIS";
             // 
-            // textBox2
+            // label2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(399, 0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(186, 62);
-            this.textBox2.TabIndex = 2;
-            this.textBox2.Text = "Row: ";
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(18, 166);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 55);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Time: 0";
             // 
-            // textBox3
+            // label3
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(615, 0);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(162, 62);
-            this.textBox3.TabIndex = 3;
-            this.textBox3.Text = "Col: ";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(772, 166);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(203, 55);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Score: 0";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(990, 1259);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(990, 1310);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.grid);
             this.KeyPreview = true;
             this.Name = "Form1";
@@ -1524,9 +1627,9 @@
         private System.Windows.Forms.PictureBox pictureBox99;
         private System.Windows.Forms.PictureBox pictureBox100;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
