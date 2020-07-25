@@ -249,216 +249,184 @@ namespace Tetris
 
                 if (currentPiece == 0) //The line piece
                 {
+                    //Test if piece is too close to edge of board
+                    if (rotations == 0 & (square1Col == 0 | square1Col == 1 | square1Col == 9))
+                    {
+                        return;
+                    }
+                    else if (rotations == 1 & (square3Col == 0 | square3Col == 1 | square3Col == 9))
+                    {
+                        return;
+                    }
+
+                    //If test passes, rotate piece
                     if (rotations == 0)
                     {
-                        if (square1Col == 0 | square1Col == 1 | square1Col == 9)
-                        { 
-                            canMove = false;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col - 2, square1Row);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row - 1);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row - 2);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row - 3);
+                        rotations++;
                     }
                     else if (rotations == 1)
                     {
-                        if (square3Col == 0 | square3Col == 1 | square3Col == 9)
-                        {
-                            canMove = false;
-                        }
-                    }
-
-                    if (canMove == true)
-                    {
-                        if (rotations == 0)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col - 2, square1Row);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row - 1);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row - 2);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row - 3);
-                            rotations++;
-                        }
-                        else if (rotations == 1)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col + 2, square1Row);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row + 1);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row + 2);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col - 1, square4Row + 3);
-                            rotations = 0;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col + 2, square1Row);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row + 1);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row + 2);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col - 1, square4Row + 3);
+                        rotations = 0;
                     }
                 }        
                 else if (currentPiece == 1) //The normal L
                 {
+                    //Test if piece is too close to edge of board
+                    if (rotations == 0 & (square1Col == 8 | square1Col == 9))
+                    {
+                        return;
+                    }
+                    else if (rotations == 2 & (square1Col == 9))
+                    {
+                        return;
+                    }
+
+                    //If test passes, rotate piece
                     if (rotations == 0)
                     {
-                        if (square1Col == 8 | square1Col == 9)
-                        {
-                            canMove = false;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row + 2);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row + 1);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col + 2, square3Row);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row - 1);
+                        rotations++;
+                    }
+                    else if (rotations == 1)
+                    {
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 1);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row - 2);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row - 1);
+                        rotations++;
                     }
                     else if (rotations == 2)
                     {
-                        if (square1Col == 9)
-                        {
-                            canMove = false;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row - 1);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row + 1);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 2);
+                        rotations++;
                     }
-
-                    if (canMove == true)
+                    else if (rotations == 3)
                     {
-                        if (rotations == 0)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row + 2);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row + 1);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col + 2, square3Row);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row - 1);
-                            rotations++;
-                        }
-                        else if (rotations == 1)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 1);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row - 2);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row - 1);
-                            rotations++;
-                        }
-                        else if (rotations == 2)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row - 1);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row + 1);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 2);
-                            rotations++;
-                        }
-                        else if (rotations == 3)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col - 2, square1Row - 1);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row + 1);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row);
-                            rotations = 0;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col - 2, square1Row - 1);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row + 1);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row);
+                        rotations = 0;
                     }
                 }
                 else if (currentPiece == 2) //The backwards L
                 {
+                    //Test if piece is too close to edge of board
+                    if (rotations == 0 & square1Col == 0)
+                    {
+                        return;
+                    }
+                    else if (rotations == 2 & square1Col == 0)
+                    {
+                        return;
+                    }
+
+                    //If test passes, rotate piece
                     if (rotations == 0)
                     {
-                        if (square1Col == 0)
-                        {
-                            canMove = false;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col - 2, square1Row + 1);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row - 1);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row);
+                        rotations++;
+                    }
+                    else if (rotations == 1)
+                    {
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row + 1);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row - 1);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 2);
+                        rotations++;
                     }
                     else if (rotations == 2)
                     {
-                        if (square1Col == 0)
-                        {
-                            canMove = false;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row + 1);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row + 2);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row + 1);
+                        rotations++;
                     }
-                    if (canMove == true)
+                    else if (rotations == 3)
                     {
-                        if (rotations == 0)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col - 2, square1Row + 1);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row - 1);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row);
-                            rotations++;
-                        }
-                        else if (rotations == 1)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row + 1);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row - 1);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 2);
-                            rotations++;
-                        }
-                        else if (rotations == 2)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row + 1);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row + 2);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row + 1);
-                            rotations++;
-                        }
-                        else if (rotations == 3)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row - 2);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row - 1);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col + 2, square3Row);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row + 1);
-                            rotations = 0;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row - 2);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row - 1);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col + 2, square3Row);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row + 1);
+                        rotations = 0;
                     }
                 }
                 else if (currentPiece == 3) //The normal S
                 {
+                    //Test if piece is too close to edge of board
+                    if (rotations == 0 & (square1Row == 1 | square1Col == 9))
+                    {
+                        return;
+                    }
+                    else if (rotations == 1 & square1Col == 0)
+                    {
+                        return;
+                    }
+
+                    //If test passes, rotate piece
                     if (rotations == 0)
                     {
-                        if (square1Row == 1 | square1Col == 9)
-                        {
-                            canMove = false;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row - 2);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 1);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 1);
+                        rotations++;
                     }
                     else if (rotations == 1)
                     {
-                        if (square1Col == 0)
-                        {
-                            canMove = false;
-                        }
-                    }
-                    if (canMove == true)
-                    {                        
-                        if (rotations == 0)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row - 2);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 1);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 1);
-                            rotations++;
-                        }
-                        else if (rotations == 1)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col - 1, square1Row + 2);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row + 1);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 1);
-                            rotations = 0;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col - 1, square1Row + 2);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row + 1);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 1);
+                        rotations = 0;
                     }
                 }
                 else if (currentPiece == 4) //The backwards S
                 {
+                    //Test if piece is too close to edge of board
+                    if (rotations == 0 & square1Row == 0)
+                    {
+                        return;
+                    }
+                    else if (rotations == 1 & (square1Row == 0 | square1Col == 8))
+                    {
+                        return;
+                    }
+
+                    //If test passes, rotate piece
                     if (rotations == 0)
                     {
-                        if (square1Row == 0)
-                        {
-                            canMove = false;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row + 1);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row - 1);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col - 1, square4Row - 2);
+                        rotations++;
                     }
                     else if (rotations == 1)
                     {
-                        if (square1Row == 0 | square1Col == 8)
-                        {
-                            canMove = false;
-                        }
-                    }
-                    if (canMove == true)
-                    {
-                        if (rotations == 0)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row + 1);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row - 1);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col - 1, square4Row - 2);
-                            rotations++;
-                        }
-                        else if (rotations == 1)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row - 1);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row + 1);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row + 2);
-                            rotations = 0;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row - 1);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row + 1);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row + 2);
+                        rotations = 0;
                     }
                 }
                 else if (currentPiece == 5) //The square
@@ -467,84 +435,72 @@ namespace Tetris
                 }
                 else if (currentPiece == 6) //The pyramid
                 {
+                    //Test if piece is too close to edge of board
+                    if (rotations == 0 & square1Row == 0)
+                    {
+                        return;
+                    }
+                    else if (rotations == 1 & (square1Row == 0 | square1Col == 9))
+                    {
+                        return;
+                    }
+                    else if (rotations == 2 & square1Row == 0)
+                    {
+                        return;
+                    }
+                    else if (rotations == 3 & (square1Row == 0 | square1Col == 0))
+                    {
+                        return;
+                    }
+
+                    //If test passes, rotate piece
                     if (rotations == 0)
                     {
-                        if (square1Row == 0)
-                        {
-                            canMove = false;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 2);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row - 1);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row);
+                        rotations++;
                     }
                     else if (rotations == 1)
                     {
-                        if (square1Row == 0 | square1Col == 9)
-                        {
-                            canMove = false;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col + 2, square2Row);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row - 1);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 2);
+                        rotations++;
                     }
                     else if (rotations == 2)
                     {
-                        if (square1Row == 0)
-                        {
-                            canMove = false;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row + 2);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row + 1);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col + 2, square4Row);
+                        rotations++;
                     }
                     else if (rotations == 3)
                     {
-                        if (square1Row == 0 | square1Col == 0)
-                        {
-                            canMove = false;
-                        }
-                    }
-                    if (canMove == true)
-                    {
-                        if (rotations == 0)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 2);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row - 1);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row);
-                            rotations++;
-                        }
-                        else if (rotations == 1)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col + 2, square2Row);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row - 1);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 2);
-                            rotations++;
-                        }
-                        else if (rotations == 2)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row + 2);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row + 1);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col + 2, square4Row);
-                            rotations++;
-                        }
-                        else if (rotations == 3)
-                        {
-                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
-                            activePiece2[1] = grid.GetControlFromPosition(square2Col - 2, square2Row);
-                            activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row + 1);
-                            activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 2);
-                            rotations = 0;
-                        }
+                        activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
+                        activePiece2[1] = grid.GetControlFromPosition(square2Col - 2, square2Row);
+                        activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row + 1);
+                        activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 2);
+                        rotations = 0;
                     }
                 }
 
-                if (canMove == true)
+                //Set old position of piece to white
+                foreach (PictureBox square in activePiece)
                 {
-                    foreach (PictureBox square in activePiece)
-                    {
-                        square.BackColor = Color.White;
-                    }
-                    int x = 0;
-                    foreach (PictureBox square in activePiece2)
-                    {
-                        square.BackColor = pieceColor;
-                        activePiece[x] = square;
-                        x++;
-                    }
+                    square.BackColor = Color.White;
+                }
+
+                //Set new position of piece to that piece's color
+                int x = 0;
+                foreach (PictureBox square in activePiece2)
+                {
+                    square.BackColor = pieceColor;
+                    activePiece[x] = square;
+                    x++;
                 }
             }
 
