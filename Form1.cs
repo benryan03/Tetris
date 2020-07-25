@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -229,8 +230,7 @@ namespace Tetris
             return true;
         }
                     
-
-    private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
         {   
             if (e.KeyCode == Keys.Left & testMove("left") == true)
             {
@@ -682,7 +682,7 @@ namespace Tetris
             }
 
         }
-        
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             //Update timer
@@ -698,6 +698,70 @@ namespace Tetris
             {
                 dropNewPiece();
             }
+
+            if (checkForCompleteRows() > -1)
+            {
+                ClearFullRow();
+            }
+
         }
-    }
+            
+         private void ClearFullRow()
+            {
+                int completedRow = checkForCompleteRows();
+
+                //Turn that row white
+                for (int x = 0; x <= 9; x++)
+                {
+                    Control z = grid.GetControlFromPosition(x, completedRow);
+                    z.BackColor = Color.White;
+                }
+
+                //timer1.Stop();
+                //Thread.Sleep(1000);
+                //timer1.Start();    
+
+                //Move all other squares down
+                //For each above cleared row
+                for (int x = completedRow - 1; x >= 0; x--)
+                {
+                    //For each square in row
+                    for (int y = 0; y <= 9; y++)
+                    {
+                        //the square
+                        Control z = grid.GetControlFromPosition(y, x);
+
+                        //the square below it
+                        Control zz = grid.GetControlFromPosition(y, x + 1);
+
+                        zz.BackColor = z.BackColor;
+                        z.BackColor = Color.White;
+                    }
+                }
+            }  
+            
+
+        private int checkForCompleteRows()
+        {
+            //For each row
+            for (int x = 19; x >= 0; x--)
+            {
+                //For each square in row
+                for (int y = 0; y <= 9; y++)
+                {
+                    Control z = grid.GetControlFromPosition(y /* col */, x /* row */);
+                    if (z.BackColor == Color.White)
+                    {
+                        break;
+                    }
+                    if (y == 9)
+                    {
+                        //Return the row that is full
+                        return x;
+                    }
+                }
+            }
+            return -1; //"null"
+        }
+    }   
 }

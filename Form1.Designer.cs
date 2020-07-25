@@ -130,10 +130,6 @@
             this.pictureBox98 = new System.Windows.Forms.PictureBox();
             this.pictureBox99 = new System.Windows.Forms.PictureBox();
             this.pictureBox100 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox101 = new System.Windows.Forms.PictureBox();
             this.pictureBox102 = new System.Windows.Forms.PictureBox();
             this.pictureBox103 = new System.Windows.Forms.PictureBox();
@@ -234,6 +230,10 @@
             this.pictureBox198 = new System.Windows.Forms.PictureBox();
             this.pictureBox199 = new System.Windows.Forms.PictureBox();
             this.pictureBox200 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -1676,41 +1676,6 @@
             this.pictureBox100.TabIndex = 99;
             this.pictureBox100.TabStop = false;
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(285, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(387, 108);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "TETRIS";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 166);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 55);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Time: 0";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(772, 166);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 55);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Score: 0";
-            // 
             // pictureBox101
             // 
             this.pictureBox101.BackColor = System.Drawing.Color.White;
@@ -2610,6 +2575,41 @@
             this.pictureBox200.Size = new System.Drawing.Size(44, 44);
             this.pictureBox200.TabIndex = 199;
             this.pictureBox200.TabStop = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(285, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(387, 108);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "TETRIS";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(18, 166);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 55);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Time: 0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(772, 166);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(203, 55);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Score: 0";
             // 
             // Form1
             // 
