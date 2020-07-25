@@ -33,7 +33,7 @@ namespace Tetris
            
             //currentPiece = random.Next(7);
             //currentPiece = random.Next(2);
-            currentPiece = 3;
+            currentPiece = 4;
 
             if (currentPiece == 0)
             {
@@ -421,7 +421,39 @@ namespace Tetris
                 }
                 else if (currentPiece == 4) //The backwards S
                 {
-                    
+                    if (rotations == 0)
+                    {
+                        if (square1Row == 1 | square1Col == 9)
+                        {
+                            canMove = false;
+                        }
+                    }
+                    else if (rotations == 1)
+                    {
+                        if (square1Col == 0)
+                        {
+                            canMove = false;
+                        }
+                    }
+                    if (canMove == true)
+                    {
+                        if (rotations == 0)
+                        {
+                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row + 1);
+                            activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row);
+                            activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row - 1);
+                            activePiece2[3] = grid.GetControlFromPosition(square4Col - 1, square4Row - 2);
+                            rotations++;
+                        }
+                        else if (rotations == 1)
+                        {
+                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row - 1);
+                            activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row);
+                            activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row + 1);
+                            activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row + 2);
+                            rotations = 0;
+                        }
+                    }
                 }
                 else if (currentPiece == 5) //The square
                 {
