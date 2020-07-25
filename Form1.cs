@@ -423,14 +423,14 @@ namespace Tetris
                 {
                     if (rotations == 0)
                     {
-                        if (square1Row == 1 | square1Col == 9)
+                        if (square1Row == 0)
                         {
                             canMove = false;
                         }
                     }
                     else if (rotations == 1)
                     {
-                        if (square1Col == 0)
+                        if (square1Row == 0 | square1Col == 8)
                         {
                             canMove = false;
                         }
