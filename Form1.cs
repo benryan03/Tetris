@@ -86,12 +86,17 @@ namespace Tetris
             }
         }
             
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        public bool testMove(string direction)
         {
             int currentHighRow = 19;
             int currentLowRow = 0;
             int currentLeftCol = 9;
             int currentRightCol = 0;
+
+            int nextSquare = 0;
+
+            Control newSquare = new Control();
+
             foreach (Control square in activePiece)
             {
                 if (grid.GetRow(square) < currentHighRow)
@@ -111,146 +116,121 @@ namespace Tetris
                     currentRightCol = grid.GetColumn(square);
                 }
             }
-            
-            if (e.KeyCode == Keys.Left)
-            {
-                bool canMove = true;
-                foreach (Control square in activePiece)
-                {
-                    int squareRow = grid.GetRow(square);
-                    int squareCol = grid.GetColumn(square);
-                    if (currentLeftCol > 0)
-                    {
-                        Control leftSquare = grid.GetControlFromPosition(squareCol - 1, squareRow);
-                        if (leftSquare.BackColor == Color.Red & activePiece.Contains(leftSquare) == false & currentLeftCol > 0)
-                        {
-                            canMove = false;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        canMove = false;
-                        break;
 
-                    }
+            foreach (Control square in activePiece)
+            {
+                int squareRow = grid.GetRow(square);
+                int squareCol = grid.GetColumn(square);
+
+                //Left
+                if (direction == "left" & squareCol > 0)
+                {
+                    newSquare = grid.GetControlFromPosition(squareCol - 1, squareRow);
+                    nextSquare = currentLeftCol;
+                }
+                else if (direction == "left" & squareCol == 0)
+                {
+                    return false;
                 }
 
-                if (canMove == true)
+                //Right
+                else if (direction == "right" & squareCol < 9)
                 {
-                    //Move piece left
-                    int x = 0;
-                    foreach (PictureBox square in activePiece)
-                    {
-                        square.BackColor = Color.White;
-                        int squareRow = grid.GetRow(square);
-                        int squareCol = grid.GetColumn(square);
-                        activePiece2[x] = grid.GetControlFromPosition(squareCol - 1, squareRow);
-                        x++;
-                    }
-                    x = 0;
-                    foreach (PictureBox square in activePiece2)
-                    {
-                        square.BackColor = Color.Red;
-                        activePiece[x] = square;
-                        x++;
-                    }
+                    newSquare = grid.GetControlFromPosition(squareCol + 1, squareRow);
+                    nextSquare = currentRightCol;
+                }
+                else if (direction == "right" & squareCol == 9)
+                {
+                    return false;
+                }
+
+                //Down
+                else if (direction == "down" & squareRow < 19)
+                {
+                    newSquare = grid.GetControlFromPosition(squareCol, squareRow + 1);
+                    nextSquare = currentLowRow;
+                }
+                else if (direction == "down" & squareRow == 19)
+                {
+                    return false;
+                }
+
+                if (newSquare.BackColor != Color.White & activePiece.Contains(newSquare) == false & nextSquare > 0)
+                {
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {   
+            if (e.KeyCode == Keys.Left & testMove("left") == true)
+            {
+                //Move piece left
+                int x = 0;
+                foreach (PictureBox square in activePiece)
+                {
+                    square.BackColor = Color.White;
+                    int squareRow = grid.GetRow(square);
+                    int squareCol = grid.GetColumn(square);
+                    activePiece2[x] = grid.GetControlFromPosition(squareCol - 1, squareRow);
+                    x++;
+                }
+                x = 0;
+                foreach (PictureBox square in activePiece2)
+                {
+                    square.BackColor = Color.Red;
+                    activePiece[x] = square;
+                    x++;
                 }
             }
 
-            if (e.KeyCode == Keys.Right)
+            else if (e.KeyCode == Keys.Right & testMove("right") == true)
             {
-                bool canMove = true;
-                foreach (Control square in activePiece)
+                //Move piece right
+                int x = 0;
+                foreach (PictureBox square in activePiece)
                 {
+                    square.BackColor = Color.White;
                     int squareRow = grid.GetRow(square);
                     int squareCol = grid.GetColumn(square);
-                    if (currentRightCol < 9)
-                    {
-                        Control rightSquare = grid.GetControlFromPosition(squareCol + 1, squareRow);
-                        if (rightSquare.BackColor == Color.Red & activePiece.Contains(rightSquare) == false & currentRightCol > 0)
-                        {
-                            canMove = false;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        canMove = false;
-                        break;
-
-                    }
+                    activePiece2[x] = grid.GetControlFromPosition(squareCol + 1, squareRow);
+                    x++;
                 }
-
-                if (canMove == true)
+                x = 0;
+                foreach (PictureBox square in activePiece2)
                 {
-                    //Move piece right
-                    int x = 0;
-                    foreach (PictureBox square in activePiece)
-                    {
-                        square.BackColor = Color.White;
-                        int squareRow = grid.GetRow(square);
-                        int squareCol = grid.GetColumn(square);
-                        activePiece2[x] = grid.GetControlFromPosition(squareCol + 1, squareRow);
-                        x++;
-                    }
-                    x = 0;
-                    foreach (PictureBox square in activePiece2)
-                    {
-                        square.BackColor = Color.Red;
-                        activePiece[x] = square;
-                        x++;
-                    }
+                    square.BackColor = Color.Red;
+                    activePiece[x] = square;
+                    x++;
+                }
+            }
+            else if (e.KeyCode == Keys.Down & testMove("down") == true)
+            {
+                //Move piece down
+                int x = 0;
+                foreach (PictureBox square in activePiece)
+                {
+                    square.BackColor = Color.White;
+                    int squareRow = grid.GetRow(square);
+                    int squareCol = grid.GetColumn(square);
+                    activePiece2[x] = grid.GetControlFromPosition(squareCol, squareRow + 1);
+                    x++;
+                }
+                x = 0;
+                foreach (PictureBox square in activePiece2)
+                {
+                    square.BackColor = Color.Red;
+                    activePiece[x] = square;
+                    x++;
                 }
             }
             else if (e.KeyCode == Keys.Up)
             {
                 //Rotate
-            }
-            if (e.KeyCode == Keys.Down)
-            {
-                bool canMove = true;
-                foreach (Control square in activePiece)
-                {
-                    int squareRow = grid.GetRow(square);
-                    int squareCol = grid.GetColumn(square);
-                    if (currentLowRow < 19)
-                    {
-                        Control lowSquare = grid.GetControlFromPosition(squareCol, squareRow + 1);
-                        if (lowSquare.BackColor == Color.Red & activePiece.Contains(lowSquare) == false & currentLowRow > 0)
-                        {
-                            canMove = false;
-                            break;
-                        }
-                    }
-                    else
-                    {
-                        canMove = false;
-                        break;
-
-                    }
-                }
-
-                if (canMove == true)
-                {
-                    //Move piece down
-                    int x = 0;
-                    foreach (PictureBox square in activePiece)
-                    {
-                        square.BackColor = Color.White;
-                        int squareRow = grid.GetRow(square);
-                        int squareCol = grid.GetColumn(square);
-                        activePiece2[x] = grid.GetControlFromPosition(squareCol, squareRow + 1);
-                        x++;
-                    }
-                    x = 0;
-                    foreach (PictureBox square in activePiece2)
-                    {
-                        square.BackColor = Color.Red;
-                        activePiece[x] = square;
-                        x++;
-                    }
-                }
             }
 
         }
@@ -305,7 +285,6 @@ namespace Tetris
                 {
                     canMove = false;
                     break;
-
                 }
             }
 
