@@ -40,7 +40,7 @@ namespace Tetris
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
 
-            int currentHighRow = 9;
+            int currentHighRow = 19;
             int currentLowRow = 0;
             int currentLeftCol = 9;
             int currentRightCol = 0;
@@ -166,7 +166,7 @@ namespace Tetris
                 {
                     int squareRow = grid.GetRow(square);
                     int squareCol = grid.GetColumn(square);
-                    if (currentLowRow < 9)
+                    if (currentLowRow < 19)
                     {
                         Control lowSquare = grid.GetControlFromPosition(squareCol, squareRow + 1);
                         if (lowSquare.BackColor == Color.Red & activePiece.Contains(lowSquare) == false & currentLowRow > 0)
@@ -216,7 +216,7 @@ namespace Tetris
             int currentRow = 0;
             int currentCol = 0;
 
-            int currentHighRow = 9;
+            int currentHighRow = 19;
             int currentLowRow = 0;
             int currentLeftCol = 9;
             int currentRightCol = 0;
@@ -244,10 +244,10 @@ namespace Tetris
             {
                 int squareRow = grid.GetRow(square);
                 int squareCol = grid.GetColumn(square);
-                if (currentLowRow < 9)
+                if (currentLowRow < 19)
                 {
                     Control lowSquare = grid.GetControlFromPosition(squareCol, squareRow + 1);
-                    if (lowSquare.BackColor == Color.Red & activePiece.Contains(lowSquare) == false & currentLowRow < 9)
+                    if (lowSquare.BackColor == Color.Red & activePiece.Contains(lowSquare) == false & currentLowRow < 19)
                     {
                         canMove = false;
                         break;
