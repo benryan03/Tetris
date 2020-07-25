@@ -387,12 +387,12 @@ namespace Tetris
                 {
                     if (rotations == 0)
                     {
-                        if (square1Col == 0)
+                        if (square1Row == 1 | square1Col == 9)
                         {
                             canMove = false;
                         }
                     }
-                    else if (rotations == 2)
+                    else if (rotations == 1)
                     {
                         if (square1Col == 0)
                         {
@@ -400,7 +400,7 @@ namespace Tetris
                         }
                     }
                     if (canMove == true)
-                    {
+                    {                        
                         if (rotations == 0)
                         {
                             activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row - 2);
@@ -417,7 +417,6 @@ namespace Tetris
                             activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 1);
                             rotations = 0;
                         }
-
                     }
                 }
                 else if (currentPiece == 4) //The backwards S
@@ -426,24 +425,26 @@ namespace Tetris
                 }
                 else if (currentPiece == 5) //The square
                 {
-                    
+                    //No rotation
                 }
                 else if (currentPiece == 6) //The pyramid
                 {
                     
                 }
 
-
-                foreach (PictureBox square in activePiece)
+                if (canMove == true)
                 {
-                    square.BackColor = Color.White;
-                }
-                int x = 0;
-                foreach (PictureBox square in activePiece2)
-                {
-                    square.BackColor = Color.Red;
-                    activePiece[x] = square;
-                    x++;
+                    foreach (PictureBox square in activePiece)
+                    {
+                        square.BackColor = Color.White;
+                    }
+                    int x = 0;
+                    foreach (PictureBox square in activePiece2)
+                    {
+                        square.BackColor = Color.Red;
+                        activePiece[x] = square;
+                        x++;
+                    }
                 }
             }
 
