@@ -33,7 +33,7 @@ namespace Tetris
            
             //currentPiece = random.Next(7);
             //currentPiece = random.Next(2);
-            currentPiece = 2;
+            currentPiece = 3;
 
             if (currentPiece == 0)
             {
@@ -59,10 +59,10 @@ namespace Tetris
             }
             else if (currentPiece == 3)
             {
-                activePiece[0] = pictureBox5;
-                activePiece[1] = pictureBox6;
-                activePiece[2] = pictureBox14;
-                activePiece[3] = pictureBox15;
+                activePiece[0] = pictureBox14;
+                activePiece[1] = pictureBox15;
+                activePiece[2] = pictureBox5;
+                activePiece[3] = pictureBox6;
             }
             else if (currentPiece == 4)
             {
@@ -383,24 +383,54 @@ namespace Tetris
                         }
                     }
                 }
-                else if (currentPiece == 3)
+                else if (currentPiece == 3) //The normal S
                 {
-                    //The normal S
+                    if (rotations == 0)
+                    {
+                        if (square1Col == 0)
+                        {
+                            canMove = false;
+                        }
+                    }
+                    else if (rotations == 2)
+                    {
+                        if (square1Col == 0)
+                        {
+                            canMove = false;
+                        }
+                    }
+                    if (canMove == true)
+                    {
+                        if (rotations == 0)
+                        {
+                            activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row - 2);
+                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 1);
+                            activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row);
+                            activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 1);
+                            rotations++;
+                        }
+                        else if (rotations == 1)
+                        {
+                            activePiece2[0] = grid.GetControlFromPosition(square1Col - 1, square1Row + 2);
+                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row + 1);
+                            activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row);
+                            activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 1);
+                            rotations = 0;
+                        }
 
+                    }
                 }
-                else if (currentPiece == 4)
+                else if (currentPiece == 4) //The backwards S
                 {
-                    //The backwards S
-
+                    
                 }
-                else if (currentPiece == 5)
+                else if (currentPiece == 5) //The square
                 {
-                    //The square
-
+                    
                 }
-                else if (currentPiece == 6)
+                else if (currentPiece == 6) //The pyramid
                 {
-                    //The pyramid
+                    
                 }
 
 
