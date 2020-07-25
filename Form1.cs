@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -33,7 +34,7 @@ namespace Tetris
             System.Random random = new System.Random();
            
             currentPiece = random.Next(7);
-            //currentPiece = 6;
+            //currentPiece = 0;
 
             if (currentPiece == 0)
             {
@@ -169,6 +170,7 @@ namespace Tetris
 
                 if (newSquare.BackColor != Color.White & activePiece.Contains(newSquare) == false & nextSquare > 0)
                 {
+                    //MessageBox.Show("test2");
                     return false;
                 }
 
@@ -215,7 +217,20 @@ namespace Tetris
             }
         }
 
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        private bool testOverlap()
+        {
+            foreach (PictureBox square in activePiece2)
+            {
+                if (square.BackColor != Color.White & activePiece.Contains(square) == false)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+                    
+
+    private void Form1_KeyDown(object sender, KeyEventArgs e)
         {   
             if (e.KeyCode == Keys.Left & testMove("left") == true)
             {
@@ -245,8 +260,6 @@ namespace Tetris
                 int square4Col = grid.GetColumn(activePiece[3]);
                 int square4Row = grid.GetRow(activePiece[3]);
 
-                bool canMove = true;
-
                 if (currentPiece == 0) //The line piece
                 {
                     //Test if piece is too close to edge of board
@@ -266,7 +279,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row - 1);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row - 2);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row - 3);
-                        rotations++;
+                        
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }  
                     }
                     else if (rotations == 1)
                     {
@@ -274,8 +296,18 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row + 1);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row + 2);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col - 1, square4Row + 3);
-                        rotations = 0;
+                        
+                        if (testOverlap() == true)
+                        {
+                            rotations = 0;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
+
+
                 }        
                 else if (currentPiece == 1) //The normal L
                 {
@@ -296,7 +328,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row + 1);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col + 2, square3Row);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row - 1);
-                        rotations++;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else if (rotations == 1)
                     {
@@ -304,7 +345,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 1);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row - 2);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row - 1);
-                        rotations++;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else if (rotations == 2)
                     {
@@ -312,7 +362,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row + 1);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 2);
-                        rotations++;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else if (rotations == 3)
                     {
@@ -320,7 +379,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row + 1);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row);
-                        rotations = 0;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations = 0;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                 }
                 else if (currentPiece == 2) //The backwards L
@@ -342,7 +410,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row - 1);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row);
-                        rotations++;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else if (rotations == 1)
                     {
@@ -350,7 +427,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row - 1);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 2);
-                        rotations++;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else if (rotations == 2)
                     {
@@ -358,7 +444,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row + 1);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row + 2);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row + 1);
-                        rotations++;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else if (rotations == 3)
                     {
@@ -366,7 +461,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row - 1);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col + 2, square3Row);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row + 1);
-                        rotations = 0;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations = 0;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                 }
                 else if (currentPiece == 3) //The normal S
@@ -388,7 +492,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 1);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 1);
-                        rotations++;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else if (rotations == 1)
                     {
@@ -396,7 +509,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row + 1);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 1);
-                        rotations = 0;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations = 0;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                 }
                 else if (currentPiece == 4) //The backwards S
@@ -418,7 +540,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col - 1, square2Row);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row - 1);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col - 1, square4Row - 2);
-                        rotations++;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else if (rotations == 1)
                     {
@@ -426,12 +557,22 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col + 1, square2Row);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row + 1);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row + 2);
-                        rotations = 0;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations = 0;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                 }
                 else if (currentPiece == 5) //The square
                 {
-                    //No rotation
+                    //The square cannot rotate
+                    return;
                 }
                 else if (currentPiece == 6) //The pyramid
                 {
@@ -460,7 +601,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 2);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row - 1);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row);
-                        rotations++;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else if (rotations == 1)
                     {
@@ -468,7 +618,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col + 2, square2Row);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row - 1);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 2);
-                        rotations++;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else if (rotations == 2)
                     {
@@ -476,7 +635,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row + 2);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row + 1);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 2, square4Row);
-                        rotations++;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations++;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                     else if (rotations == 3)
                     {
@@ -484,7 +652,16 @@ namespace Tetris
                         activePiece2[1] = grid.GetControlFromPosition(square2Col - 2, square2Row);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row + 1);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 2);
-                        rotations = 0;
+
+                        //Test if new position overlaps another piece. If it does, cancel rotation.
+                        if (testOverlap() == true)
+                        {
+                            rotations = 0;
+                        }
+                        else
+                        {
+                            return;
+                        }
                     }
                 }
 
