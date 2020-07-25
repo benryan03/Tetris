@@ -18,6 +18,7 @@ namespace Tetris
         int timeElapsed = 0;
         int currentPiece;
         int rotations = 0;
+        Color pieceColor = Color.White;
 
         public Form1()
         {
@@ -31,9 +32,8 @@ namespace Tetris
             rotations = 0;
             System.Random random = new System.Random();
            
-            //currentPiece = random.Next(7);
-            //currentPiece = random.Next(2);
-            currentPiece = 6;
+            currentPiece = random.Next(7);
+            //currentPiece = 6;
 
             if (currentPiece == 0)
             {
@@ -41,6 +41,7 @@ namespace Tetris
                 activePiece[1] = pictureBox16;
                 activePiece[2] = pictureBox26;
                 activePiece[3] = pictureBox36;
+                pieceColor = Color.Red;
             }
             else if (currentPiece == 1)
             {
@@ -48,6 +49,7 @@ namespace Tetris
                 activePiece[1] = pictureBox14;
                 activePiece[2] = pictureBox24;
                 activePiece[3] = pictureBox25;
+                pieceColor = Color.Blue;
             }
             else if (currentPiece == 2)
             {
@@ -55,7 +57,7 @@ namespace Tetris
                 activePiece[1] = pictureBox15;
                 activePiece[2] = pictureBox25;
                 activePiece[3] = pictureBox24;
-
+                pieceColor = Color.Yellow;
             }
             else if (currentPiece == 3)
             {
@@ -63,6 +65,7 @@ namespace Tetris
                 activePiece[1] = pictureBox15;
                 activePiece[2] = pictureBox5;
                 activePiece[3] = pictureBox6;
+                pieceColor = Color.Orange;
             }
             else if (currentPiece == 4)
             {
@@ -70,6 +73,7 @@ namespace Tetris
                 activePiece[1] = pictureBox6;
                 activePiece[2] = pictureBox16;
                 activePiece[3] = pictureBox17;
+                pieceColor = Color.Purple;
             }
             else if (currentPiece == 5)
             {
@@ -77,6 +81,7 @@ namespace Tetris
                 activePiece[1] = pictureBox6;
                 activePiece[2] = pictureBox15;
                 activePiece[3] = pictureBox16;
+                pieceColor = Color.Green;
             }
             else if (currentPiece == 6)
             {
@@ -84,11 +89,12 @@ namespace Tetris
                 activePiece[1] = pictureBox15;
                 activePiece[2] = pictureBox16;
                 activePiece[3] = pictureBox17;
+                pieceColor = Color.Brown;
             }
 
             foreach (Control square in activePiece)
             {
-                square.BackColor = Color.Red;
+                square.BackColor = pieceColor;
             }
         }
             
@@ -203,7 +209,7 @@ namespace Tetris
             x = 0;
             foreach (PictureBox square in activePiece2)
             {
-                square.BackColor = Color.Red;
+                square.BackColor = pieceColor;
                 activePiece[x] = square;
                 x++;
             }
@@ -535,7 +541,7 @@ namespace Tetris
                     int x = 0;
                     foreach (PictureBox square in activePiece2)
                     {
-                        square.BackColor = Color.Red;
+                        square.BackColor = pieceColor;
                         activePiece[x] = square;
                         x++;
                     }
