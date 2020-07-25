@@ -26,10 +26,59 @@ namespace Tetris
 
         public void dropNewPiece()
         {
-            activePiece[0] = pictureBox5;
-            activePiece[1] = pictureBox6;
-            activePiece[2] = pictureBox16;
-            activePiece[3] = pictureBox26;
+            System.Random random = new System.Random();
+            int rand = random.Next(7);
+
+            if (rand == 0)
+            {
+                activePiece[0] = pictureBox6;
+                activePiece[1] = pictureBox16;
+                activePiece[2] = pictureBox26;
+                activePiece[3] = pictureBox36;
+            }
+            else if (rand == 1)
+            {
+                activePiece[0] = pictureBox4;
+                activePiece[1] = pictureBox14;
+                activePiece[2] = pictureBox24;
+                activePiece[3] = pictureBox25;
+            }
+            else if (rand == 2)
+            {
+                activePiece[0] = pictureBox5;
+                activePiece[1] = pictureBox15;
+                activePiece[2] = pictureBox25;
+                activePiece[3] = pictureBox24;
+
+            }
+            else if (rand == 3)
+            {
+                activePiece[0] = pictureBox5;
+                activePiece[1] = pictureBox6;
+                activePiece[2] = pictureBox14;
+                activePiece[3] = pictureBox15;
+            }
+            else if (rand == 4)
+            {
+                activePiece[0] = pictureBox5;
+                activePiece[1] = pictureBox6;
+                activePiece[2] = pictureBox16;
+                activePiece[3] = pictureBox17;
+            }
+            else if (rand == 5)
+            {
+                activePiece[0] = pictureBox5;
+                activePiece[1] = pictureBox6;
+                activePiece[2] = pictureBox15;
+                activePiece[3] = pictureBox16;
+            }
+            else if (rand == 6)
+            {
+                activePiece[0] = pictureBox6;
+                activePiece[1] = pictureBox15;
+                activePiece[2] = pictureBox16;
+                activePiece[3] = pictureBox17;
+            }
 
             foreach (Control square in activePiece)
             {
@@ -39,7 +88,6 @@ namespace Tetris
             
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-
             int currentHighRow = 19;
             int currentLowRow = 0;
             int currentLeftCol = 9;
