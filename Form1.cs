@@ -165,68 +165,58 @@ namespace Tetris
             return true;
         }
 
+        public void movePiece(string direction)
+        {
+            int x = 0;
+            foreach (PictureBox square in activePiece)
+            {
+                square.BackColor = Color.White;
+                int squareRow = grid.GetRow(square);
+                int squareCol = grid.GetColumn(square);
+                int newSquareRow = 0;
+                int newSquareCol = 0;
+                if (direction == "left")
+                {
+                    newSquareCol = squareCol - 1;
+                    newSquareRow = squareRow;
+                }
+                else if (direction == "right")
+                {
+                    newSquareCol = squareCol + 1;
+                    newSquareRow = squareRow;
+                }
+                else if (direction == "down")
+                {
+                    newSquareCol = squareCol;
+                    newSquareRow = squareRow + 1;
+                }
+
+                activePiece2[x] = grid.GetControlFromPosition(newSquareCol, newSquareRow);
+                x++;
+            }
+            x = 0;
+            foreach (PictureBox square in activePiece2)
+            {
+                square.BackColor = Color.Red;
+                activePiece[x] = square;
+                x++;
+            }
+        }
+
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {   
             if (e.KeyCode == Keys.Left & testMove("left") == true)
             {
-                //Move piece left
-                int x = 0;
-                foreach (PictureBox square in activePiece)
-                {
-                    square.BackColor = Color.White;
-                    int squareRow = grid.GetRow(square);
-                    int squareCol = grid.GetColumn(square);
-                    activePiece2[x] = grid.GetControlFromPosition(squareCol - 1, squareRow);
-                    x++;
-                }
-                x = 0;
-                foreach (PictureBox square in activePiece2)
-                {
-                    square.BackColor = Color.Red;
-                    activePiece[x] = square;
-                    x++;
-                }
+                movePiece("left");
             }
 
             else if (e.KeyCode == Keys.Right & testMove("right") == true)
             {
-                //Move piece right
-                int x = 0;
-                foreach (PictureBox square in activePiece)
-                {
-                    square.BackColor = Color.White;
-                    int squareRow = grid.GetRow(square);
-                    int squareCol = grid.GetColumn(square);
-                    activePiece2[x] = grid.GetControlFromPosition(squareCol + 1, squareRow);
-                    x++;
-                }
-                x = 0;
-                foreach (PictureBox square in activePiece2)
-                {
-                    square.BackColor = Color.Red;
-                    activePiece[x] = square;
-                    x++;
-                }
+                movePiece("right");
             }
             else if (e.KeyCode == Keys.Down & testMove("down") == true)
             {
-                //Move piece down
-                int x = 0;
-                foreach (PictureBox square in activePiece)
-                {
-                    square.BackColor = Color.White;
-                    int squareRow = grid.GetRow(square);
-                    int squareCol = grid.GetColumn(square);
-                    activePiece2[x] = grid.GetControlFromPosition(squareCol, squareRow + 1);
-                    x++;
-                }
-                x = 0;
-                foreach (PictureBox square in activePiece2)
-                {
-                    square.BackColor = Color.Red;
-                    activePiece[x] = square;
-                    x++;
-                }
+                movePiece("down");
             }
             else if (e.KeyCode == Keys.Up)
             {
@@ -241,25 +231,10 @@ namespace Tetris
             timeElapsed++;
             label2.Text = "Time: " + timeElapsed.ToString();
 
+            //Move piece down, or drop new piece if it can't move
             if (testMove("down") == true)
             {
-                //Move piece down
-                int x = 0;
-                foreach (PictureBox square in activePiece)
-                {
-                    square.BackColor = Color.White;
-                    int squareRow = grid.GetRow(square);
-                    int squareCol = grid.GetColumn(square);
-                    activePiece2[x] = grid.GetControlFromPosition(squareCol, squareRow + 1);
-                    x++;
-                }
-                x = 0;
-                foreach (PictureBox square in activePiece2)
-                {
-                    square.BackColor = Color.Red;
-                    activePiece[x] = square;
-                    x++;
-                }
+                movePiece("down");
             }
             else
             {
