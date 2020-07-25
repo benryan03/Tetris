@@ -23,16 +23,17 @@ namespace Tetris
         {
             InitializeComponent();
             dropNewPiece();
-            //timer1.Start();
+            timer1.Start();
         }
 
         public void dropNewPiece()
         {
             rotations = 0;
             System.Random random = new System.Random();
+           
             //currentPiece = random.Next(7);
-
-            currentPiece = 1;
+            currentPiece = random.Next(2);
+            //currentPiece = 1;
 
             if (currentPiece == 0)
             {
@@ -279,34 +280,21 @@ namespace Tetris
                         }
                     }
                 }
+                
                 else if (currentPiece == 1)
                 {
                     //The normal L
 
                     if (rotations == 0)
                     {
-                        if (square1Col == 0 | square1Col == 1 | square1Col == 9)
-                        {
-                            canMove = false;
-                        }
-                    }
-                    else if (rotations == 1)
-                    {
-                        if (square3Col == 0 | square3Col == 1 | square3Col == 9)
+                        if (square1Col == 8 | square1Col == 9)
                         {
                             canMove = false;
                         }
                     }
                     else if (rotations == 2)
                     {
-                        if (square1Col == 0 | square1Col == 1 | square1Col == 9)
-                        {
-                            canMove = false;
-                        }
-                    }
-                    else if (rotations == 3)
-                    {
-                        if (square1Col == 0 | square1Col == 1 | square1Col == 9)
+                        if (square1Col == 9)
                         {
                             canMove = false;
                         }
