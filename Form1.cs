@@ -33,7 +33,7 @@ namespace Tetris
            
             //currentPiece = random.Next(7);
             //currentPiece = random.Next(2);
-            currentPiece = 4;
+            currentPiece = 6;
 
             if (currentPiece == 0)
             {
@@ -461,7 +461,55 @@ namespace Tetris
                 }
                 else if (currentPiece == 6) //The pyramid
                 {
-                    
+                    if (rotations == 0)
+                    {
+                        if (square1Row == 0)
+                        {
+                            canMove = false;
+                        }
+                    }
+                    else if (rotations == 1)
+                    {
+                        if (square1Row == 0 | square1Col == 8)
+                        {
+                            canMove = false;
+                        }
+                    }
+                    if (canMove == true)
+                    {
+                        if (rotations == 0)
+                        {
+                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
+                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 2);
+                            activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row - 1);
+                            activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row);
+                            rotations++;
+                        }
+                        else if (rotations == 1)
+                        {
+                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
+                            activePiece2[1] = grid.GetControlFromPosition(square2Col + 2, square2Row);
+                            activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row - 1);
+                            activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 2);
+                            rotations++;
+                        }
+                        else if (rotations == 2)
+                        {
+                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
+                            activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row + 2);
+                            activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row + 1);
+                            activePiece2[3] = grid.GetControlFromPosition(square4Col + 2, square4Row);
+                            rotations++;
+                        }
+                        else if (rotations == 3)
+                        {
+                            activePiece2[0] = grid.GetControlFromPosition(square1Col, square1Row);
+                            activePiece2[1] = grid.GetControlFromPosition(square2Col - 2, square2Row);
+                            activePiece2[2] = grid.GetControlFromPosition(square3Col - 1, square3Row + 1);
+                            activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 2);
+                            rotations = 0;
+                        }
+                    }
                 }
 
                 if (canMove == true)
