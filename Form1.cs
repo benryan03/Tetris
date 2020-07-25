@@ -241,54 +241,7 @@ namespace Tetris
             timeElapsed++;
             label2.Text = "Time: " + timeElapsed.ToString();
 
-            int currentRow = 0;
-            int currentCol = 0;
-
-            int currentHighRow = 19;
-            int currentLowRow = 0;
-            int currentLeftCol = 9;
-            int currentRightCol = 0;
-            foreach (Control square in activePiece)
-            {
-                if (grid.GetRow(square) < currentHighRow)
-                {
-                    currentHighRow = grid.GetRow(square);
-                }
-                if (grid.GetRow(square) > currentLowRow)
-                {
-                    currentLowRow = grid.GetRow(square);
-                }
-                if (grid.GetColumn(square) < currentLeftCol)
-                {
-                    currentLeftCol = grid.GetColumn(square);
-                }
-                if (grid.GetColumn(square) > currentRightCol)
-                {
-                    currentRightCol = grid.GetColumn(square);
-                }
-            }
-            bool canMove = true;
-            foreach (Control square in activePiece)
-            {
-                int squareRow = grid.GetRow(square);
-                int squareCol = grid.GetColumn(square);
-                if (currentLowRow < 19)
-                {
-                    Control lowSquare = grid.GetControlFromPosition(squareCol, squareRow + 1);
-                    if (lowSquare.BackColor == Color.Red & activePiece.Contains(lowSquare) == false & currentLowRow < 19)
-                    {
-                        canMove = false;
-                        break;
-                    }
-                }
-                else
-                {
-                    canMove = false;
-                    break;
-                }
-            }
-
-            if (canMove == true)
+            if (testMove("down") == true)
             {
                 //Move piece down
                 int x = 0;
