@@ -696,14 +696,12 @@ namespace Tetris
             }
             else
             {
+                if (checkForCompleteRows() > -1)
+                {
+                    ClearFullRow();
+                }
                 dropNewPiece();
             }
-
-            if (checkForCompleteRows() > -1)
-            {
-                ClearFullRow();
-            }
-
         }
             
          private void ClearFullRow()
@@ -717,11 +715,8 @@ namespace Tetris
                     z.BackColor = Color.White;
                 }
 
-                //timer1.Stop();
-                //Thread.Sleep(1000);
-                //timer1.Start();    
-
                 //Move all other squares down
+
                 //For each above cleared row
                 for (int x = completedRow - 1; x >= 0; x--)
                 {
@@ -737,6 +732,11 @@ namespace Tetris
                         zz.BackColor = z.BackColor;
                         z.BackColor = Color.White;
                     }
+                }
+
+                if (checkForCompleteRows() > -1)
+                {
+                ClearFullRow();
                 }
             }  
             
