@@ -21,6 +21,8 @@ namespace Tetris
         int currentPiece;
         int rotations = 0;
         Color pieceColor = Color.White;
+        int combo = 0;
+        int score = 0;
 
         public Form1()
         {
@@ -706,6 +708,17 @@ namespace Tetris
             
          private void ClearFullRow()
             {
+                if (combo < 3)
+                {
+                    score = score + 100;
+                    label3.Text = "Score: " + score.ToString();
+                }
+                else if (combo == 3)
+                {
+                    score = score + 500;
+                    label3.Text = "Score: " + score.ToString();
+                }
+
                 int completedRow = checkForCompleteRows();
 
                 //Turn that row white
@@ -734,9 +747,14 @@ namespace Tetris
                     }
                 }
 
+                combo++;
                 if (checkForCompleteRows() > -1)
                 {
-                ClearFullRow();
+                    ClearFullRow();
+                }
+                else
+                {
+                    combo = 0;
                 }
             }  
             
