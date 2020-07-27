@@ -22,14 +22,16 @@ namespace Tetris
         int rotations = 0;
         Color pieceColor = Color.White;
         int combo = 0;
-        bool comboString = false;
         int score = 0;
+        int clears = 0;
+        int level = 0;
 
         public Form1()
         {
             InitializeComponent();
             dropNewPiece();
             timer1.Start();
+            timer2.Start();
         }
 
         public void dropNewPiece()
@@ -37,8 +39,8 @@ namespace Tetris
             rotations = 0;
             System.Random random = new System.Random();
            
-            //currentPiece = random.Next(7);
-            currentPiece = 0;
+            currentPiece = random.Next(7);
+            //currentPiece = 0;
 
             if (currentPiece == 0)
             {
@@ -235,19 +237,19 @@ namespace Tetris
                     
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {   
-            if (e.KeyCode == Keys.Left & testMove("left") == true)
+            if ((e.KeyCode == Keys.Left | e.KeyCode == Keys.A) & testMove("left") == true)
             {
                 movePiece("left");
             }
-            else if (e.KeyCode == Keys.Right & testMove("right") == true)
+            else if ((e.KeyCode == Keys.Right | e.KeyCode == Keys.D) & testMove("right") == true)
             {
                 movePiece("right");
             }
-            else if (e.KeyCode == Keys.Down & testMove("down") == true)
+            else if ((e.KeyCode == Keys.Down | e.KeyCode == Keys.S) & testMove("down") == true)
             {
                 movePiece("down");
             }
-            else if (e.KeyCode == Keys.Up)
+            else if (e.KeyCode == Keys.Up | e.KeyCode == Keys.W)
             {
                 //Rotate
 
@@ -688,10 +690,6 @@ namespace Tetris
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //Update timer
-            timeElapsed++;
-            label2.Text = "Time: " + timeElapsed.ToString();
-
             //Move piece down, or drop new piece if it can't move
             if (testMove("down") == true)
             {
@@ -705,16 +703,17 @@ namespace Tetris
                 }
                 dropNewPiece();
             }
-
-
-            label2.Text = combo.ToString();
         }
-            
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            //Update timer
+            timeElapsed++;
+            label2.Text = "Time: " + timeElapsed.ToString();
+        }
+
         private void ClearFullRow()
         {
-            
-
-
             int completedRow = checkForCompleteRows();
 
             //Turn that row white
@@ -771,6 +770,14 @@ namespace Tetris
             combo++;
             label3.Text = "Score: " + score.ToString();
 
+            clears++;
+            label4.Text = "Lines cleared: " + clears;
+
+            if (clears % 10 == 0)
+            {
+                levelUp();
+            }
+
             if (checkForCompleteRows() > -1)
             {
                 //combo++;
@@ -808,6 +815,20 @@ namespace Tetris
                 }
             }
             return -1; //"null"
+        }
+
+        private void levelUp()
+        {
+            level++;
+            label5.Text = "Level " + level.ToString();
+
+            int[] levelSpeed =
+            {
+                800, 716, 633, 555, 466, 383, 300, 216, 133, 100, 083, 083, 083, 066, 066,
+                066, 050, 050, 050, 033, 033, 033, 033, 033, 033, 033, 033, 033, 033, 016
+            };
+
+            timer1.Interval = levelSpeed[level];
         }
     }   
 }
