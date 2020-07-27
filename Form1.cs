@@ -22,6 +22,7 @@ namespace Tetris
         int rotations = 0;
         Color pieceColor = Color.White;
         int combo = 0;
+        bool comboString = false;
         int score = 0;
 
         public Form1()
@@ -36,8 +37,8 @@ namespace Tetris
             rotations = 0;
             System.Random random = new System.Random();
            
-            currentPiece = random.Next(7);
-            //currentPiece = 0;
+            //currentPiece = random.Next(7);
+            currentPiece = 0;
 
             if (currentPiece == 0)
             {
@@ -704,66 +705,93 @@ namespace Tetris
                 }
                 dropNewPiece();
             }
+
+
+            label2.Text = combo.ToString();
         }
             
-         private void ClearFullRow()
+        private void ClearFullRow()
+        {
+            
+
+
+            int completedRow = checkForCompleteRows();
+
+            //Turn that row white
+            for (int x = 0; x <= 9; x++)
             {
-                if (combo < 3)
-                {
-                    score = score + 100;
-                    label3.Text = "Score: " + score.ToString();
-                }
-                else if (combo == 3)
-                {
-                    score = score + 500;
-                    label3.Text = "Score: " + score.ToString();
-                }
+                Control z = grid.GetControlFromPosition(x, completedRow);
+                z.BackColor = Color.White;
+            }
 
-                int completedRow = checkForCompleteRows();
-
-                //Turn that row white
-                for (int x = 0; x <= 9; x++)
+            //Move all other squares down
+            //For each above cleared row
+            for (int x = completedRow - 1; x >= 0; x--)
+            {
+                //For each square in row
+                for (int y = 0; y <= 9; y++)
                 {
-                    Control z = grid.GetControlFromPosition(x, completedRow);
+                    //the square
+                    Control z = grid.GetControlFromPosition(y, x);
+
+                    //the square below it
+                    Control zz = grid.GetControlFromPosition(y, x + 1);
+
+                    zz.BackColor = z.BackColor;
                     z.BackColor = Color.White;
                 }
+            }
 
-                //Move all other squares down
-
-                //For each above cleared row
-                for (int x = completedRow - 1; x >= 0; x--)
-                {
-                    //For each square in row
-                    for (int y = 0; y <= 9; y++)
-                    {
-                        //the square
-                        Control z = grid.GetControlFromPosition(y, x);
-
-                        //the square below it
-                        Control zz = grid.GetControlFromPosition(y, x + 1);
-
-                        zz.BackColor = z.BackColor;
-                        z.BackColor = Color.White;
-                    }
-                }
-
-                combo++;
-                if (checkForCompleteRows() > -1)
-                {
-                    ClearFullRow();
-                }
-                else
+            //Update score
+            if (checkForCompleteRows() == -1)
+            {
+                if (combo % 3 != 0)
                 {
                     combo = 0;
                 }
-            }  
-            
+            }
+
+            if (combo < 3)
+            {
+                score = score + 100;
+            }
+            else if (combo == 3)
+            {
+                score = score + 500;
+            }
+            else if (combo > 3 & combo < 6)
+            {
+                score = score + 100;
+            }
+            else if (combo >= 6)
+            {
+                score = score + 900;
+            }
+
+            combo++;
+            label3.Text = "Score: " + score.ToString();
+
+            if (checkForCompleteRows() > -1)
+            {
+                //combo++;
+                ClearFullRow();
+            }
+            else
+            {
+                if (combo % 4 != 0)
+                {
+                    combo = 0;
+                }
+            }
+        }  
 
         private int checkForCompleteRows()
         {
             //For each row
             for (int x = 19; x >= 0; x--)
             {
+
+
                 //For each square in row
                 for (int y = 0; y <= 9; y++)
                 {
