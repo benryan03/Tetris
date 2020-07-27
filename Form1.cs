@@ -40,7 +40,7 @@ namespace Tetris
             System.Random random = new System.Random();
            
             currentPiece = random.Next(7);
-            //currentPiece = 0;
+            //currentPiece = 2;
 
             if (currentPiece == 0)
             {
@@ -399,7 +399,7 @@ namespace Tetris
                 else if (currentPiece == 2) //The backwards L
                 {
                     //Test if piece is too close to edge of board
-                    if (rotations == 0 & square1Col == 0)
+                    if (rotations == 0 & (square1Col == 0 | square1Col == 1))
                     {
                         return;
                     }
