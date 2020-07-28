@@ -18,12 +18,15 @@ namespace Tetris
         Control[] activePiece = { null, null, null, null };
         Control[] activePiece2 = { null, null, null, null };
         Control[] nextPiece = { null, null, null, null };
+        Control[] savedPiece = { null, null, null, null };
         int timeElapsed = 0;
         int currentPiece;
         int nextPieceInt;
+        int savedPieceInt = -1;
         int rotations = 0;
         Color pieceColor = Color.White;
         Color nextPieceColor = Color.White;
+        Color savedPieceColor = Color.White;
         int combo = 0;
         int score = 0;
         int clears = 0;
@@ -51,6 +54,7 @@ namespace Tetris
             nextPieceInt = random.Next(7);
             //currentPiece = 2;
 
+            /*
             Control[] nextPiecePanel =
             {
                 pictureBox201,
@@ -75,6 +79,16 @@ namespace Tetris
             {
                 x.BackColor = Color.White;
             }
+            */
+
+            if (nextPiece.Contains(null) == false)
+            {
+                foreach (Control x in nextPiece)
+                {
+                    x.BackColor = Color.White;
+                }
+            }
+
 
             if (nextPieceInt == 0)
             {
@@ -133,6 +147,14 @@ namespace Tetris
                 nextPieceColor = Color.Purple;
             }
             
+
+
+
+
+
+
+
+
             if (currentPiece == 0)
             {
                 activePiece[0] = pictureBox6;
@@ -781,7 +803,232 @@ namespace Tetris
                     x++;
                 }
             }
+            else if (e.KeyCode == Keys.ShiftKey)
+            {
+                rotations = 0;
 
+                if (savedPieceInt == -1)
+                {
+                    foreach (Control x in activePiece)
+                    {
+                        x.BackColor = Color.White;
+                    }
+
+                    savedPieceInt = currentPiece;
+
+                    if (savedPieceInt == 0)
+                    {
+                        savedPiece[0] = pictureBox219;
+                        savedPiece[1] = pictureBox223;
+                        savedPiece[2] = pictureBox227;
+                        savedPiece[3] = pictureBox231;
+                        savedPieceColor = Color.Cyan;
+                    }
+                    else if (savedPieceInt == 1)
+                    {
+                        savedPiece[0] = pictureBox218;
+                        savedPiece[1] = pictureBox222;
+                        savedPiece[2] = pictureBox226;
+                        savedPiece[3] = pictureBox227;
+                        savedPieceColor = Color.Orange;
+                    }
+                    else if (savedPieceInt == 2)
+                    {
+                        savedPiece[0] = pictureBox219;
+                        savedPiece[1] = pictureBox223;
+                        savedPiece[2] = pictureBox227;
+                        savedPiece[3] = pictureBox210;
+                        savedPieceColor = Color.Blue;
+                    }
+                    else if (savedPieceInt == 3)
+                    {
+                        savedPiece[0] = pictureBox222;
+                        savedPiece[1] = pictureBox223;
+                        savedPiece[2] = pictureBox219;
+                        savedPiece[3] = pictureBox220;
+                        savedPieceColor = Color.Green;
+                    }
+                    else if (savedPieceInt == 4)
+                    {
+                        savedPiece[0] = pictureBox218;
+                        savedPiece[1] = pictureBox219;
+                        savedPiece[2] = pictureBox222;
+                        savedPiece[3] = pictureBox223;
+                        savedPieceColor = Color.Red;
+                    }
+                    else if (savedPieceInt == 5)
+                    {
+                        savedPiece[0] = pictureBox222;
+                        savedPiece[1] = pictureBox223;
+                        savedPiece[2] = pictureBox226;
+                        savedPiece[3] = pictureBox227;
+                        savedPieceColor = Color.Yellow;
+                    }
+                    else if (savedPieceInt == 6)
+                    {
+                        savedPiece[0] = pictureBox223;
+                        savedPiece[1] = pictureBox226;
+                        savedPiece[2] = pictureBox227;
+                        savedPiece[3] = pictureBox228;
+                        savedPieceColor = Color.Purple;
+                    }
+
+                    dropNewPiece();
+
+                    foreach (Control x in savedPiece)
+                    {
+                        x.BackColor = savedPieceColor;
+                    }
+                }
+                else
+                {
+                    //Erase falling piece
+                    foreach (Control x in activePiece)
+                    {
+                        x.BackColor = Color.White;
+                    }
+                    //Erase saved piece
+                    foreach (Control x in savedPiece)
+                    {
+                        x.BackColor = Color.White;
+                    }
+
+                    //Swap pieces
+                    int savedPieceTemp = currentPiece;
+                    currentPiece = savedPieceInt;
+                    savedPieceInt = savedPieceTemp;
+
+                    //Populate squares in saved piece panel
+                    if (savedPieceInt == 0)
+                    {
+                        savedPiece[0] = pictureBox219;
+                        savedPiece[1] = pictureBox223;
+                        savedPiece[2] = pictureBox227;
+                        savedPiece[3] = pictureBox231;
+                        savedPieceColor = Color.Cyan;
+                    }
+                    else if (savedPieceInt == 1)
+                    {
+                        savedPiece[0] = pictureBox218;
+                        savedPiece[1] = pictureBox222;
+                        savedPiece[2] = pictureBox226;
+                        savedPiece[3] = pictureBox227;
+                        savedPieceColor = Color.Orange;
+                    }
+                    else if (savedPieceInt == 2)
+                    {
+                        savedPiece[0] = pictureBox219;
+                        savedPiece[1] = pictureBox223;
+                        savedPiece[2] = pictureBox227;
+                        savedPiece[3] = pictureBox226;
+                        savedPieceColor = Color.Blue;
+                    }
+                    else if (savedPieceInt == 3)
+                    {
+                        savedPiece[0] = pictureBox222;
+                        savedPiece[1] = pictureBox223;
+                        savedPiece[2] = pictureBox219;
+                        savedPiece[3] = pictureBox220;
+                        savedPieceColor = Color.Green;
+                    }
+                    else if (savedPieceInt == 4)
+                    {
+                        savedPiece[0] = pictureBox218;
+                        savedPiece[1] = pictureBox219;
+                        savedPiece[2] = pictureBox223;
+                        savedPiece[3] = pictureBox224;
+                        savedPieceColor = Color.Red;
+                    }
+                    else if (savedPieceInt == 5)
+                    {
+                        savedPiece[0] = pictureBox222;
+                        savedPiece[1] = pictureBox223;
+                        savedPiece[2] = pictureBox226;
+                        savedPiece[3] = pictureBox227;
+                        savedPieceColor = Color.Yellow;
+                    }
+                    else if (savedPieceInt == 6)
+                    {
+                        savedPiece[0] = pictureBox223;
+                        savedPiece[1] = pictureBox226;
+                        savedPiece[2] = pictureBox227;
+                        savedPiece[3] = pictureBox228;
+                        savedPieceColor = Color.Purple;
+                    }
+
+                    foreach (Control x in savedPiece)
+                    {
+                        x.BackColor = savedPieceColor;
+                    }
+
+
+
+
+                    //Populate new falling piece
+                    if (currentPiece == 0)
+                    {
+                        activePiece[0] = pictureBox6;
+                        activePiece[1] = pictureBox16;
+                        activePiece[2] = pictureBox26;
+                        activePiece[3] = pictureBox36;
+                        pieceColor = Color.Cyan;
+                    }
+                    else if (currentPiece == 1)
+                    {
+                        activePiece[0] = pictureBox4;
+                        activePiece[1] = pictureBox14;
+                        activePiece[2] = pictureBox24;
+                        activePiece[3] = pictureBox25;
+                        pieceColor = Color.Orange;
+                    }
+                    else if (currentPiece == 2)
+                    {
+                        activePiece[0] = pictureBox5;
+                        activePiece[1] = pictureBox15;
+                        activePiece[2] = pictureBox25;
+                        activePiece[3] = pictureBox24;
+                        pieceColor = Color.Blue;
+                    }
+                    else if (currentPiece == 3)
+                    {
+                        activePiece[0] = pictureBox14;
+                        activePiece[1] = pictureBox15;
+                        activePiece[2] = pictureBox5;
+                        activePiece[3] = pictureBox6;
+                        pieceColor = Color.Green;
+                    }
+                    else if (currentPiece == 4)
+                    {
+                        activePiece[0] = pictureBox5;
+                        activePiece[1] = pictureBox6;
+                        activePiece[2] = pictureBox16;
+                        activePiece[3] = pictureBox17;
+                        pieceColor = Color.Red;
+                    }
+                    else if (currentPiece == 5)
+                    {
+                        activePiece[0] = pictureBox5;
+                        activePiece[1] = pictureBox6;
+                        activePiece[2] = pictureBox15;
+                        activePiece[3] = pictureBox16;
+                        pieceColor = Color.Yellow;
+                    }
+                    else if (currentPiece == 6)
+                    {
+                        activePiece[0] = pictureBox6;
+                        activePiece[1] = pictureBox15;
+                        activePiece[2] = pictureBox16;
+                        activePiece[3] = pictureBox17;
+                        pieceColor = Color.Purple;
+                    }
+
+                    foreach (Control square in activePiece)
+                    {
+                        square.BackColor = pieceColor;
+                    }
+
+                }
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
