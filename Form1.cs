@@ -17,10 +17,13 @@ namespace Tetris
     {
         Control[] activePiece = { null, null, null, null };
         Control[] activePiece2 = { null, null, null, null };
+        Control[] nextPiece = { null, null, null, null };
         int timeElapsed = 0;
         int currentPiece;
+        int nextPieceInt;
         int rotations = 0;
         Color pieceColor = Color.White;
+        Color nextPieceColor = Color.White;
         int combo = 0;
         int score = 0;
         int clears = 0;
@@ -29,9 +32,13 @@ namespace Tetris
         public Form1()
         {
             InitializeComponent();
-            dropNewPiece();
             timer1.Start();
             timer2.Start();
+
+            System.Random random = new System.Random();
+            nextPieceInt = random.Next(7);
+
+            dropNewPiece();
         }
 
         public void dropNewPiece()
@@ -39,9 +46,93 @@ namespace Tetris
             rotations = 0;
             System.Random random = new System.Random();
            
-            currentPiece = random.Next(7);
+            
+            currentPiece = nextPieceInt;
+            nextPieceInt = random.Next(7);
             //currentPiece = 2;
 
+            Control[] nextPiecePanel =
+            {
+                pictureBox201,
+                pictureBox202,
+                pictureBox203,
+                pictureBox204,
+                pictureBox205,
+                pictureBox206,
+                pictureBox207,
+                pictureBox208,
+                pictureBox209,
+                pictureBox210,
+                pictureBox211,
+                pictureBox212,
+                pictureBox213,
+                pictureBox214,
+                pictureBox215,
+                pictureBox216,
+            };
+
+            foreach (Control x in nextPiecePanel)
+            {
+                x.BackColor = Color.White;
+            }
+
+            if (nextPieceInt == 0)
+            {
+                nextPiece[0] = pictureBox203;
+                nextPiece[1] = pictureBox207;
+                nextPiece[2] = pictureBox211;
+                nextPiece[3] = pictureBox215;
+                nextPieceColor = Color.Cyan;
+            }
+            else if (nextPieceInt == 1)
+            {
+                nextPiece[0] = pictureBox202;
+                nextPiece[1] = pictureBox206;
+                nextPiece[2] = pictureBox210;
+                nextPiece[3] = pictureBox211;
+                nextPieceColor = Color.Orange;
+            }
+            else if (nextPieceInt == 2)
+            {
+                nextPiece[0] = pictureBox203;
+                nextPiece[1] = pictureBox207;
+                nextPiece[2] = pictureBox211;
+                nextPiece[3] = pictureBox210;
+                nextPieceColor = Color.Blue;
+            }
+            else if (nextPieceInt == 3)
+            {
+                nextPiece[0] = pictureBox206;
+                nextPiece[1] = pictureBox207;
+                nextPiece[2] = pictureBox203;
+                nextPiece[3] = pictureBox204;
+                nextPieceColor = Color.Green;
+            }
+            else if (nextPieceInt == 4)
+            {
+                nextPiece[0] = pictureBox202;
+                nextPiece[1] = pictureBox203;
+                nextPiece[2] = pictureBox207;
+                nextPiece[3] = pictureBox208;
+                nextPieceColor = Color.Red;
+            }
+            else if (nextPieceInt == 5)
+            {
+                nextPiece[0] = pictureBox206;
+                nextPiece[1] = pictureBox207;
+                nextPiece[2] = pictureBox210;
+                nextPiece[3] = pictureBox211;
+                nextPieceColor = Color.Yellow;
+            }
+            else if (nextPieceInt == 6)
+            {
+                nextPiece[0] = pictureBox207;
+                nextPiece[1] = pictureBox210;
+                nextPiece[2] = pictureBox211;
+                nextPiece[3] = pictureBox212;
+                nextPieceColor = Color.Purple;
+            }
+            
             if (currentPiece == 0)
             {
                 activePiece[0] = pictureBox6;
@@ -97,6 +188,11 @@ namespace Tetris
                 activePiece[2] = pictureBox16;
                 activePiece[3] = pictureBox17;
                 pieceColor = Color.Purple;
+            }
+
+            foreach (Control square in nextPiece)
+            {
+                square.BackColor = nextPieceColor;
             }
 
             foreach (Control square in activePiece)

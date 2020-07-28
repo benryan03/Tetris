@@ -237,6 +237,41 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pictureBox201 = new System.Windows.Forms.PictureBox();
+            this.pictureBox202 = new System.Windows.Forms.PictureBox();
+            this.pictureBox203 = new System.Windows.Forms.PictureBox();
+            this.pictureBox204 = new System.Windows.Forms.PictureBox();
+            this.pictureBox205 = new System.Windows.Forms.PictureBox();
+            this.pictureBox206 = new System.Windows.Forms.PictureBox();
+            this.pictureBox207 = new System.Windows.Forms.PictureBox();
+            this.pictureBox208 = new System.Windows.Forms.PictureBox();
+            this.pictureBox209 = new System.Windows.Forms.PictureBox();
+            this.pictureBox210 = new System.Windows.Forms.PictureBox();
+            this.pictureBox211 = new System.Windows.Forms.PictureBox();
+            this.pictureBox212 = new System.Windows.Forms.PictureBox();
+            this.pictureBox213 = new System.Windows.Forms.PictureBox();
+            this.pictureBox214 = new System.Windows.Forms.PictureBox();
+            this.pictureBox215 = new System.Windows.Forms.PictureBox();
+            this.pictureBox216 = new System.Windows.Forms.PictureBox();
+            this.pictureBox217 = new System.Windows.Forms.PictureBox();
+            this.pictureBox218 = new System.Windows.Forms.PictureBox();
+            this.pictureBox219 = new System.Windows.Forms.PictureBox();
+            this.pictureBox220 = new System.Windows.Forms.PictureBox();
+            this.pictureBox221 = new System.Windows.Forms.PictureBox();
+            this.pictureBox222 = new System.Windows.Forms.PictureBox();
+            this.pictureBox223 = new System.Windows.Forms.PictureBox();
+            this.pictureBox224 = new System.Windows.Forms.PictureBox();
+            this.pictureBox225 = new System.Windows.Forms.PictureBox();
+            this.pictureBox226 = new System.Windows.Forms.PictureBox();
+            this.pictureBox227 = new System.Windows.Forms.PictureBox();
+            this.pictureBox228 = new System.Windows.Forms.PictureBox();
+            this.pictureBox229 = new System.Windows.Forms.PictureBox();
+            this.pictureBox230 = new System.Windows.Forms.PictureBox();
+            this.pictureBox231 = new System.Windows.Forms.PictureBox();
+            this.pictureBox232 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -438,6 +473,40 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox198)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox199)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox200)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox201)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox202)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox203)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox204)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox205)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox206)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox207)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox208)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox209)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox210)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox211)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox212)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox213)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox214)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox215)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox216)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox217)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox218)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox219)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox220)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox221)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox222)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox223)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox224)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox225)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox226)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox227)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox228)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox229)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox230)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox231)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox232)).BeginInit();
             this.SuspendLayout();
             // 
             // grid
@@ -2640,11 +2709,378 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox201, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox202, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox203, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox204, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox205, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox206, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox207, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox208, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox209, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox210, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox211, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox212, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox213, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox214, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox215, 2, 3);
+            this.tableLayoutPanel1.Controls.Add(this.pictureBox216, 3, 3);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(550, 509);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 200);
+            this.tableLayoutPanel1.TabIndex = 7;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 4;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox217, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox218, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox219, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox220, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox221, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox222, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox223, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox224, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox225, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox226, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox227, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox228, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox229, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox230, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox231, 2, 3);
+            this.tableLayoutPanel2.Controls.Add(this.pictureBox232, 3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(550, 744);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(200, 200);
+            this.tableLayoutPanel2.TabIndex = 8;
+            // 
+            // pictureBox201
+            // 
+            this.pictureBox201.BackColor = System.Drawing.Color.White;
+            this.pictureBox201.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox201.Name = "pictureBox201";
+            this.pictureBox201.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox201.TabIndex = 0;
+            this.pictureBox201.TabStop = false;
+            // 
+            // pictureBox202
+            // 
+            this.pictureBox202.BackColor = System.Drawing.Color.White;
+            this.pictureBox202.Location = new System.Drawing.Point(53, 3);
+            this.pictureBox202.Name = "pictureBox202";
+            this.pictureBox202.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox202.TabIndex = 1;
+            this.pictureBox202.TabStop = false;
+            // 
+            // pictureBox203
+            // 
+            this.pictureBox203.BackColor = System.Drawing.Color.White;
+            this.pictureBox203.Location = new System.Drawing.Point(103, 3);
+            this.pictureBox203.Name = "pictureBox203";
+            this.pictureBox203.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox203.TabIndex = 2;
+            this.pictureBox203.TabStop = false;
+            // 
+            // pictureBox204
+            // 
+            this.pictureBox204.BackColor = System.Drawing.Color.White;
+            this.pictureBox204.Location = new System.Drawing.Point(153, 3);
+            this.pictureBox204.Name = "pictureBox204";
+            this.pictureBox204.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox204.TabIndex = 3;
+            this.pictureBox204.TabStop = false;
+            // 
+            // pictureBox205
+            // 
+            this.pictureBox205.BackColor = System.Drawing.Color.White;
+            this.pictureBox205.Location = new System.Drawing.Point(3, 53);
+            this.pictureBox205.Name = "pictureBox205";
+            this.pictureBox205.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox205.TabIndex = 4;
+            this.pictureBox205.TabStop = false;
+            // 
+            // pictureBox206
+            // 
+            this.pictureBox206.BackColor = System.Drawing.Color.White;
+            this.pictureBox206.Location = new System.Drawing.Point(53, 53);
+            this.pictureBox206.Name = "pictureBox206";
+            this.pictureBox206.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox206.TabIndex = 5;
+            this.pictureBox206.TabStop = false;
+            // 
+            // pictureBox207
+            // 
+            this.pictureBox207.BackColor = System.Drawing.Color.White;
+            this.pictureBox207.Location = new System.Drawing.Point(103, 53);
+            this.pictureBox207.Name = "pictureBox207";
+            this.pictureBox207.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox207.TabIndex = 6;
+            this.pictureBox207.TabStop = false;
+            // 
+            // pictureBox208
+            // 
+            this.pictureBox208.BackColor = System.Drawing.Color.White;
+            this.pictureBox208.Location = new System.Drawing.Point(153, 53);
+            this.pictureBox208.Name = "pictureBox208";
+            this.pictureBox208.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox208.TabIndex = 7;
+            this.pictureBox208.TabStop = false;
+            // 
+            // pictureBox209
+            // 
+            this.pictureBox209.BackColor = System.Drawing.Color.White;
+            this.pictureBox209.Location = new System.Drawing.Point(3, 103);
+            this.pictureBox209.Name = "pictureBox209";
+            this.pictureBox209.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox209.TabIndex = 8;
+            this.pictureBox209.TabStop = false;
+            // 
+            // pictureBox210
+            // 
+            this.pictureBox210.BackColor = System.Drawing.Color.White;
+            this.pictureBox210.Location = new System.Drawing.Point(53, 103);
+            this.pictureBox210.Name = "pictureBox210";
+            this.pictureBox210.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox210.TabIndex = 9;
+            this.pictureBox210.TabStop = false;
+            // 
+            // pictureBox211
+            // 
+            this.pictureBox211.BackColor = System.Drawing.Color.White;
+            this.pictureBox211.Location = new System.Drawing.Point(103, 103);
+            this.pictureBox211.Name = "pictureBox211";
+            this.pictureBox211.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox211.TabIndex = 10;
+            this.pictureBox211.TabStop = false;
+            // 
+            // pictureBox212
+            // 
+            this.pictureBox212.BackColor = System.Drawing.Color.White;
+            this.pictureBox212.Location = new System.Drawing.Point(153, 103);
+            this.pictureBox212.Name = "pictureBox212";
+            this.pictureBox212.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox212.TabIndex = 11;
+            this.pictureBox212.TabStop = false;
+            // 
+            // pictureBox213
+            // 
+            this.pictureBox213.BackColor = System.Drawing.Color.White;
+            this.pictureBox213.Location = new System.Drawing.Point(3, 153);
+            this.pictureBox213.Name = "pictureBox213";
+            this.pictureBox213.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox213.TabIndex = 12;
+            this.pictureBox213.TabStop = false;
+            // 
+            // pictureBox214
+            // 
+            this.pictureBox214.BackColor = System.Drawing.Color.White;
+            this.pictureBox214.Location = new System.Drawing.Point(53, 153);
+            this.pictureBox214.Name = "pictureBox214";
+            this.pictureBox214.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox214.TabIndex = 13;
+            this.pictureBox214.TabStop = false;
+            // 
+            // pictureBox215
+            // 
+            this.pictureBox215.BackColor = System.Drawing.Color.White;
+            this.pictureBox215.Location = new System.Drawing.Point(103, 153);
+            this.pictureBox215.Name = "pictureBox215";
+            this.pictureBox215.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox215.TabIndex = 14;
+            this.pictureBox215.TabStop = false;
+            // 
+            // pictureBox216
+            // 
+            this.pictureBox216.BackColor = System.Drawing.Color.White;
+            this.pictureBox216.Location = new System.Drawing.Point(153, 153);
+            this.pictureBox216.Name = "pictureBox216";
+            this.pictureBox216.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox216.TabIndex = 15;
+            this.pictureBox216.TabStop = false;
+            // 
+            // pictureBox217
+            // 
+            this.pictureBox217.BackColor = System.Drawing.Color.White;
+            this.pictureBox217.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox217.Name = "pictureBox217";
+            this.pictureBox217.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox217.TabIndex = 0;
+            this.pictureBox217.TabStop = false;
+            // 
+            // pictureBox218
+            // 
+            this.pictureBox218.BackColor = System.Drawing.Color.White;
+            this.pictureBox218.Location = new System.Drawing.Point(53, 3);
+            this.pictureBox218.Name = "pictureBox218";
+            this.pictureBox218.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox218.TabIndex = 1;
+            this.pictureBox218.TabStop = false;
+            // 
+            // pictureBox219
+            // 
+            this.pictureBox219.BackColor = System.Drawing.Color.White;
+            this.pictureBox219.Location = new System.Drawing.Point(103, 3);
+            this.pictureBox219.Name = "pictureBox219";
+            this.pictureBox219.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox219.TabIndex = 2;
+            this.pictureBox219.TabStop = false;
+            // 
+            // pictureBox220
+            // 
+            this.pictureBox220.BackColor = System.Drawing.Color.White;
+            this.pictureBox220.Location = new System.Drawing.Point(153, 3);
+            this.pictureBox220.Name = "pictureBox220";
+            this.pictureBox220.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox220.TabIndex = 3;
+            this.pictureBox220.TabStop = false;
+            // 
+            // pictureBox221
+            // 
+            this.pictureBox221.BackColor = System.Drawing.Color.White;
+            this.pictureBox221.Location = new System.Drawing.Point(3, 53);
+            this.pictureBox221.Name = "pictureBox221";
+            this.pictureBox221.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox221.TabIndex = 4;
+            this.pictureBox221.TabStop = false;
+            // 
+            // pictureBox222
+            // 
+            this.pictureBox222.BackColor = System.Drawing.Color.White;
+            this.pictureBox222.Location = new System.Drawing.Point(53, 53);
+            this.pictureBox222.Name = "pictureBox222";
+            this.pictureBox222.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox222.TabIndex = 5;
+            this.pictureBox222.TabStop = false;
+            // 
+            // pictureBox223
+            // 
+            this.pictureBox223.BackColor = System.Drawing.Color.White;
+            this.pictureBox223.Location = new System.Drawing.Point(103, 53);
+            this.pictureBox223.Name = "pictureBox223";
+            this.pictureBox223.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox223.TabIndex = 6;
+            this.pictureBox223.TabStop = false;
+            // 
+            // pictureBox224
+            // 
+            this.pictureBox224.BackColor = System.Drawing.Color.White;
+            this.pictureBox224.Location = new System.Drawing.Point(153, 53);
+            this.pictureBox224.Name = "pictureBox224";
+            this.pictureBox224.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox224.TabIndex = 7;
+            this.pictureBox224.TabStop = false;
+            // 
+            // pictureBox225
+            // 
+            this.pictureBox225.BackColor = System.Drawing.Color.White;
+            this.pictureBox225.Location = new System.Drawing.Point(3, 103);
+            this.pictureBox225.Name = "pictureBox225";
+            this.pictureBox225.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox225.TabIndex = 8;
+            this.pictureBox225.TabStop = false;
+            // 
+            // pictureBox226
+            // 
+            this.pictureBox226.BackColor = System.Drawing.Color.White;
+            this.pictureBox226.Location = new System.Drawing.Point(53, 103);
+            this.pictureBox226.Name = "pictureBox226";
+            this.pictureBox226.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox226.TabIndex = 9;
+            this.pictureBox226.TabStop = false;
+            // 
+            // pictureBox227
+            // 
+            this.pictureBox227.BackColor = System.Drawing.Color.White;
+            this.pictureBox227.Location = new System.Drawing.Point(103, 103);
+            this.pictureBox227.Name = "pictureBox227";
+            this.pictureBox227.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox227.TabIndex = 10;
+            this.pictureBox227.TabStop = false;
+            // 
+            // pictureBox228
+            // 
+            this.pictureBox228.BackColor = System.Drawing.Color.White;
+            this.pictureBox228.Location = new System.Drawing.Point(153, 103);
+            this.pictureBox228.Name = "pictureBox228";
+            this.pictureBox228.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox228.TabIndex = 11;
+            this.pictureBox228.TabStop = false;
+            // 
+            // pictureBox229
+            // 
+            this.pictureBox229.BackColor = System.Drawing.Color.White;
+            this.pictureBox229.Location = new System.Drawing.Point(3, 153);
+            this.pictureBox229.Name = "pictureBox229";
+            this.pictureBox229.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox229.TabIndex = 12;
+            this.pictureBox229.TabStop = false;
+            // 
+            // pictureBox230
+            // 
+            this.pictureBox230.BackColor = System.Drawing.Color.White;
+            this.pictureBox230.Location = new System.Drawing.Point(53, 153);
+            this.pictureBox230.Name = "pictureBox230";
+            this.pictureBox230.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox230.TabIndex = 13;
+            this.pictureBox230.TabStop = false;
+            // 
+            // pictureBox231
+            // 
+            this.pictureBox231.BackColor = System.Drawing.Color.White;
+            this.pictureBox231.Location = new System.Drawing.Point(103, 153);
+            this.pictureBox231.Name = "pictureBox231";
+            this.pictureBox231.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox231.TabIndex = 14;
+            this.pictureBox231.TabStop = false;
+            // 
+            // pictureBox232
+            // 
+            this.pictureBox232.BackColor = System.Drawing.Color.White;
+            this.pictureBox232.Location = new System.Drawing.Point(153, 153);
+            this.pictureBox232.Name = "pictureBox232";
+            this.pictureBox232.Size = new System.Drawing.Size(44, 44);
+            this.pictureBox232.TabIndex = 15;
+            this.pictureBox232.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(547, 474);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 32);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Next";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 1310);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tableLayoutPanel2);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -2856,6 +3292,40 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox198)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox199)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox200)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox201)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox202)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox203)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox204)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox205)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox206)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox207)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox208)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox209)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox210)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox211)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox212)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox213)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox214)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox215)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox216)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox217)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox218)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox219)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox220)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox221)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox222)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox223)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox224)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox225)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox226)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox227)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox228)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox229)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox230)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox231)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox232)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3071,6 +3541,41 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.PictureBox pictureBox201;
+        private System.Windows.Forms.PictureBox pictureBox202;
+        private System.Windows.Forms.PictureBox pictureBox203;
+        private System.Windows.Forms.PictureBox pictureBox204;
+        private System.Windows.Forms.PictureBox pictureBox205;
+        private System.Windows.Forms.PictureBox pictureBox206;
+        private System.Windows.Forms.PictureBox pictureBox207;
+        private System.Windows.Forms.PictureBox pictureBox208;
+        private System.Windows.Forms.PictureBox pictureBox209;
+        private System.Windows.Forms.PictureBox pictureBox210;
+        private System.Windows.Forms.PictureBox pictureBox211;
+        private System.Windows.Forms.PictureBox pictureBox212;
+        private System.Windows.Forms.PictureBox pictureBox213;
+        private System.Windows.Forms.PictureBox pictureBox214;
+        private System.Windows.Forms.PictureBox pictureBox215;
+        private System.Windows.Forms.PictureBox pictureBox216;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.PictureBox pictureBox217;
+        private System.Windows.Forms.PictureBox pictureBox218;
+        private System.Windows.Forms.PictureBox pictureBox219;
+        private System.Windows.Forms.PictureBox pictureBox220;
+        private System.Windows.Forms.PictureBox pictureBox221;
+        private System.Windows.Forms.PictureBox pictureBox222;
+        private System.Windows.Forms.PictureBox pictureBox223;
+        private System.Windows.Forms.PictureBox pictureBox224;
+        private System.Windows.Forms.PictureBox pictureBox225;
+        private System.Windows.Forms.PictureBox pictureBox226;
+        private System.Windows.Forms.PictureBox pictureBox227;
+        private System.Windows.Forms.PictureBox pictureBox228;
+        private System.Windows.Forms.PictureBox pictureBox229;
+        private System.Windows.Forms.PictureBox pictureBox230;
+        private System.Windows.Forms.PictureBox pictureBox231;
+        private System.Windows.Forms.PictureBox pictureBox232;
+        private System.Windows.Forms.Label label6;
     }
 }
 
