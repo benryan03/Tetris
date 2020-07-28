@@ -48,7 +48,7 @@ namespace Tetris
                 activePiece[1] = pictureBox16;
                 activePiece[2] = pictureBox26;
                 activePiece[3] = pictureBox36;
-                pieceColor = Color.Red;
+                pieceColor = Color.Cyan;
             }
             else if (currentPiece == 1)
             {
@@ -56,7 +56,7 @@ namespace Tetris
                 activePiece[1] = pictureBox14;
                 activePiece[2] = pictureBox24;
                 activePiece[3] = pictureBox25;
-                pieceColor = Color.Blue;
+                pieceColor = Color.Orange;
             }
             else if (currentPiece == 2)
             {
@@ -64,7 +64,7 @@ namespace Tetris
                 activePiece[1] = pictureBox15;
                 activePiece[2] = pictureBox25;
                 activePiece[3] = pictureBox24;
-                pieceColor = Color.Yellow;
+                pieceColor = Color.Blue;
             }
             else if (currentPiece == 3)
             {
@@ -72,7 +72,7 @@ namespace Tetris
                 activePiece[1] = pictureBox15;
                 activePiece[2] = pictureBox5;
                 activePiece[3] = pictureBox6;
-                pieceColor = Color.Orange;
+                pieceColor = Color.Green;
             }
             else if (currentPiece == 4)
             {
@@ -80,7 +80,7 @@ namespace Tetris
                 activePiece[1] = pictureBox6;
                 activePiece[2] = pictureBox16;
                 activePiece[3] = pictureBox17;
-                pieceColor = Color.Purple;
+                pieceColor = Color.Red;
             }
             else if (currentPiece == 5)
             {
@@ -88,7 +88,7 @@ namespace Tetris
                 activePiece[1] = pictureBox6;
                 activePiece[2] = pictureBox15;
                 activePiece[3] = pictureBox16;
-                pieceColor = Color.Green;
+                pieceColor = Color.Yellow;
             }
             else if (currentPiece == 6)
             {
@@ -96,7 +96,7 @@ namespace Tetris
                 activePiece[1] = pictureBox15;
                 activePiece[2] = pictureBox16;
                 activePiece[3] = pictureBox17;
-                pieceColor = Color.Brown;
+                pieceColor = Color.Purple;
             }
 
             foreach (Control square in activePiece)
