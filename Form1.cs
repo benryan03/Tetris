@@ -32,6 +32,9 @@ namespace Tetris
         int clears = 0;
         int level = 0;
 
+
+        Color[] colorList = { Color.Cyan, Color.Orange, Color.Blue, Color.Green, Color.Red, Color.Yellow, Color.Purple };
+
         public Form1()
         {
             InitializeComponent();
@@ -41,46 +44,18 @@ namespace Tetris
             System.Random random = new System.Random();
             nextPieceInt = random.Next(7);
 
-            dropNewPiece();
+            DropNewPiece();
         }
 
-        public void dropNewPiece()
+        public void DropNewPiece()
         {
             rotations = 0;
-            System.Random random = new System.Random();
-           
-            
             currentPiece = nextPieceInt;
+            System.Random random = new System.Random();
             nextPieceInt = random.Next(7);
             //currentPiece = 3;
 
-            /*
-            Control[] nextPiecePanel =
-            {
-                pictureBox201,
-                pictureBox202,
-                pictureBox203,
-                pictureBox204,
-                pictureBox205,
-                pictureBox206,
-                pictureBox207,
-                pictureBox208,
-                pictureBox209,
-                pictureBox210,
-                pictureBox211,
-                pictureBox212,
-                pictureBox213,
-                pictureBox214,
-                pictureBox215,
-                pictureBox216,
-            };
-
-            foreach (Control x in nextPiecePanel)
-            {
-                x.BackColor = Color.White;
-            }
-            */
-
+            //If not first move
             if (nextPiece.Contains(null) == false)
             {
                 foreach (Control x in nextPiece)
@@ -88,7 +63,7 @@ namespace Tetris
                     x.BackColor = Color.White;
                 }
             }
-
+            
 
             if (nextPieceInt == 0)
             {
@@ -96,7 +71,6 @@ namespace Tetris
                 nextPiece[1] = pictureBox207;
                 nextPiece[2] = pictureBox211;
                 nextPiece[3] = pictureBox215;
-                nextPieceColor = Color.Cyan;
             }
             else if (nextPieceInt == 1)
             {
@@ -104,7 +78,6 @@ namespace Tetris
                 nextPiece[1] = pictureBox206;
                 nextPiece[2] = pictureBox210;
                 nextPiece[3] = pictureBox211;
-                nextPieceColor = Color.Orange;
             }
             else if (nextPieceInt == 2)
             {
@@ -112,7 +85,6 @@ namespace Tetris
                 nextPiece[1] = pictureBox207;
                 nextPiece[2] = pictureBox211;
                 nextPiece[3] = pictureBox210;
-                nextPieceColor = Color.Blue;
             }
             else if (nextPieceInt == 3)
             {
@@ -120,7 +92,6 @@ namespace Tetris
                 nextPiece[1] = pictureBox207;
                 nextPiece[2] = pictureBox203;
                 nextPiece[3] = pictureBox204;
-                nextPieceColor = Color.Green;
             }
             else if (nextPieceInt == 4)
             {
@@ -128,7 +99,6 @@ namespace Tetris
                 nextPiece[1] = pictureBox203;
                 nextPiece[2] = pictureBox207;
                 nextPiece[3] = pictureBox208;
-                nextPieceColor = Color.Red;
             }
             else if (nextPieceInt == 5)
             {
@@ -136,7 +106,6 @@ namespace Tetris
                 nextPiece[1] = pictureBox207;
                 nextPiece[2] = pictureBox210;
                 nextPiece[3] = pictureBox211;
-                nextPieceColor = Color.Yellow;
             }
             else if (nextPieceInt == 6)
             {
@@ -144,7 +113,6 @@ namespace Tetris
                 nextPiece[1] = pictureBox210;
                 nextPiece[2] = pictureBox211;
                 nextPiece[3] = pictureBox212;
-                nextPieceColor = Color.Purple;
             }
             
 
@@ -161,7 +129,6 @@ namespace Tetris
                 activePiece[1] = pictureBox16;
                 activePiece[2] = pictureBox26;
                 activePiece[3] = pictureBox36;
-                pieceColor = Color.Cyan;
             }
             else if (currentPiece == 1)
             {
@@ -169,7 +136,6 @@ namespace Tetris
                 activePiece[1] = pictureBox14;
                 activePiece[2] = pictureBox24;
                 activePiece[3] = pictureBox25;
-                pieceColor = Color.Orange;
             }
             else if (currentPiece == 2)
             {
@@ -177,7 +143,6 @@ namespace Tetris
                 activePiece[1] = pictureBox15;
                 activePiece[2] = pictureBox25;
                 activePiece[3] = pictureBox24;
-                pieceColor = Color.Blue;
             }
             else if (currentPiece == 3)
             {
@@ -185,7 +150,6 @@ namespace Tetris
                 activePiece[1] = pictureBox15;
                 activePiece[2] = pictureBox5;
                 activePiece[3] = pictureBox6;
-                pieceColor = Color.Green;
             }
             else if (currentPiece == 4)
             {
@@ -193,7 +157,6 @@ namespace Tetris
                 activePiece[1] = pictureBox6;
                 activePiece[2] = pictureBox16;
                 activePiece[3] = pictureBox17;
-                pieceColor = Color.Red;
             }
             else if (currentPiece == 5)
             {
@@ -201,7 +164,6 @@ namespace Tetris
                 activePiece[1] = pictureBox6;
                 activePiece[2] = pictureBox15;
                 activePiece[3] = pictureBox16;
-                pieceColor = Color.Yellow;
             }
             else if (currentPiece == 6)
             {
@@ -209,21 +171,22 @@ namespace Tetris
                 activePiece[1] = pictureBox15;
                 activePiece[2] = pictureBox16;
                 activePiece[3] = pictureBox17;
-                pieceColor = Color.Purple;
             }
 
+            //Populate next piece panel with correct color
             foreach (Control square in nextPiece)
             {
-                square.BackColor = nextPieceColor;
+                square.BackColor = colorList[nextPieceInt];
             }
 
+            //Populate falling piece with correct color
             foreach (Control square in activePiece)
             {
-                square.BackColor = pieceColor;
+                square.BackColor = colorList[currentPiece];
             }
         }
             
-        public bool testMove(string direction)
+        public bool TestMove(string direction)
         {
             int currentHighRow = 21;
             int currentLowRow = 0;
@@ -294,7 +257,6 @@ namespace Tetris
 
                 if (newSquare.BackColor != Color.White & activePiece.Contains(newSquare) == false & nextSquare > 0)
                 {
-                    //MessageBox.Show("test2");
                     return false;
                 }
 
@@ -303,7 +265,7 @@ namespace Tetris
             return true;
         }
 
-        public void movePiece(string direction)
+        public void MovePiece(string direction)
         {
             int x = 0;
             foreach (PictureBox square in activePiece)
@@ -335,13 +297,14 @@ namespace Tetris
             x = 0;
             foreach (PictureBox square in activePiece2)
             {
-                square.BackColor = pieceColor;
+                square.BackColor = colorList[currentPiece];
+                //square.BackColor = pieceColor;
                 activePiece[x] = square;
                 x++;
             }
         }
 
-        private bool testOverlap()
+        private bool TestOverlap()
         {
             foreach (PictureBox square in activePiece2)
             {
@@ -355,17 +318,17 @@ namespace Tetris
                     
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {   
-            if ((e.KeyCode == Keys.Left | e.KeyCode == Keys.A) & testMove("left") == true)
+            if ((e.KeyCode == Keys.Left | e.KeyCode == Keys.A) & TestMove("left") == true)
             {
-                movePiece("left");
+                MovePiece("left");
             }
-            else if ((e.KeyCode == Keys.Right | e.KeyCode == Keys.D) & testMove("right") == true)
+            else if ((e.KeyCode == Keys.Right | e.KeyCode == Keys.D) & TestMove("right") == true)
             {
-                movePiece("right");
+                MovePiece("right");
             }
-            else if ((e.KeyCode == Keys.Down | e.KeyCode == Keys.S) & testMove("down") == true)
+            else if ((e.KeyCode == Keys.Down | e.KeyCode == Keys.S) & TestMove("down") == true)
             {
-                movePiece("down");
+                MovePiece("down");
             }
             else if (e.KeyCode == Keys.Up | e.KeyCode == Keys.W)
             {
@@ -404,7 +367,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row - 3);
                         
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -420,7 +383,7 @@ namespace Tetris
                         activePiece2[2] = grid.GetControlFromPosition(square3Col, square3Row + 2);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col - 1, square4Row + 3);
                         
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations = 0;
                         }
@@ -453,7 +416,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row - 1);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -470,7 +433,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row - 1);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -487,7 +450,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 2);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -504,7 +467,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations = 0;
                         }
@@ -535,7 +498,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -552,7 +515,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 2);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -569,7 +532,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row + 1);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -586,7 +549,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row + 1);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations = 0;
                         }
@@ -619,7 +582,7 @@ namespace Tetris
 
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -636,7 +599,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 1);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations = 0;
                         }
@@ -663,7 +626,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col - 1, square4Row - 2);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -680,7 +643,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 1, square4Row + 2);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations = 0;
                         }
@@ -716,7 +679,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col - 2, square4Row);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -733,7 +696,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row - 2);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -750,7 +713,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col + 2, square4Row);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations++;
                         }
@@ -767,7 +730,7 @@ namespace Tetris
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 2);
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
-                        if (testOverlap() == true)
+                        if (TestOverlap() == true)
                         {
                             rotations = 0;
                         }
@@ -788,7 +751,8 @@ namespace Tetris
                 int x = 0;
                 foreach (PictureBox square in activePiece2)
                 {
-                    square.BackColor = pieceColor;
+                    square.BackColor = colorList[currentPiece];
+                    //square.BackColor = pieceColor;
                     activePiece[x] = square;
                     x++;
                 }
@@ -863,7 +827,7 @@ namespace Tetris
                         savedPieceColor = Color.Purple;
                     }
 
-                    dropNewPiece();
+                    DropNewPiece();
 
                     foreach (Control x in savedPiece)
                     {
@@ -1021,24 +985,24 @@ namespace Tetris
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             //Move piece down, or drop new piece if it can't move
-            if (testMove("down") == true)
+            if (TestMove("down") == true)
             {
-                movePiece("down");
+                MovePiece("down");
             }
             else
             {
-                if (checkForCompleteRows() > -1)
+                if (CheckForCompleteRows() > -1)
                 {
                     ClearFullRow();
                 }
-                dropNewPiece();
+                DropNewPiece();
             }
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+        private void Timer2_Tick(object sender, EventArgs e)
         {
             //Update timer
             timeElapsed++;
@@ -1047,7 +1011,7 @@ namespace Tetris
 
         private void ClearFullRow()
         {
-            int completedRow = checkForCompleteRows();
+            int completedRow = CheckForCompleteRows();
 
             //Turn that row white
             for (int x = 0; x <= 9; x++)
@@ -1075,7 +1039,7 @@ namespace Tetris
             }
 
             //Update score
-            if (checkForCompleteRows() == -1)
+            if (CheckForCompleteRows() == -1)
             {
                 if (combo % 3 != 0)
                 {
@@ -1108,10 +1072,10 @@ namespace Tetris
 
             if (clears % 10 == 0)
             {
-                levelUp();
+                LevelUp();
             }
 
-            if (checkForCompleteRows() > -1)
+            if (CheckForCompleteRows() > -1)
             {
                 //combo++;
                 ClearFullRow();
@@ -1125,7 +1089,7 @@ namespace Tetris
             }
         }  
 
-        private int checkForCompleteRows()
+        private int CheckForCompleteRows()
         {
             //For each row
             for (int x = 21; x >= 2; x--)
@@ -1150,7 +1114,7 @@ namespace Tetris
             return -1; //"null"
         }
 
-        private void levelUp()
+        private void LevelUp()
         {
             level++;
             label5.Text = "Level " + level.ToString();

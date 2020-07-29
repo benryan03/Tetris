@@ -3013,7 +3013,7 @@
             // timer1
             // 
             this.timer1.Interval = 800;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
             // label1
             // 
@@ -3069,7 +3069,7 @@
             // timer2
             // 
             this.timer2.Interval = 1000;
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
             // 
             // tableLayoutPanel1
             // 
