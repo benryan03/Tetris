@@ -649,11 +649,7 @@ namespace Tetris
                 else if (currentPiece == 4) //The backwards S
                 {
                     //Test if piece is too close to edge of board
-                    if (rotations == 0 & square1Row == 0)
-                    {
-                        return;
-                    }
-                    else if (rotations == 1 & (square1Row == 0 | square1Col == 8))
+                    if (rotations == 1 & square1Col == 8)
                     {
                         return;
                     }
@@ -702,19 +698,11 @@ namespace Tetris
                 else if (currentPiece == 6) //The pyramid
                 {
                     //Test if piece is too close to edge of board
-                    if (rotations == 0 & square1Row == 0)
+                    if (rotations == 1 & square1Col == 9)
                     {
                         return;
                     }
-                    else if (rotations == 1 & (square1Row == 0 | square1Col == 9))
-                    {
-                        return;
-                    }
-                    else if (rotations == 2 & square1Row == 0)
-                    {
-                        return;
-                    }
-                    else if (rotations == 3 & (square1Row == 0 | square1Col == 0))
+                    else if (rotations == 3 & square1Col == 0)
                     {
                         return;
                     }
@@ -1038,7 +1026,7 @@ namespace Tetris
             //Move piece down, or drop new piece if it can't move
             if (testMove("down") == true)
             {
-                //movePiece("down");
+                movePiece("down");
             }
             else
             {
