@@ -31,8 +31,6 @@ namespace Tetris
         int score = 0;
         int clears = 0;
         int level = 0;
-
-
         Color[] colorList = { Color.Cyan, Color.Orange, Color.Blue, Color.Green, Color.Red, Color.Yellow, Color.Purple };
 
         public Form1()
@@ -63,120 +61,49 @@ namespace Tetris
                     x.BackColor = Color.White;
                 }
             }
-            
 
-            if (nextPieceInt == 0)
+            /////////////////
+            //Draw next piece
+            Control[,] nextPieceArray = 
             {
-                nextPiece[0] = pictureBox203;
-                nextPiece[1] = pictureBox207;
-                nextPiece[2] = pictureBox211;
-                nextPiece[3] = pictureBox215;
-            }
-            else if (nextPieceInt == 1)
-            {
-                nextPiece[0] = pictureBox202;
-                nextPiece[1] = pictureBox206;
-                nextPiece[2] = pictureBox210;
-                nextPiece[3] = pictureBox211;
-            }
-            else if (nextPieceInt == 2)
-            {
-                nextPiece[0] = pictureBox203;
-                nextPiece[1] = pictureBox207;
-                nextPiece[2] = pictureBox211;
-                nextPiece[3] = pictureBox210;
-            }
-            else if (nextPieceInt == 3)
-            {
-                nextPiece[0] = pictureBox206;
-                nextPiece[1] = pictureBox207;
-                nextPiece[2] = pictureBox203;
-                nextPiece[3] = pictureBox204;
-            }
-            else if (nextPieceInt == 4)
-            {
-                nextPiece[0] = pictureBox202;
-                nextPiece[1] = pictureBox203;
-                nextPiece[2] = pictureBox207;
-                nextPiece[3] = pictureBox208;
-            }
-            else if (nextPieceInt == 5)
-            {
-                nextPiece[0] = pictureBox206;
-                nextPiece[1] = pictureBox207;
-                nextPiece[2] = pictureBox210;
-                nextPiece[3] = pictureBox211;
-            }
-            else if (nextPieceInt == 6)
-            {
-                nextPiece[0] = pictureBox207;
-                nextPiece[1] = pictureBox210;
-                nextPiece[2] = pictureBox211;
-                nextPiece[3] = pictureBox212;
-            }
-            
+                { pictureBox203, pictureBox207, pictureBox211, pictureBox215 }, // I piece
+                { pictureBox202, pictureBox206, pictureBox210, pictureBox211 }, // L piece
+                { pictureBox203, pictureBox207, pictureBox211, pictureBox210 }, // J piece
+                { pictureBox206, pictureBox207, pictureBox203, pictureBox204 }, // S piece
+                { pictureBox202, pictureBox203, pictureBox207, pictureBox208 }, // Z piece
+                { pictureBox206, pictureBox207, pictureBox210, pictureBox211 }, // O piece
+                { pictureBox207, pictureBox210, pictureBox211, pictureBox212 }  // T piece
+            };
 
-
-
-
-
-
-
-
-            if (currentPiece == 0)
+            //Select chosen piece
+            for (int x = 0; x < 4; x++)
             {
-                activePiece[0] = pictureBox6;
-                activePiece[1] = pictureBox16;
-                activePiece[2] = pictureBox26;
-                activePiece[3] = pictureBox36;
-            }
-            else if (currentPiece == 1)
-            {
-                activePiece[0] = pictureBox4;
-                activePiece[1] = pictureBox14;
-                activePiece[2] = pictureBox24;
-                activePiece[3] = pictureBox25;
-            }
-            else if (currentPiece == 2)
-            {
-                activePiece[0] = pictureBox5;
-                activePiece[1] = pictureBox15;
-                activePiece[2] = pictureBox25;
-                activePiece[3] = pictureBox24;
-            }
-            else if (currentPiece == 3)
-            {
-                activePiece[0] = pictureBox14;
-                activePiece[1] = pictureBox15;
-                activePiece[2] = pictureBox5;
-                activePiece[3] = pictureBox6;
-            }
-            else if (currentPiece == 4)
-            {
-                activePiece[0] = pictureBox5;
-                activePiece[1] = pictureBox6;
-                activePiece[2] = pictureBox16;
-                activePiece[3] = pictureBox17;
-            }
-            else if (currentPiece == 5)
-            {
-                activePiece[0] = pictureBox5;
-                activePiece[1] = pictureBox6;
-                activePiece[2] = pictureBox15;
-                activePiece[3] = pictureBox16;
-            }
-            else if (currentPiece == 6)
-            {
-                activePiece[0] = pictureBox6;
-                activePiece[1] = pictureBox15;
-                activePiece[2] = pictureBox16;
-                activePiece[3] = pictureBox17;
+                nextPiece[x] = nextPieceArray[nextPieceInt,x];
             }
 
             //Populate next piece panel with correct color
             foreach (Control square in nextPiece)
             {
                 square.BackColor = colorList[nextPieceInt];
+            }
+
+            ////////////////////
+            //Draw falling piece
+            Control[,] activePieceArray =
+            {
+                { pictureBox6, pictureBox16, pictureBox26, pictureBox36 }, // I piece
+                { pictureBox4, pictureBox14, pictureBox24, pictureBox25 }, // L piece
+                { pictureBox5, pictureBox15, pictureBox25, pictureBox24 }, // J piece
+                { pictureBox14, pictureBox15, pictureBox5, pictureBox6 }, // S piece
+                { pictureBox5, pictureBox6, pictureBox16, pictureBox17 }, // Z piece
+                { pictureBox5, pictureBox6, pictureBox15, pictureBox16 }, // O piece
+                { pictureBox6, pictureBox15, pictureBox16, pictureBox17 }  // T piece
+            };
+
+            //Select chosen piece
+            for (int x = 0; x < 4; x++)
+            {
+                activePiece[x] = activePieceArray[currentPiece, x];
             }
 
             //Populate falling piece with correct color
@@ -752,7 +679,6 @@ namespace Tetris
                 foreach (PictureBox square in activePiece2)
                 {
                     square.BackColor = colorList[currentPiece];
-                    //square.BackColor = pieceColor;
                     activePiece[x] = square;
                     x++;
                 }
@@ -1128,9 +1054,5 @@ namespace Tetris
             timer1.Interval = levelSpeed[level];
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
     }   
 }
