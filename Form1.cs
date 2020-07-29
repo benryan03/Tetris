@@ -52,7 +52,7 @@ namespace Tetris
             
             currentPiece = nextPieceInt;
             nextPieceInt = random.Next(7);
-            //currentPiece = 2;
+            //currentPiece = 3;
 
             /*
             Control[] nextPiecePanel =
@@ -225,7 +225,7 @@ namespace Tetris
             
         public bool testMove(string direction)
         {
-            int currentHighRow = 19;
+            int currentHighRow = 21;
             int currentLowRow = 0;
             int currentLeftCol = 9;
             int currentRightCol = 0;
@@ -282,12 +282,12 @@ namespace Tetris
                 }
 
                 //Down
-                else if (direction == "down" & squareRow < 19)
+                else if (direction == "down" & squareRow < 21)
                 {
                     newSquare = grid.GetControlFromPosition(squareCol, squareRow + 1);
                     nextSquare = currentLowRow;
                 }
-                else if (direction == "down" & squareRow == 19)
+                else if (direction == "down" & squareRow == 21)
                 {
                     return false;
                 }
@@ -611,10 +611,12 @@ namespace Tetris
                     //If test passes, rotate piece
                     if (rotations == 0)
                     {
+
                         activePiece2[0] = grid.GetControlFromPosition(square1Col + 1, square1Row - 2);
                         activePiece2[1] = grid.GetControlFromPosition(square2Col, square2Row - 1);
                         activePiece2[2] = grid.GetControlFromPosition(square3Col + 1, square3Row);
                         activePiece2[3] = grid.GetControlFromPosition(square4Col, square4Row + 1);
+
 
                         //Test if new position overlaps another piece. If it does, cancel rotation.
                         if (testOverlap() == true)
@@ -1036,7 +1038,7 @@ namespace Tetris
             //Move piece down, or drop new piece if it can't move
             if (testMove("down") == true)
             {
-                movePiece("down");
+                //movePiece("down");
             }
             else
             {
@@ -1138,7 +1140,7 @@ namespace Tetris
         private int checkForCompleteRows()
         {
             //For each row
-            for (int x = 19; x >= 0; x--)
+            for (int x = 21; x >= 2; x--)
             {
 
 
@@ -1172,6 +1174,11 @@ namespace Tetris
             };
 
             timer1.Interval = levelSpeed[level];
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }   
 }
