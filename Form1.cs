@@ -31,7 +31,9 @@ namespace Tetris
         int score = 0;
         int clears = 0;
         int level = 0;
-        Color[] colorList = { Color.Cyan, Color.Orange, Color.Blue, Color.Green, Color.Red, Color.Yellow, Color.Purple };
+
+        //I piece, L piece, J piece, S piece, Z piece, O piece, T piece
+        readonly Color[] colorList = { Color.Cyan, Color.Orange, Color.Blue, Color.Green, Color.Red, Color.Yellow, Color.Purple };
 
         public Form1()
         {
@@ -48,12 +50,16 @@ namespace Tetris
         public void DropNewPiece()
         {
             rotations = 0;
+
+            //Move next piece to current piece
             currentPiece = nextPieceInt;
+            //currentPiece = 3; //debug
+
+            //Determine next piece
             System.Random random = new System.Random();
             nextPieceInt = random.Next(7);
-            //currentPiece = 3;
 
-            //If not first move
+            //If not first move, clear next piece panel
             if (nextPiece.Contains(null) == false)
             {
                 foreach (Control x in nextPiece)
@@ -62,8 +68,8 @@ namespace Tetris
                 }
             }
 
-            /////////////////
-            //Draw next piece
+            ///////////////////////////////
+            //Layout options for next piece
             Control[,] nextPieceArray = 
             {
                 { pictureBox203, pictureBox207, pictureBox211, pictureBox215 }, // I piece
@@ -75,7 +81,7 @@ namespace Tetris
                 { pictureBox207, pictureBox210, pictureBox211, pictureBox212 }  // T piece
             };
 
-            //Select chosen piece
+            //Select generated next piece
             for (int x = 0; x < 4; x++)
             {
                 nextPiece[x] = nextPieceArray[nextPieceInt,x];
@@ -87,26 +93,26 @@ namespace Tetris
                 square.BackColor = colorList[nextPieceInt];
             }
 
-            ////////////////////
-            //Draw falling piece
+            //////////////////////////////////
+            //Layout options for falling piece
             Control[,] activePieceArray =
             {
                 { pictureBox6, pictureBox16, pictureBox26, pictureBox36 }, // I piece
                 { pictureBox4, pictureBox14, pictureBox24, pictureBox25 }, // L piece
                 { pictureBox5, pictureBox15, pictureBox25, pictureBox24 }, // J piece
-                { pictureBox14, pictureBox15, pictureBox5, pictureBox6 }, // S piece
-                { pictureBox5, pictureBox6, pictureBox16, pictureBox17 }, // Z piece
-                { pictureBox5, pictureBox6, pictureBox15, pictureBox16 }, // O piece
+                { pictureBox14, pictureBox15, pictureBox5, pictureBox6 },  // S piece
+                { pictureBox5, pictureBox6, pictureBox16, pictureBox17 },  // Z piece
+                { pictureBox5, pictureBox6, pictureBox15, pictureBox16 },  // O piece
                 { pictureBox6, pictureBox15, pictureBox16, pictureBox17 }  // T piece
             };
 
-            //Select chosen piece
+            //Select falling piece
             for (int x = 0; x < 4; x++)
             {
                 activePiece[x] = activePieceArray[currentPiece, x];
             }
 
-            //Populate falling piece with correct color
+            //Populate falling piece squares with correct color
             foreach (Control square in activePiece)
             {
                 square.BackColor = colorList[currentPiece];
@@ -1045,14 +1051,19 @@ namespace Tetris
             level++;
             label5.Text = "Level " + level.ToString();
 
+            //Milliseconds per square fall
+            //Level 1 = 800 ms per square, level 2 = 716 ms per square, etc.
             int[] levelSpeed =
             {
                 800, 716, 633, 555, 466, 383, 300, 216, 133, 100, 083, 083, 083, 066, 066,
                 066, 050, 050, 050, 033, 033, 033, 033, 033, 033, 033, 033, 033, 033, 016
             };
 
-            timer1.Interval = levelSpeed[level];
+            //Level speed does not change after level 29
+            if (level <= 29)
+            {
+                timer1.Interval = levelSpeed[level];
+            }
         }
-
     }   
 }
