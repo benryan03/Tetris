@@ -72,13 +72,13 @@ namespace Tetris
             //Layout options for next piece
             Control[,] nextPieceArray = 
             {
-                { pictureBox203, pictureBox207, pictureBox211, pictureBox215 }, // I piece
-                { pictureBox202, pictureBox206, pictureBox210, pictureBox211 }, // L piece
-                { pictureBox203, pictureBox207, pictureBox211, pictureBox210 }, // J piece
-                { pictureBox206, pictureBox207, pictureBox203, pictureBox204 }, // S piece
-                { pictureBox202, pictureBox203, pictureBox207, pictureBox208 }, // Z piece
-                { pictureBox206, pictureBox207, pictureBox210, pictureBox211 }, // O piece
-                { pictureBox207, pictureBox210, pictureBox211, pictureBox212 }  // T piece
+                { box203, box207, box211, box215 }, // I piece
+                { box202, box206, box210, box211 }, // L piece
+                { box203, box207, box211, box210 }, // J piece
+                { box206, box207, box203, box204 }, // S piece
+                { box202, box203, box207, box208 }, // Z piece
+                { box206, box207, box210, box211 }, // O piece
+                { box207, box210, box211, box212 }  // T piece
             };
 
             //Select generated next piece
@@ -97,13 +97,13 @@ namespace Tetris
             //Layout options for falling piece
             Control[,] activePieceArray =
             {
-                { pictureBox6, pictureBox16, pictureBox26, pictureBox36 }, // I piece
-                { pictureBox4, pictureBox14, pictureBox24, pictureBox25 }, // L piece
-                { pictureBox5, pictureBox15, pictureBox25, pictureBox24 }, // J piece
-                { pictureBox14, pictureBox15, pictureBox5, pictureBox6 },  // S piece
-                { pictureBox5, pictureBox6, pictureBox16, pictureBox17 },  // Z piece
-                { pictureBox5, pictureBox6, pictureBox15, pictureBox16 },  // O piece
-                { pictureBox6, pictureBox15, pictureBox16, pictureBox17 }  // T piece
+                { box6, box16, box26, box36 }, // I piece
+                { box4, box14, box24, box25 }, // L piece
+                { box5, box15, box25, box24 }, // J piece
+                { box14, box15, box5, box6 },  // S piece
+                { box5, box6, box16, box17 },  // Z piece
+                { box5, box6, box15, box16 },  // O piece
+                { box6, box15, box16, box17 }  // T piece
             };
 
             //Select falling piece
@@ -704,58 +704,58 @@ namespace Tetris
 
                     if (savedPieceInt == 0)
                     {
-                        savedPiece[0] = pictureBox219;
-                        savedPiece[1] = pictureBox223;
-                        savedPiece[2] = pictureBox227;
-                        savedPiece[3] = pictureBox231;
+                        savedPiece[0] = box219;
+                        savedPiece[1] = box223;
+                        savedPiece[2] = box227;
+                        savedPiece[3] = box231;
                         savedPieceColor = Color.Cyan;
                     }
                     else if (savedPieceInt == 1)
                     {
-                        savedPiece[0] = pictureBox218;
-                        savedPiece[1] = pictureBox222;
-                        savedPiece[2] = pictureBox226;
-                        savedPiece[3] = pictureBox227;
+                        savedPiece[0] = box218;
+                        savedPiece[1] = box222;
+                        savedPiece[2] = box226;
+                        savedPiece[3] = box227;
                         savedPieceColor = Color.Orange;
                     }
                     else if (savedPieceInt == 2)
                     {
-                        savedPiece[0] = pictureBox219;
-                        savedPiece[1] = pictureBox223;
-                        savedPiece[2] = pictureBox227;
-                        savedPiece[3] = pictureBox210;
+                        savedPiece[0] = box219;
+                        savedPiece[1] = box223;
+                        savedPiece[2] = box227;
+                        savedPiece[3] = box210;
                         savedPieceColor = Color.Blue;
                     }
                     else if (savedPieceInt == 3)
                     {
-                        savedPiece[0] = pictureBox222;
-                        savedPiece[1] = pictureBox223;
-                        savedPiece[2] = pictureBox219;
-                        savedPiece[3] = pictureBox220;
+                        savedPiece[0] = box222;
+                        savedPiece[1] = box223;
+                        savedPiece[2] = box219;
+                        savedPiece[3] = box220;
                         savedPieceColor = Color.Green;
                     }
                     else if (savedPieceInt == 4)
                     {
-                        savedPiece[0] = pictureBox218;
-                        savedPiece[1] = pictureBox219;
-                        savedPiece[2] = pictureBox222;
-                        savedPiece[3] = pictureBox223;
+                        savedPiece[0] = box218;
+                        savedPiece[1] = box219;
+                        savedPiece[2] = box222;
+                        savedPiece[3] = box223;
                         savedPieceColor = Color.Red;
                     }
                     else if (savedPieceInt == 5)
                     {
-                        savedPiece[0] = pictureBox222;
-                        savedPiece[1] = pictureBox223;
-                        savedPiece[2] = pictureBox226;
-                        savedPiece[3] = pictureBox227;
+                        savedPiece[0] = box222;
+                        savedPiece[1] = box223;
+                        savedPiece[2] = box226;
+                        savedPiece[3] = box227;
                         savedPieceColor = Color.Yellow;
                     }
                     else if (savedPieceInt == 6)
                     {
-                        savedPiece[0] = pictureBox223;
-                        savedPiece[1] = pictureBox226;
-                        savedPiece[2] = pictureBox227;
-                        savedPiece[3] = pictureBox228;
+                        savedPiece[0] = box223;
+                        savedPiece[1] = box226;
+                        savedPiece[2] = box227;
+                        savedPiece[3] = box228;
                         savedPieceColor = Color.Purple;
                     }
 
@@ -787,58 +787,58 @@ namespace Tetris
                     //Populate squares in saved piece panel
                     if (savedPieceInt == 0)
                     {
-                        savedPiece[0] = pictureBox219;
-                        savedPiece[1] = pictureBox223;
-                        savedPiece[2] = pictureBox227;
-                        savedPiece[3] = pictureBox231;
+                        savedPiece[0] = box219;
+                        savedPiece[1] = box223;
+                        savedPiece[2] = box227;
+                        savedPiece[3] = box231;
                         savedPieceColor = Color.Cyan;
                     }
                     else if (savedPieceInt == 1)
                     {
-                        savedPiece[0] = pictureBox218;
-                        savedPiece[1] = pictureBox222;
-                        savedPiece[2] = pictureBox226;
-                        savedPiece[3] = pictureBox227;
+                        savedPiece[0] = box218;
+                        savedPiece[1] = box222;
+                        savedPiece[2] = box226;
+                        savedPiece[3] = box227;
                         savedPieceColor = Color.Orange;
                     }
                     else if (savedPieceInt == 2)
                     {
-                        savedPiece[0] = pictureBox219;
-                        savedPiece[1] = pictureBox223;
-                        savedPiece[2] = pictureBox227;
-                        savedPiece[3] = pictureBox226;
+                        savedPiece[0] = box219;
+                        savedPiece[1] = box223;
+                        savedPiece[2] = box227;
+                        savedPiece[3] = box226;
                         savedPieceColor = Color.Blue;
                     }
                     else if (savedPieceInt == 3)
                     {
-                        savedPiece[0] = pictureBox222;
-                        savedPiece[1] = pictureBox223;
-                        savedPiece[2] = pictureBox219;
-                        savedPiece[3] = pictureBox220;
+                        savedPiece[0] = box222;
+                        savedPiece[1] = box223;
+                        savedPiece[2] = box219;
+                        savedPiece[3] = box220;
                         savedPieceColor = Color.Green;
                     }
                     else if (savedPieceInt == 4)
                     {
-                        savedPiece[0] = pictureBox218;
-                        savedPiece[1] = pictureBox219;
-                        savedPiece[2] = pictureBox223;
-                        savedPiece[3] = pictureBox224;
+                        savedPiece[0] = box218;
+                        savedPiece[1] = box219;
+                        savedPiece[2] = box223;
+                        savedPiece[3] = box224;
                         savedPieceColor = Color.Red;
                     }
                     else if (savedPieceInt == 5)
                     {
-                        savedPiece[0] = pictureBox222;
-                        savedPiece[1] = pictureBox223;
-                        savedPiece[2] = pictureBox226;
-                        savedPiece[3] = pictureBox227;
+                        savedPiece[0] = box222;
+                        savedPiece[1] = box223;
+                        savedPiece[2] = box226;
+                        savedPiece[3] = box227;
                         savedPieceColor = Color.Yellow;
                     }
                     else if (savedPieceInt == 6)
                     {
-                        savedPiece[0] = pictureBox223;
-                        savedPiece[1] = pictureBox226;
-                        savedPiece[2] = pictureBox227;
-                        savedPiece[3] = pictureBox228;
+                        savedPiece[0] = box223;
+                        savedPiece[1] = box226;
+                        savedPiece[2] = box227;
+                        savedPiece[3] = box228;
                         savedPieceColor = Color.Purple;
                     }
 
@@ -853,58 +853,58 @@ namespace Tetris
                     //Populate new falling piece
                     if (currentPiece == 0)
                     {
-                        activePiece[0] = pictureBox6;
-                        activePiece[1] = pictureBox16;
-                        activePiece[2] = pictureBox26;
-                        activePiece[3] = pictureBox36;
+                        activePiece[0] = box6;
+                        activePiece[1] = box16;
+                        activePiece[2] = box26;
+                        activePiece[3] = box36;
                         pieceColor = Color.Cyan;
                     }
                     else if (currentPiece == 1)
                     {
-                        activePiece[0] = pictureBox4;
-                        activePiece[1] = pictureBox14;
-                        activePiece[2] = pictureBox24;
-                        activePiece[3] = pictureBox25;
+                        activePiece[0] = box4;
+                        activePiece[1] = box14;
+                        activePiece[2] = box24;
+                        activePiece[3] = box25;
                         pieceColor = Color.Orange;
                     }
                     else if (currentPiece == 2)
                     {
-                        activePiece[0] = pictureBox5;
-                        activePiece[1] = pictureBox15;
-                        activePiece[2] = pictureBox25;
-                        activePiece[3] = pictureBox24;
+                        activePiece[0] = box5;
+                        activePiece[1] = box15;
+                        activePiece[2] = box25;
+                        activePiece[3] = box24;
                         pieceColor = Color.Blue;
                     }
                     else if (currentPiece == 3)
                     {
-                        activePiece[0] = pictureBox14;
-                        activePiece[1] = pictureBox15;
-                        activePiece[2] = pictureBox5;
-                        activePiece[3] = pictureBox6;
+                        activePiece[0] = box14;
+                        activePiece[1] = box15;
+                        activePiece[2] = box5;
+                        activePiece[3] = box6;
                         pieceColor = Color.Green;
                     }
                     else if (currentPiece == 4)
                     {
-                        activePiece[0] = pictureBox5;
-                        activePiece[1] = pictureBox6;
-                        activePiece[2] = pictureBox16;
-                        activePiece[3] = pictureBox17;
+                        activePiece[0] = box5;
+                        activePiece[1] = box6;
+                        activePiece[2] = box16;
+                        activePiece[3] = box17;
                         pieceColor = Color.Red;
                     }
                     else if (currentPiece == 5)
                     {
-                        activePiece[0] = pictureBox5;
-                        activePiece[1] = pictureBox6;
-                        activePiece[2] = pictureBox15;
-                        activePiece[3] = pictureBox16;
+                        activePiece[0] = box5;
+                        activePiece[1] = box6;
+                        activePiece[2] = box15;
+                        activePiece[3] = box16;
                         pieceColor = Color.Yellow;
                     }
                     else if (currentPiece == 6)
                     {
-                        activePiece[0] = pictureBox6;
-                        activePiece[1] = pictureBox15;
-                        activePiece[2] = pictureBox16;
-                        activePiece[3] = pictureBox17;
+                        activePiece[0] = box6;
+                        activePiece[1] = box15;
+                        activePiece[2] = box16;
+                        activePiece[3] = box17;
                         pieceColor = Color.Purple;
                     }
 
