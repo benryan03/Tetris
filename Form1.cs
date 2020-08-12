@@ -53,7 +53,6 @@ namespace Tetris
 
             //Move next piece to current piece
             currentPiece = nextPieceInt;
-            //currentPiece = 3; //debug
 
             //Determine next piece
             System.Random random = new System.Random();
@@ -110,6 +109,13 @@ namespace Tetris
             for (int x = 0; x < 4; x++)
             {
                 activePiece[x] = activePieceArray[currentPiece, x];
+            }
+
+            if (CheckGameOver() == true)
+            {
+                timer1.Stop();
+                timer2.Stop();
+                MessageBox.Show("Game over!");
             }
 
             //Populate falling piece squares with correct color
@@ -919,19 +925,38 @@ namespace Tetris
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            //Move piece down, or drop new piece if it can't move
-            if (TestMove("down") == true)
+            if (CheckGameOver() == true)
             {
-                MovePiece("down");
+                timer1.Stop();
+                timer2.Stop();
+                MessageBox.Show("Game over!");
             }
+
             else
             {
-                if (CheckForCompleteRows() > -1)
+                //Move piece down, or drop new piece if it can't move
+                if (TestMove("down") == true)
                 {
-                    ClearFullRow();
+                    MovePiece("down");
                 }
-                DropNewPiece();
+                else
+                {
+                    if (CheckGameOver() == true)
+                    {
+                        timer1.Stop();
+                        timer2.Stop();
+                        MessageBox.Show("Game over!");
+                    }
+
+                    if (CheckForCompleteRows() > -1)
+                    {
+                        ClearFullRow();
+                    }
+                    DropNewPiece();
+
+                }
             }
+
         }
 
         private void Timer2_Tick(object sender, EventArgs e)
@@ -1064,6 +1089,22 @@ namespace Tetris
             {
                 timer1.Interval = levelSpeed[level];
             }
+        }
+
+        private bool CheckGameOver()
+        {
+            Control[] topRow = { box1, box2, box3, box4, box5, box6, box7, box8, box9, box10 };
+
+            foreach (Control box in topRow)
+            {
+                if (box.BackColor != Color.White & !activePiece.Contains(box))
+                {
+                    //Game over!
+                    return true;
+                }
+            }
+
+            return false;
         }
     }   
 }
