@@ -31,6 +31,7 @@ namespace Tetris
         int score = 0;
         int clears = 0;
         int level = 0;
+        bool gameOver = false;
 
         //I piece, L piece, J piece, S piece, Z piece, O piece, T piece
         readonly Color[] colorList = { Color.Cyan, Color.Orange, Color.Blue, Color.Green, Color.Red, Color.Yellow, Color.Purple };
@@ -111,19 +112,29 @@ namespace Tetris
                 activePiece[x] = activePieceArray[currentPiece, x];
             }
 
-            if (CheckGameOver() == true)
+
+
+
+
+            //Check for game over
+            foreach (Control box in activePiece)
             {
-                timer1.Stop();
-                timer2.Stop();
-                MessageBox.Show("Game over!");
-            }
-            else if (CheckGameOver() == false)
-            {
-                //Populate falling piece squares with correct color
-                foreach (Control square in activePiece)
+                if (box.BackColor != Color.White)
                 {
-                    square.BackColor = colorList[currentPiece];
+                    //Game over!
+                    timer1.Stop();
+                    timer2.Stop();
+                    gameOver = true;
+                    MessageBox.Show("Game over!");
+                    return;
                 }
+            }
+
+
+            //Populate falling piece squares with correct color
+            foreach (Control square in activePiece)
+            {
+                square.BackColor = colorList[currentPiece];
             }
 
         }
@@ -1105,6 +1116,11 @@ namespace Tetris
                     //Game over!
                     return true;
                 }
+            }
+
+            if (gameOver == true)
+            {
+                return true;
             }
 
             return false;
