@@ -117,12 +117,15 @@ namespace Tetris
                 timer2.Stop();
                 MessageBox.Show("Game over!");
             }
-
-            //Populate falling piece squares with correct color
-            foreach (Control square in activePiece)
+            else if (CheckGameOver() == false)
             {
-                square.BackColor = colorList[currentPiece];
+                //Populate falling piece squares with correct color
+                foreach (Control square in activePiece)
+                {
+                    square.BackColor = colorList[currentPiece];
+                }
             }
+
         }
             
         public bool TestMove(string direction)
@@ -257,11 +260,11 @@ namespace Tetris
                     
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {   
-            if ((e.KeyCode == Keys.Left | e.KeyCode == Keys.A) & TestMove("left") == true)
+            if (!CheckGameOver() & ((e.KeyCode == Keys.Left | e.KeyCode == Keys.A) & TestMove("left") == true))
             {
                 MovePiece("left");
             }
-            else if ((e.KeyCode == Keys.Right | e.KeyCode == Keys.D) & TestMove("right") == true)
+            else if (!CheckGameOver() & ((e.KeyCode == Keys.Right | e.KeyCode == Keys.D) & TestMove("right") == true))
             {
                 MovePiece("right");
             }
@@ -695,7 +698,7 @@ namespace Tetris
                     x++;
                 }
             }
-            else if (e.KeyCode == Keys.ShiftKey)
+            else if (!CheckGameOver() & e.KeyCode == Keys.ShiftKey)
             {
                 rotations = 0;
 
