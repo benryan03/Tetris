@@ -140,7 +140,7 @@ namespace Tetris
                 square.BackColor = colorList[currentPiece];
             }
 
-            //DrawGhost();
+            DrawGhost();
 
         }
             
@@ -1149,7 +1149,6 @@ namespace Tetris
                         x.BackColor = Color.White;
 
                     }
-
                 }
             }
 
@@ -1157,7 +1156,6 @@ namespace Tetris
             for (int x = 0; x < 4; x++)
             {
                 Ghost[x] = activePiece[x];
-
             }
 
             for (int x = 21; x > 1; x--)
@@ -1166,11 +1164,6 @@ namespace Tetris
                 for (int y = 0; y < 4; y++)
                 {
                     int squareRow = grid.GetRow(Ghost[y]);
-                    if (squareRow == 21)
-                    {
-                        return;
-                    }
-
                     int squareCol = grid.GetColumn(Ghost[y]);
                     Ghost[y] = grid.GetControlFromPosition(squareCol, x);
                 }
