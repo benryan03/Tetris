@@ -140,7 +140,7 @@ namespace Tetris
                 square.BackColor = colorList[currentPiece];
             }
 
-            DrawGhost();
+            //DrawGhost();
 
         }
             
@@ -701,6 +701,7 @@ namespace Tetris
                     }
                 }
 
+
                 //Set old position of piece to white
                 foreach (PictureBox square in activePiece)
                 {
@@ -715,6 +716,9 @@ namespace Tetris
                     activePiece[x] = square;
                     x++;
                 }
+
+                DrawGhost();
+
             }
             else if (!CheckGameOver() & e.KeyCode == Keys.ShiftKey)
             {
@@ -1135,31 +1139,59 @@ namespace Tetris
 
         private void DrawGhost()
         {
+            //Erase previous Ghost
             foreach (Control x in Ghost)
             {
-                if (x != null)
+                if (x != null )
                 {
-                    x.BackColor = Color.White;
+                    if (x.BackColor == Color.LightGray)
+                    {
+                        x.BackColor = Color.White;
+
+                    }
 
                 }
             }
 
+            //Copy activePiece to Ghost
             for (int x = 0; x < 4; x++)
             {
                 Ghost[x] = activePiece[x];
 
             }
 
-            for (int y = 0; y < 4; y++)
+            for (int x = 21; x > 1; x--)
             {
+                //Test current X
+                for (int y = 0; y < 4; y++)
+                {
+                    int squareRow = grid.GetRow(Ghost[y]);
+                    if (squareRow == 21)
+                    {
+                        return;
+                    }
 
+                    int squareCol = grid.GetColumn(Ghost[y]);
+                    Ghost[y] = grid.GetControlFromPosition(squareCol, x);
+                }
 
-                //int squareRow = grid.GetRow(Ghost[y]);
-                int squareCol = grid.GetColumn(Ghost[y]);
-                Ghost[y] = grid.GetControlFromPosition(squareCol, 21);
-                Ghost[y].BackColor = Color.LightGray;
-
+                //If all squares in Ghost are white, turn them gray
+                if (Ghost[0].BackColor == Color.White & Ghost[1].BackColor == Color.White & Ghost[2].BackColor == Color.White & Ghost[3].BackColor == Color.White)
+                {
+                    Ghost[0].BackColor = Color.LightGray;
+                    Ghost[1].BackColor = Color.LightGray;
+                    Ghost[2].BackColor = Color.LightGray;
+                    Ghost[3].BackColor = Color.LightGray;
+                    return;
+                }
+                else
+                {
+                    continue;
+                }
             }
+
+
+
         }
     }   
 }
