@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace Tetris
 {
@@ -19,6 +20,8 @@ namespace Tetris
         Control[] activePiece2 = { null, null, null, null };
         Control[] nextPiece = { null, null, null, null };
         Control[] savedPiece = { null, null, null, null };
+        Control[] Ghost = { null, null, null, null };
+
         int timeElapsed = 0;
         int currentPiece;
         int nextPieceInt;
@@ -119,7 +122,7 @@ namespace Tetris
             //Check for game over
             foreach (Control box in activePiece)
             {
-                if (box.BackColor != Color.White)
+                if (box.BackColor != Color.White & box.BackColor != Color.LightGray)
                 {
                     //Game over!
                     timer1.Stop();
@@ -136,6 +139,8 @@ namespace Tetris
             {
                 square.BackColor = colorList[currentPiece];
             }
+
+            DrawGhost();
 
         }
             
@@ -208,7 +213,7 @@ namespace Tetris
                     return false;
                 }
 
-                if (newSquare.BackColor != Color.White & activePiece.Contains(newSquare) == false & nextSquare > 0)
+                if ((newSquare.BackColor != Color.White & newSquare.BackColor != Color.LightGray) & activePiece.Contains(newSquare) == false & nextSquare > 0)
                 {
                     return false;
                 }
@@ -255,13 +260,15 @@ namespace Tetris
                 activePiece[x] = square;
                 x++;
             }
+
+            DrawGhost();
         }
 
         private bool TestOverlap()
         {
             foreach (PictureBox square in activePiece2)
             {
-                if (square.BackColor != Color.White & activePiece.Contains(square) == false)
+                if ((square.BackColor != Color.White & square.BackColor != Color.LightGray) & activePiece.Contains(square) == false)
                 {
                     return false;
                 }
@@ -1111,7 +1118,7 @@ namespace Tetris
 
             foreach (Control box in topRow)
             {
-                if (box.BackColor != Color.White & !activePiece.Contains(box))
+                if ((box.BackColor != Color.White & box.BackColor != Color.LightGray) & !activePiece.Contains(box))
                 {
                     //Game over!
                     return true;
@@ -1124,6 +1131,35 @@ namespace Tetris
             }
 
             return false;
+        }
+
+        private void DrawGhost()
+        {
+            foreach (Control x in Ghost)
+            {
+                if (x != null)
+                {
+                    x.BackColor = Color.White;
+
+                }
+            }
+
+            for (int x = 0; x < 4; x++)
+            {
+                Ghost[x] = activePiece[x];
+
+            }
+
+            for (int y = 0; y < 4; y++)
+            {
+
+
+                //int squareRow = grid.GetRow(Ghost[y]);
+                int squareCol = grid.GetColumn(Ghost[y]);
+                Ghost[y] = grid.GetControlFromPosition(squareCol, 21);
+                Ghost[y].BackColor = Color.LightGray;
+
+            }
         }
     }   
 }
