@@ -18,3 +18,13 @@ C:\Users\Ben\Desktop\C#\Tetris\obj\Debug\Tetris.csproj.GenerateResource.cache
 C:\Users\Ben\Desktop\C#\Tetris\obj\Debug\Tetris.csproj.CoreCompileInputs.cache
 C:\Users\Ben\Desktop\C#\Tetris\obj\Debug\Tetris.exe
 C:\Users\Ben\Desktop\C#\Tetris\obj\Debug\Tetris.pdb
+C:\GitHub\Tetris\bin\Debug\Tetris.exe.config
+C:\GitHub\Tetris\bin\Debug\Tetris.exe
+C:\GitHub\Tetris\bin\Debug\Tetris.pdb
+C:\GitHub\Tetris\obj\Debug\Tetris.csprojAssemblyReference.cache
+C:\GitHub\Tetris\obj\Debug\Tetris.Form1.resources
+C:\GitHub\Tetris\obj\Debug\Tetris.Properties.Resources.resources
+C:\GitHub\Tetris\obj\Debug\Tetris.csproj.GenerateResource.cache
+C:\GitHub\Tetris\obj\Debug\Tetris.csproj.CoreCompileInputs.cache
+C:\GitHub\Tetris\obj\Debug\Tetris.exe
+C:\GitHub\Tetris\obj\Debug\Tetris.pdb

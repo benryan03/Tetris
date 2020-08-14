@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -61,6 +62,7 @@ namespace Tetris
             //Determine next piece
             System.Random random = new System.Random();
             nextPieceInt = random.Next(7);
+            //nextPieceInt = 0;
 
             //If not first move, clear next piece panel
             if (nextPiece.Contains(null) == false)
@@ -115,10 +117,6 @@ namespace Tetris
                 activePiece[x] = activePieceArray[currentPiece, x];
             }
 
-
-
-
-
             //Check for game over
             foreach (Control box in activePiece)
             {
@@ -133,6 +131,7 @@ namespace Tetris
                 }
             }
 
+            DrawGhost();
 
             //Populate falling piece squares with correct color
             foreach (Control square in activePiece)
@@ -140,7 +139,7 @@ namespace Tetris
                 square.BackColor = colorList[currentPiece];
             }
 
-            DrawGhost();
+            
 
         }
             
@@ -225,6 +224,9 @@ namespace Tetris
 
         public void MovePiece(string direction)
         {
+
+
+
             int x = 0;
             foreach (PictureBox square in activePiece)
             {
@@ -252,16 +254,26 @@ namespace Tetris
                 activePiece2[x] = grid.GetControlFromPosition(newSquareCol, newSquareRow);
                 x++;
             }
+
+
             x = 0;
             foreach (PictureBox square in activePiece2)
             {
-                square.BackColor = colorList[currentPiece];
-                //square.BackColor = pieceColor;
+
                 activePiece[x] = square;
                 x++;
             }
 
             DrawGhost();
+
+
+            x = 0;
+            foreach (PictureBox square in activePiece2)
+            {
+                square.BackColor = colorList[currentPiece];
+                x++;
+            }
+
         }
 
         private bool TestOverlap()
@@ -1158,18 +1170,107 @@ namespace Tetris
                 Ghost[x] = activePiece[x];
             }
 
+            /*
+            { box6, box16, box26, box36 }, // I piece
+            { box4, box14, box24, box25 }, // L piece
+            { box5, box15, box25, box24 }, // J piece
+            { box14, box15, box5, box6 },  // S piece
+            { box5, box6, box16, box17 },  // Z piece
+            { box5, box6, box15, box16 },  // O piece
+            { box6, box15, box16, box17 }  // T piece
+            */
+
             for (int x = 21; x > 1; x--)
             {
-                //Test current X
-                for (int y = 0; y < 4; y++)
+                //Get position of Ghost, starting at bottom row
+                if (currentPiece == 0) //I piece
                 {
-                    int squareRow = grid.GetRow(Ghost[y]);
-                    int squareCol = grid.GetColumn(Ghost[y]);
-                    Ghost[y] = grid.GetControlFromPosition(squareCol, x);
+                    //MessageBox.Show(grid.GetRow(Ghost[3]).ToString() + " " + x.ToString());
+
+                    Ghost[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                    Ghost[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost[1]), x - 1);
+                    Ghost[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost[2]), x - 2);
+                    Ghost[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost[3]), x - 3);
+
+                    /*
+                    if (x - grid.GetRow(Ghost[3]) == 3)
+                    {
+                        Ghost[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                        Ghost[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost[1]), x - 1);
+                        Ghost[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost[2]), x - 2);
+                        Ghost[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                    }
+                    else if (x - grid.GetRow(Ghost[3]) == 2)
+                    {
+                        Ghost[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                        Ghost[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost[1]), x - 1);
+                        Ghost[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                        Ghost[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                    }
+                    else if (x - grid.GetRow(Ghost[3]) == 1)
+                    {
+                        Ghost[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                        Ghost[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                        Ghost[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                        Ghost[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                    }
+                    else
+                    {
+                        Ghost[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                        Ghost[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost[1]), x - 1);
+                        Ghost[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost[2]), x - 2);
+                        Ghost[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost[3]), x - 3);
+                    }
+                    */
+                }
+                else if (currentPiece == 1) // L piece
+                {
+                    Ghost[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x - 2);
+                    Ghost[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost[1]), x - 1);
+                    Ghost[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost[2]), x);
+                    Ghost[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost[3]), x);
+                }
+                else if (currentPiece == 2) // J piece
+                {
+                    Ghost[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x - 2);
+                    Ghost[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost[1]), x - 1);
+                    Ghost[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost[2]), x);
+                    Ghost[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost[3]), x);
+                }
+                else if (currentPiece == 3) // S piece
+                {
+                    Ghost[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x);
+                    Ghost[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost[1]), x);
+                    Ghost[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost[2]), x - 1);
+                    Ghost[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost[3]), x - 1);
+                }
+                else if (currentPiece == 4) // Z piece
+                {
+                    Ghost[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x - 1);
+                    Ghost[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost[1]), x - 1);
+                    Ghost[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost[2]), x);
+                    Ghost[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost[3]), x);
+                }
+                else if (currentPiece == 5) // O piece
+                {
+                    Ghost[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x - 1);
+                    Ghost[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost[1]), x - 1);
+                    Ghost[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost[2]), x);
+                    Ghost[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost[3]), x);
+                }
+                else if (currentPiece == 6) //T piece
+                {
+                    Ghost[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost[0]), x - 1);
+                    Ghost[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost[1]), x);
+                    Ghost[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost[2]), x);
+                    Ghost[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost[3]), x);
                 }
 
                 //If all squares in Ghost are white, turn them gray
-                if (Ghost[0].BackColor == Color.White & Ghost[1].BackColor == Color.White & Ghost[2].BackColor == Color.White & Ghost[3].BackColor == Color.White)
+                if ((Ghost[0].BackColor == Color.White | activePiece.Contains(Ghost[0])) &
+                    (Ghost[1].BackColor == Color.White | activePiece.Contains(Ghost[1])) &
+                    (Ghost[2].BackColor == Color.White | activePiece.Contains(Ghost[2])) &
+                    (Ghost[3].BackColor == Color.White | activePiece.Contains(Ghost[3])))
                 {
                     Ghost[0].BackColor = Color.LightGray;
                     Ghost[1].BackColor = Color.LightGray;
@@ -1177,6 +1278,7 @@ namespace Tetris
                     Ghost[3].BackColor = Color.LightGray;
                     return;
                 }
+                //If not, check the next row up
                 else
                 {
                     continue;
