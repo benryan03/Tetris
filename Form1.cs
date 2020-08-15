@@ -1179,10 +1179,20 @@ namespace Tetris
                 // Get position of test Ghost2, starting at bottom row
                 if (currentPiece == 0) //I piece
                 {
-                    Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
-                    Ghost2[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[1]), x - 1);
-                    Ghost2[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[2]), x - 2);
-                    Ghost2[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[3]), x - 3);
+                    if (x == 2)
+                    {
+                        Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
+                        Ghost2[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
+                        Ghost2[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
+                        Ghost2[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
+                    }
+                    else
+                    {
+                        Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
+                        Ghost2[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[1]), x - 1);
+                        Ghost2[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[2]), x - 2);
+                        Ghost2[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[3]), x - 3);
+                    }
                 }
                 else if (currentPiece == 1) // L piece
                 {
