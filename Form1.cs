@@ -302,6 +302,8 @@ namespace Tetris
             }
             else if (e.KeyCode == Keys.Up | e.KeyCode == Keys.W)
             {
+
+
                 //Rotate
 
                 int square1Col = grid.GetColumn(activePiece[0]);
@@ -712,11 +714,16 @@ namespace Tetris
                 }
 
 
+
                 //Set old position of piece to white
                 foreach (PictureBox square in activePiece)
                 {
                     square.BackColor = Color.White;
                 }
+
+
+                DrawGhost();
+
 
                 //Set new position of piece to that piece's color
                 int x = 0;
@@ -727,7 +734,6 @@ namespace Tetris
                     x++;
                 }
 
-                DrawGhost();
 
             }
             else if (!CheckGameOver() & e.KeyCode == Keys.ShiftKey)
@@ -956,6 +962,8 @@ namespace Tetris
 
                 }
             }
+        
+
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
@@ -1200,14 +1208,14 @@ namespace Tetris
                     }
                     else if (rotations == 1)
                     {
-                        if (x == 2)
+                        if (x == 2) //ignore
                         {
                             Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
                             Ghost2[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
                             Ghost2[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
                             Ghost2[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
                         }
-                        else
+                        else //problem
                         {
                             Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
                             Ghost2[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[1]), x);
