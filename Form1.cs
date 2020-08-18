@@ -48,7 +48,13 @@ namespace Tetris
             timer2.Start();
 
             System.Random random = new System.Random();
-            nextPieceInt = random.Next(7);
+            //nextPieceInt = random.Next(7);
+            nextPieceInt = random.Next(0);
+
+            activePiece2[0] = box1;
+            activePiece2[1] = box2;
+            activePiece2[2] = box3;
+            activePiece2[3] = box4;
 
             DropNewPiece();
         }
@@ -118,6 +124,21 @@ namespace Tetris
                 activePiece[x] = activePieceArray[currentPiece, x];
             }
 
+
+
+
+
+            for (int x = 0; x < 4; x++)
+            {
+                activePiece2[x] = activePieceArray[currentPiece, x];
+            }
+
+
+
+
+
+
+
             //Check for game over
             foreach (Control box in activePiece)
             {
@@ -140,10 +161,10 @@ namespace Tetris
                 square.BackColor = colorList[currentPiece];
             }
 
-            
+
 
         }
-            
+
         public bool TestMove(string direction)
         {
             int currentHighRow = 21;
@@ -721,7 +742,6 @@ namespace Tetris
                     square.BackColor = Color.White;
                 }
 
-
                 DrawGhost();
 
 
@@ -733,6 +753,9 @@ namespace Tetris
                     activePiece[x] = square;
                     x++;
                 }
+
+
+
 
 
             }
@@ -962,7 +985,7 @@ namespace Tetris
 
                 }
             }
-        
+
 
         }
 
@@ -1177,12 +1200,15 @@ namespace Tetris
             // Copy activePiece to Ghost2
             for (int x = 0; x < 4; x++)
             {
-                Ghost2[x] = activePiece[x];
+                Ghost2[x] = activePiece2[x];
             }
 
             // Test Ghost2 in each row
             for (int x = 21; x > 1; x--)
             {
+
+                label3.Text = x.ToString(); //debug
+
 
                 // Get position of test Ghost2, starting at bottom row
                 if (currentPiece == 0) //I piece
@@ -1191,6 +1217,7 @@ namespace Tetris
 
                     if (rotations == 0)
                     {
+                        label1.Text = "0";
                         if (x == 2)
                         {
                             Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
@@ -1208,6 +1235,8 @@ namespace Tetris
                     }
                     else if (rotations == 1)
                     {
+                        label1.Text = "1";
+
                         if (x == 2) //ignore
                         {
                             Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
@@ -1215,12 +1244,15 @@ namespace Tetris
                             Ghost2[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
                             Ghost2[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
                         }
+
                         else //problem
                         {
                             Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
                             Ghost2[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[1]), x);
                             Ghost2[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[2]), x);
                             Ghost2[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[3]), x);
+
+
                         }
                     }   
                 }
