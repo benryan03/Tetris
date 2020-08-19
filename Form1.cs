@@ -49,7 +49,7 @@ namespace Tetris
 
             System.Random random = new System.Random();
             //nextPieceInt = random.Next(7);
-            nextPieceInt = 1;
+            nextPieceInt = 2;
 
             activePiece2[0] = box1;
             activePiece2[1] = box2;
@@ -69,7 +69,7 @@ namespace Tetris
             //Determine next piece
             System.Random random = new System.Random();
             //nextPieceInt = random.Next(7);
-            nextPieceInt = 1;
+            nextPieceInt = 2;
 
             //If not first move, clear next piece panel
             if (nextPiece.Contains(null) == false)
@@ -1284,10 +1284,34 @@ namespace Tetris
                 }
                 else if (currentPiece == 2) // J piece
                 {
-                    Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x - 2);
-                    Ghost2[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[1]), x - 1);
-                    Ghost2[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[2]), x);
-                    Ghost2[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[3]), x);
+                    if (rotations == 0)
+                    {
+                        Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x - 2);
+                        Ghost2[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[1]), x - 1);
+                        Ghost2[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[2]), x);
+                        Ghost2[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[3]), x);
+                    }
+                    else if (rotations == 1)
+                    {
+                        Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x - 1);
+                        Ghost2[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[1]), x - 1);
+                        Ghost2[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[2]), x - 1);
+                        Ghost2[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[3]), x);
+                    }
+                    else if (rotations == 2)
+                    {
+                        Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x - 2);
+                        Ghost2[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[1]), x - 1);
+                        Ghost2[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[2]), x);
+                        Ghost2[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[3]), x - 2);
+                    }
+                    else if (rotations == 3)
+                    {
+                        Ghost2[0] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[0]), x);
+                        Ghost2[1] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[1]), x);
+                        Ghost2[2] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[2]), x);
+                        Ghost2[3] = grid.GetControlFromPosition(grid.GetColumn(Ghost2[3]), x - 1);
+                    }
                 }
                 else if (currentPiece == 3) // S piece
                 {
