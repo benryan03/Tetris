@@ -1206,10 +1206,6 @@ namespace Tetris
             // Test Ghost2 in each row
             for (int x = 21; x > 1; x--)
             {
-
-                //label3.Text = x.ToString(); //debug
-
-
                 // Get position of test Ghost2, starting at bottom row
                 if (currentPiece == 0) //I piece
                 {
@@ -1416,9 +1412,18 @@ namespace Tetris
                 //valid ghost already stored
                 else if (ghostFound == true) 
                 {
+
                     //Not all squares white
                     if (Ghost2[0].BackColor != Color.White | Ghost2[1].BackColor != Color.White | Ghost2[2].BackColor != Color.White |Ghost2[3].BackColor != Color.White)
                     {
+
+                        //Is falling piece below x?
+                        if (grid.GetRow(activePiece[0]) >= x | grid.GetRow(activePiece[1]) >= x | grid.GetRow(activePiece[2]) >= x | grid.GetRow(activePiece[3]) >= x)
+                        {
+                            continue;
+                        }
+
+
                         //Reset
                         ghostFound = false;
                         for (int y = 0; y < 4; y++)
@@ -1430,6 +1435,7 @@ namespace Tetris
                 }
             }
 
+            //Draw ghost
             if (ghostFound == true)
             {
                 for (int x = 0; x < 4; x++)
