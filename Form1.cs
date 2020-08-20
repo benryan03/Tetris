@@ -764,6 +764,7 @@ namespace Tetris
             {
                 rotations = 0;
 
+                //If no piece has been saved yet
                 if (savedPieceInt == -1)
                 {
                     foreach (Control x in activePiece)
@@ -924,67 +925,77 @@ namespace Tetris
                     //Populate new falling piece
                     if (currentPiece == 0)
                     {
-                        activePiece[0] = box6;
-                        activePiece[1] = box16;
-                        activePiece[2] = box26;
-                        activePiece[3] = box36;
+                        activePiece2[0] = box6;
+                        activePiece2[1] = box16;
+                        activePiece2[2] = box26;
+                        activePiece2[3] = box36;
                         pieceColor = Color.Cyan;
                     }
                     else if (currentPiece == 1)
                     {
-                        activePiece[0] = box4;
-                        activePiece[1] = box14;
-                        activePiece[2] = box24;
-                        activePiece[3] = box25;
+                        activePiece2[0] = box4;
+                        activePiece2[1] = box14;
+                        activePiece2[2] = box24;
+                        activePiece2[3] = box25;
                         pieceColor = Color.Orange;
                     }
                     else if (currentPiece == 2)
                     {
-                        activePiece[0] = box5;
-                        activePiece[1] = box15;
-                        activePiece[2] = box25;
-                        activePiece[3] = box24;
+                        activePiece2[0] = box5;
+                        activePiece2[1] = box15;
+                        activePiece2[2] = box25;
+                        activePiece2[3] = box24;
                         pieceColor = Color.Blue;
                     }
                     else if (currentPiece == 3)
                     {
-                        activePiece[0] = box14;
-                        activePiece[1] = box15;
-                        activePiece[2] = box5;
-                        activePiece[3] = box6;
+                        activePiece2[0] = box14;
+                        activePiece2[1] = box15;
+                        activePiece2[2] = box5;
+                        activePiece2[3] = box6;
                         pieceColor = Color.Green;
                     }
                     else if (currentPiece == 4)
                     {
-                        activePiece[0] = box5;
-                        activePiece[1] = box6;
-                        activePiece[2] = box16;
-                        activePiece[3] = box17;
+                        activePiece2[0] = box5;
+                        activePiece2[1] = box6;
+                        activePiece2[2] = box16;
+                        activePiece2[3] = box17;
                         pieceColor = Color.Red;
                     }
                     else if (currentPiece == 5)
                     {
-                        activePiece[0] = box5;
-                        activePiece[1] = box6;
-                        activePiece[2] = box15;
-                        activePiece[3] = box16;
+                        activePiece2[0] = box5;
+                        activePiece2[1] = box6;
+                        activePiece2[2] = box15;
+                        activePiece2[3] = box16;
                         pieceColor = Color.Yellow;
                     }
                     else if (currentPiece == 6)
                     {
-                        activePiece[0] = box6;
-                        activePiece[1] = box15;
-                        activePiece[2] = box16;
-                        activePiece[3] = box17;
+                        activePiece2[0] = box6;
+                        activePiece2[1] = box15;
+                        activePiece2[2] = box16;
+                        activePiece2[3] = box17;
                         pieceColor = Color.Purple;
                     }
 
-                    foreach (Control square in activePiece)
+                    foreach (Control square in activePiece2)
                     {
                         square.BackColor = pieceColor;
                     }
 
+                    DrawGhost();
+
+                    for (int x = 0; x < 4; x++)
+                    {
+                        activePiece[x] = activePiece2[x];
+                    }
+
                 }
+
+
+
             }
             else if (!CheckGameOver() & e.KeyCode == Keys.Space)
             {
