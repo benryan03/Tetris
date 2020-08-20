@@ -24,6 +24,7 @@ namespace Tetris
         Control[] savedPiece = { null, null, null, null };
         Control[] Ghost = { null, null, null, null };
 
+
         int timeElapsed = 0;
         int currentPiece;
         int nextPieceInt;
@@ -986,7 +987,19 @@ namespace Tetris
                 }
             }
 
-
+            else if (!CheckGameOver() & e.KeyCode == Keys.Space)
+            {
+                for (int x = 0; x < 4; x++)
+                {
+                    Ghost[x].BackColor = colorList[currentPiece];
+                    activePiece[x].BackColor = Color.White;
+                }
+                if (CheckForCompleteRows() > -1)
+                {
+                    ClearFullRow();
+                }
+                DropNewPiece();
+            }
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
