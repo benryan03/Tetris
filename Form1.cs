@@ -809,8 +809,8 @@ namespace Tetris
                     {
                         savedPiece[0] = box218;
                         savedPiece[1] = box219;
-                        savedPiece[2] = box222;
-                        savedPiece[3] = box223;
+                        savedPiece[2] = box223;
+                        savedPiece[3] = box224;
                         savedPieceColor = Color.Red;
                     }
                     else if (savedPieceInt == 5)
@@ -986,7 +986,6 @@ namespace Tetris
 
                 }
             }
-
             else if (!CheckGameOver() & e.KeyCode == Keys.Space)
             {
                 for (int x = 0; x < 4; x++)
