@@ -24,14 +24,12 @@ namespace Tetris
         Control[] savedPiece = { null, null, null, null };
         Control[] Ghost = { null, null, null, null };
 
-
         int timeElapsed = 0;
         int currentPiece;
         int nextPieceInt;
         int savedPieceInt = -1;
         int rotations = 0;
         Color pieceColor = Color.White;
-        Color nextPieceColor = Color.White;
         Color savedPieceColor = Color.White;
         int combo = 0;
         int score = 0;
@@ -39,19 +37,28 @@ namespace Tetris
         int level = 0;
         bool gameOver = false;
 
-        //I piece, L piece, J piece, S piece, Z piece, O piece, T piece
-        readonly Color[] colorList = { Color.Cyan, Color.Orange, Color.Blue, Color.Green, Color.Red, Color.Yellow, Color.Purple };
+        readonly Color[] colorList = 
+        {  
+            Color.Cyan,     // I piece
+            Color.Orange,   // L piece
+            Color.Blue,     // J piece
+            Color.Green,    // S piece
+            Color.Red,      // Z piece
+            Color.Yellow,   // O piece
+            Color.Purple    // T piece
+        };
 
         public Form1()
         {
             InitializeComponent();
+
             timer1.Start();
             timer2.Start();
 
             System.Random random = new System.Random();
             nextPieceInt = random.Next(7);
-            //nextPieceInt = 6;
 
+            // Needed for ghost piece
             activePiece2[0] = box1;
             activePiece2[1] = box2;
             activePiece2[2] = box3;
@@ -64,15 +71,14 @@ namespace Tetris
         {
             rotations = 0;
 
-            //Move next piece to current piece
+            // Move next piece to current piece
             currentPiece = nextPieceInt;
 
-            //Determine next piece
+            // Determine next piece
             System.Random random = new System.Random();
             nextPieceInt = random.Next(7);
-            //nextPieceInt = 6;
 
-            //If not first move, clear next piece panel
+            // If not first move, clear next piece panel
             if (nextPiece.Contains(null) == false)
             {
                 foreach (Control x in nextPiece)
@@ -94,20 +100,20 @@ namespace Tetris
                 { box207, box210, box211, box212 }  // T piece
             };
 
-            //Select generated next piece
+            // Select generated next piece
             for (int x = 0; x < 4; x++)
             {
                 nextPiece[x] = nextPieceArray[nextPieceInt,x];
             }
 
-            //Populate next piece panel with correct color
+            // Populate next piece panel with correct color
             foreach (Control square in nextPiece)
             {
                 square.BackColor = colorList[nextPieceInt];
             }
 
-            //////////////////////////////////
-            //Layout options for falling piece
+            ///////////////////////////////////
+            // Layout options for falling piece
             Control[,] activePieceArray =
             {
                 { box6, box16, box26, box36 }, // I piece
@@ -125,20 +131,11 @@ namespace Tetris
                 activePiece[x] = activePieceArray[currentPiece, x];
             }
 
-
-
-
-
+            //This is needed for DrawGhost
             for (int x = 0; x < 4; x++)
             {
                 activePiece2[x] = activePieceArray[currentPiece, x];
             }
-
-
-
-
-
-
 
             //Check for game over
             foreach (Control box in activePiece)
@@ -161,11 +158,9 @@ namespace Tetris
             {
                 square.BackColor = colorList[currentPiece];
             }
-
-
-
         }
 
+        // Test if a potential move (left/right/down) would be outside the board or inside another piece
         public bool TestMove(string direction)
         {
             int currentHighRow = 21;
@@ -296,6 +291,7 @@ namespace Tetris
 
         }
 
+        // Test if a potential rotation would be inside another piece
         private bool TestOverlap()
         {
             foreach (PictureBox square in activePiece2)
@@ -307,7 +303,8 @@ namespace Tetris
             }
             return true;
         }
-                    
+        
+        // Detect inputs
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {   
             if (!CheckGameOver() & ((e.KeyCode == Keys.Left | e.KeyCode == Keys.A) & TestMove("left") == true))
@@ -324,8 +321,6 @@ namespace Tetris
             }
             else if (e.KeyCode == Keys.Up | e.KeyCode == Keys.W)
             {
-
-
                 //Rotate
 
                 int square1Col = grid.GetColumn(activePiece[0]);
@@ -999,6 +994,7 @@ namespace Tetris
             }
             else if (!CheckGameOver() & e.KeyCode == Keys.Space)
             {
+                // Hard drop
                 for (int x = 0; x < 4; x++)
                 {
                     Ghost[x].BackColor = colorList[currentPiece];
@@ -1012,6 +1008,7 @@ namespace Tetris
             }
         }
 
+        // Timer for piece movement speed - increases with game level
         private void Timer1_Tick(object sender, EventArgs e)
         {
             if (CheckGameOver() == true)
@@ -1036,21 +1033,18 @@ namespace Tetris
                         timer2.Stop();
                         MessageBox.Show("Game over!");
                     }
-
                     if (CheckForCompleteRows() > -1)
                     {
                         ClearFullRow();
                     }
                     DropNewPiece();
-
                 }
             }
-
         }
 
+        // Game time (seconds elapsed)
         private void Timer2_Tick(object sender, EventArgs e)
         {
-            //Update timer
             timeElapsed++;
             label2.Text = "Time: " + timeElapsed.ToString();
         }
@@ -1201,6 +1195,7 @@ namespace Tetris
             return false;
         }
 
+        // Display gray preview of hard drop position
         private void DrawGhost()
         {
 
