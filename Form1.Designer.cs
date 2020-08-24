@@ -293,6 +293,8 @@
             this.box232 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.box1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box2)).BeginInit();
@@ -3032,7 +3034,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(540, 225);
+            this.label3.Location = new System.Drawing.Point(540, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(203, 55);
             this.label3.TabIndex = 4;
@@ -3438,11 +3440,28 @@
             this.label7.TabIndex = 10;
             this.label7.Text = "Hold (Shift)";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Green;
+            this.label8.Location = new System.Drawing.Point(545, 190);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(152, 55);
+            this.label8.TabIndex = 11;
+            this.label8.Text = "label8";
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 2000;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 1171);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -3983,6 +4002,8 @@
         private System.Windows.Forms.PictureBox box250;
         private System.Windows.Forms.PictureBox box251;
         private System.Windows.Forms.PictureBox box252;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Timer timer3;
     }
 }
 

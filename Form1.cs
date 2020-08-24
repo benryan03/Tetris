@@ -48,9 +48,11 @@ namespace Tetris
             Color.Purple    // T piece
         };
 
-        public Form1()
+        public Form1()      
         {
             InitializeComponent();
+
+            label8.Text = "";
 
             timer1.Start();
             timer2.Start();
@@ -1061,7 +1063,7 @@ namespace Tetris
             }
 
             //Move all other squares down
-            //For each above cleared row
+            //For each row above cleared row
             for (int x = completedRow - 1; x >= 0; x--)
             {
                 //For each square in row
@@ -1090,18 +1092,26 @@ namespace Tetris
             if (combo < 3)
             {
                 score = score + 100;
+                label8.Text = "+100";
+                timer3.Start();
             }
             else if (combo == 3)
             {
                 score = score + 500;
+                label8.Text = "+800";
+                timer3.Start();
             }
             else if (combo > 3 & combo < 6)
             {
                 score = score + 100;
+                label8.Text = "+100";
+                timer3.Start();
             }
             else if (combo >= 6)
             {
                 score = score + 900;
+                label8.Text = "+1200";
+                timer3.Start();
             }
 
             combo++;
@@ -1117,7 +1127,6 @@ namespace Tetris
 
             if (CheckForCompleteRows() > -1)
             {
-                //combo++;
                 ClearFullRow();
             }
             else
@@ -1461,6 +1470,13 @@ namespace Tetris
                     Ghost[x].BackColor = Color.LightGray;
                 }
             }
+        }
+
+        // Timer for score notification
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+                label8.Text = "";
+                timer3.Stop();
         }
     }   
 }
