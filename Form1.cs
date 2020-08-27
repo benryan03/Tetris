@@ -78,7 +78,8 @@ namespace Tetris
 
             // Determine next piece
             System.Random random = new System.Random();
-            nextPieceInt = random.Next(7);
+            //nextPieceInt = random.Next(7);
+            nextPieceInt = 0;
 
             // If not first move, clear next piece panel
             if (nextPiece.Contains(null) == false)
@@ -1054,6 +1055,7 @@ namespace Tetris
         private void ClearFullRow()
         {
             int completedRow = CheckForCompleteRows();
+            bool resetCombo = false;
 
             //Turn that row white
             for (int x = 0; x <= 9; x++)
@@ -1063,8 +1065,7 @@ namespace Tetris
             }
 
             //Move all other squares down
-            //For each row above cleared row
-            for (int x = completedRow - 1; x >= 0; x--)
+            for (int x = completedRow - 1; x >= 0; x--)             //For each row above cleared row
             {
                 //For each square in row
                 for (int y = 0; y <= 9; y++)
@@ -1081,40 +1082,92 @@ namespace Tetris
             }
 
             //Update score
-            if (CheckForCompleteRows() == -1)
-            {
-                if (combo % 3 != 0)
-                {
-                    combo = 0;
-                }
-            }
 
-            if (combo < 3)
+
+
+
+
+
+
+            // Current problem is that after a 1200, even if less than 4 rows, it will be another 1200
+            // Then it will work
+
+
+
+
+
+            if (combo == 0)
             {
                 score = score + 100;
                 label8.Text = "+100";
                 timer3.Start();
             }
+
+            else if (combo == 1)
+            {
+                score = score + 100;
+                label8.Text = "+200";
+                timer3.Start();
+            }
+
+            else if (combo == 2)
+            {
+                score = score + 100;
+                label8.Text = "+300";
+                timer3.Start();
+            }
+
             else if (combo == 3)
             {
                 score = score + 500;
                 label8.Text = "+800";
                 timer3.Start();
             }
-            else if (combo > 3 & combo < 6)
+
+            else if (combo == 4)
             {
                 score = score + 100;
                 label8.Text = "+100";
                 timer3.Start();
             }
-            else if (combo >= 6)
+
+            else if (combo == 5)
             {
-                score = score + 900;
-                label8.Text = "+1200";
+                score = score + 100;
+                label8.Text = "+200";
                 timer3.Start();
             }
 
+            else if (combo == 6)
+            {
+                score = score + 100;
+                label8.Text = "+300";
+                timer3.Start();
+            }
+            else if (combo >= 7)
+            {
+
+
+                score = score + 900;
+                label8.Text = "+1200";
+                timer3.Start();
+
+
+
+            }
+
+
+
             combo++;
+
+
+            if (resetCombo == true)
+            {
+                combo = 0;
+            }
+
+
+
             label3.Text = "Score: " + score.ToString();
 
             clears++;
@@ -1125,18 +1178,33 @@ namespace Tetris
                 LevelUp();
             }
 
+
+
+
+            //need to have this not reset after a 4 combo
+
+
+
+
+
+
             if (CheckForCompleteRows() > -1)
             {
                 ClearFullRow();
+        
             }
+
+            //else if (CheckForCompleteRows() == -1 & (combo == 4 | combo == 8))
+
             else
             {
-                if (combo % 4 != 0)
-                {
-                    combo = 0;
-                }
+               //combo = 0;
             }
-        }  
+
+            label1.Text = combo.ToString(); //debug
+
+
+        }
 
         private int CheckForCompleteRows()
         {
