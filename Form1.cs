@@ -1052,6 +1052,8 @@ namespace Tetris
             label2.Text = "Time: " + timeElapsed.ToString();
         }
 
+        // Clear lowest full row
+        // This is very messy :(
         private void ClearFullRow()
         {
             int completedRow = CheckForCompleteRows();
@@ -1082,25 +1084,15 @@ namespace Tetris
             }
 
             //Update score
-
-
-
-
-
-
-
-            // Current problem is that after a 1200, even if less than 4 rows, it will be another 1200
-            // Then it will work
-
-
-
-
-
             if (combo == 0)
             {
                 score = score + 100;
                 label8.Text = "+100";
                 timer3.Start();
+                if (CheckForCompleteRows() == -1)
+                {
+                    combo = -1;
+                }
             }
 
             else if (combo == 1)
@@ -1108,6 +1100,10 @@ namespace Tetris
                 score = score + 100;
                 label8.Text = "+200";
                 timer3.Start();
+                if (CheckForCompleteRows() == -1)
+                {
+                    combo = -1;
+                }
             }
 
             else if (combo == 2)
@@ -1115,6 +1111,10 @@ namespace Tetris
                 score = score + 100;
                 label8.Text = "+300";
                 timer3.Start();
+                if (CheckForCompleteRows() == -1)
+                {
+                    combo = -1;
+                }
             }
 
             else if (combo == 3)
@@ -1124,38 +1124,46 @@ namespace Tetris
                 timer3.Start();
             }
 
-            else if (combo == 4)
+            else if (combo > 3)
             {
-                score = score + 100;
-                label8.Text = "+100";
-                timer3.Start();
+                if (combo % 4 == 0)
+                {
+                    score = score + 100;
+                    label8.Text = "+100";
+                    timer3.Start();
+                    if (CheckForCompleteRows() == -1)
+                    {
+                        combo = -1;
+                    }
+                }
+                else if ((combo - 1) % 4 == 0)
+                {
+                    score = score + 100;
+                    label8.Text = "+200";
+                    timer3.Start();
+                    if (CheckForCompleteRows() == -1)
+                    {
+                        combo = -1;
+                    }
+                }
+                else if ((combo - 2) % 4 == 0)
+                {
+                    score = score + 100;
+                    label8.Text = "+300";
+                    timer3.Start();
+                    if (CheckForCompleteRows() == -1)
+                    {
+                        combo = -1;
+                    }
+                }
+                else if ((combo - 3) % 4 == 0)
+                {
+                    score = score + 900;
+                    label8.Text = "+1200";
+                    timer3.Start();
+                }
+
             }
-
-            else if (combo == 5)
-            {
-                score = score + 100;
-                label8.Text = "+200";
-                timer3.Start();
-            }
-
-            else if (combo == 6)
-            {
-                score = score + 100;
-                label8.Text = "+300";
-                timer3.Start();
-            }
-            else if (combo >= 7)
-            {
-
-
-                score = score + 900;
-                label8.Text = "+1200";
-                timer3.Start();
-
-
-
-            }
-
 
 
             combo++;
@@ -1178,34 +1186,19 @@ namespace Tetris
                 LevelUp();
             }
 
-
-
-
-            //need to have this not reset after a 4 combo
-
-
-
-
-
-
             if (CheckForCompleteRows() > -1)
             {
                 ClearFullRow();
         
             }
 
-            //else if (CheckForCompleteRows() == -1 & (combo == 4 | combo == 8))
-
-            else
-            {
-               //combo = 0;
-            }
-
-            label1.Text = combo.ToString(); //debug
+            //label1.Text = combo.ToString(); //debug
 
 
         }
 
+        // Returns row of lowest full row
+        // If no full rows, returns -1
         private int CheckForCompleteRows()
         {
             //For each row
