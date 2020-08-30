@@ -24,6 +24,15 @@ namespace Tetris
         Control[] savedPiece = { null, null, null, null };
         Control[] Ghost = { null, null, null, null };
 
+        List<int> Bag1 = new List<int>();
+
+        //int Bag1 = new int();
+        int [] Bag2 = { -1, -1, -1, -1, -1, -1, -1 };
+
+
+
+
+
         int timeElapsed = 0;
         int currentPiece;
         int nextPieceInt;
@@ -36,6 +45,7 @@ namespace Tetris
         int clears = 0;
         int level = 0;
         bool gameOver = false;
+        int BagIteration = 0;
 
         readonly Color[] colorList = 
         {  
@@ -51,20 +61,36 @@ namespace Tetris
         public Form1()      
         {
             InitializeComponent();
+            System.Random random = new System.Random();
 
             label8.Text = "";
 
             timer1.Start();
             timer2.Start();
 
-            System.Random random = new System.Random();
-            nextPieceInt = random.Next(7);
-
             // Needed for ghost piece
             activePiece2[0] = box1;
             activePiece2[1] = box2;
             activePiece2[2] = box3;
             activePiece2[3] = box4;
+
+
+            // Generate Bag1
+            while (Bag1.Count < 7)
+            {
+                int x = random.Next(7);
+                if (!Bag1.Contains(x))
+                {
+                    Bag1.Add(x);
+                }
+            }
+
+            label1.Text = String.Join(", ", Bag1.ToArray()); //Debug
+
+            //nextPieceInt = random.Next(7);
+            nextPieceInt = Bag1[0];
+            BagIteration++;
+
 
             DropNewPiece();
         }
@@ -76,9 +102,20 @@ namespace Tetris
             // Move next piece to current piece
             currentPiece = nextPieceInt;
 
+
+
+
+
+
+
+
+
+
             // Determine next piece
-            System.Random random = new System.Random();
-            nextPieceInt = random.Next(7);
+
+            nextPieceInt = Bag1[BagIteration];
+            BagIteration++;
+            //nextPieceInt = random.Next(7);
             //nextPieceInt = 0;
 
             // If not first move, clear next piece panel
@@ -1539,5 +1576,12 @@ namespace Tetris
                 label8.Text = "";
                 timer3.Stop();
         }
+
+
+
+
+
+
+
     }   
 }
