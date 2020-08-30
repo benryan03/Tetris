@@ -78,8 +78,8 @@ namespace Tetris
 
             // Determine next piece
             System.Random random = new System.Random();
-            //nextPieceInt = random.Next(7);
-            nextPieceInt = 0;
+            nextPieceInt = random.Next(7);
+            //nextPieceInt = 0;
 
             // If not first move, clear next piece panel
             if (nextPiece.Contains(null) == false)
@@ -1179,7 +1179,7 @@ namespace Tetris
             label3.Text = "Score: " + score.ToString();
 
             clears++;
-            label4.Text = "Lines cleared: " + clears;
+            label4.Text = "Clears: " + clears;
 
             if (clears % 10 == 0)
             {
@@ -1197,8 +1197,8 @@ namespace Tetris
 
         }
 
-        // Returns row of lowest full row
-        // If no full rows, returns -1
+        // Return row number of lowest full row
+        // If no full rows, return -1
         private int CheckForCompleteRows()
         {
             //For each row
@@ -1227,7 +1227,7 @@ namespace Tetris
         private void LevelUp()
         {
             level++;
-            label5.Text = "Level " + level.ToString();
+            label5.Text = "Level: " + level.ToString();
 
             //Milliseconds per square fall
             //Level 1 = 800 ms per square, level 2 = 716 ms per square, etc.
