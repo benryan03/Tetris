@@ -57,7 +57,7 @@ namespace Tetris
             timer1.Start();
             timer2.Start();
 
-            // Initialize ghost piece
+            // Initialize/reset ghost piece
             activePiece2[0] = box1;
             activePiece2[1] = box2;
             activePiece2[2] = box3;
@@ -74,6 +74,7 @@ namespace Tetris
                 }
             }
 
+            // Select first piece
             nextPieceInt = PieceSequence[0];
             PieceSequenceIteration++;
 
@@ -119,8 +120,8 @@ namespace Tetris
                 }
             }
 
-            ///////////////////////////////
-            //Layout options for next piece
+            ////////////////////////////////
+            // Layout options for next piece
             Control[,] nextPieceArray = 
             {
                 { box203, box207, box211, box215 }, // I piece
@@ -157,19 +158,19 @@ namespace Tetris
                 { box6, box15, box16, box17 }  // T piece
             };
 
-            //Select falling piece
+            // Select falling piece
             for (int x = 0; x < 4; x++)
             {
                 activePiece[x] = activePieceArray[currentPiece, x];
             }
 
-            //This is needed for DrawGhost
+            // This is needed for DrawGhost
             for (int x = 0; x < 4; x++)
             {
                 activePiece2[x] = activePieceArray[currentPiece, x];
             }
 
-            //Check for game over
+            // Check for game over
             foreach (Control box in activePiece)
             {
                 if (box.BackColor != Color.White & box.BackColor != Color.LightGray)
@@ -183,16 +184,17 @@ namespace Tetris
                 }
             }
 
+            // Draw ghost piece
             DrawGhost();
 
-            //Populate falling piece squares with correct color
+            // Populate falling piece squares with correct color
             foreach (Control square in activePiece)
             {
                 square.BackColor = colorList[currentPiece];
             }
         }
 
-        // Test if a potential move (left/right/down) would be outside the board or inside another piece
+        // Test if a potential move (left/right/down) would be outside the grid or overlapping another piece
         public bool TestMove(string direction)
         {
             int currentHighRow = 21;
@@ -204,6 +206,7 @@ namespace Tetris
 
             Control newSquare = new Control();
 
+            // Determine highest, lowest, left, and right rows of potential move
             foreach (Control square in activePiece)
             {
                 if (grid.GetRow(square) < currentHighRow)
@@ -224,12 +227,13 @@ namespace Tetris
                 }
             }
 
+            // Test if any squares would be outside of grid
             foreach (Control square in activePiece)
             {
                 int squareRow = grid.GetRow(square);
                 int squareCol = grid.GetColumn(square);
 
-                //Left
+                // Left
                 if (direction == "left" & squareCol > 0)
                 {
                     newSquare = grid.GetControlFromPosition(squareCol - 1, squareRow);
@@ -240,7 +244,7 @@ namespace Tetris
                     return false;
                 }
 
-                //Right
+                // Right
                 else if (direction == "right" & squareCol < 9)
                 {
                     newSquare = grid.GetControlFromPosition(squareCol + 1, squareRow);
@@ -251,7 +255,7 @@ namespace Tetris
                     return false;
                 }
 
-                //Down
+                // Down
                 else if (direction == "down" & squareRow < 21)
                 {
                     newSquare = grid.GetControlFromPosition(squareCol, squareRow + 1);
@@ -262,6 +266,7 @@ namespace Tetris
                     return false;
                 }
 
+                // Test if potential move would overlap another piece
                 if ((newSquare.BackColor != Color.White & newSquare.BackColor != Color.LightGray) & activePiece.Contains(newSquare) == false & nextSquare > 0)
                 {
                     return false;
@@ -269,11 +274,14 @@ namespace Tetris
 
             }
 
+            // All tests passed
             return true;
         }
 
         public void MovePiece(string direction)
         {
+            // Erase old position of piece
+            // and determine new position based on input direction
             int x = 0;
             foreach (PictureBox square in activePiece)
             {
@@ -302,7 +310,7 @@ namespace Tetris
                 x++;
             }
 
-
+            // Copy activePiece2 to activePiece
             x = 0;
             foreach (PictureBox square in activePiece2)
             {
@@ -311,9 +319,10 @@ namespace Tetris
                 x++;
             }
 
+            // Draw ghost piece (must be between erasing old position and drawing new position)
             DrawGhost();
 
-
+            // Draw piece in new position
             x = 0;
             foreach (PictureBox square in activePiece2)
             {
