@@ -25,8 +25,6 @@ namespace Tetris
         Control[] Ghost = { null, null, null, null };
 
         List<int> Bag1 = new List<int>();
-
-        //int Bag1 = new int();
         int [] Bag2 = { -1, -1, -1, -1, -1, -1, -1 };
 
 
@@ -97,26 +95,33 @@ namespace Tetris
 
         public void DropNewPiece()
         {
+            // Reset number of times current piece has been rotated
             rotations = 0;
 
             // Move next piece to current piece
             currentPiece = nextPieceInt;
 
+            // If last piece of Bag1 set, generate new set
+            if (BagIteration == 7)
+            {
+                BagIteration = 0;
 
+                // Scramble Bag1
+                Bag1.Clear();
+                System.Random random = new System.Random();
+                while (Bag1.Count < 7)
+                {
+                    int x = random.Next(7);
+                    if (!Bag1.Contains(x))
+                    {
+                        Bag1.Add(x);
+                    }
+                }
+            }
 
-
-
-
-
-
-
-
-            // Determine next piece
-
+            // Select next piece from Bag1 set
             nextPieceInt = Bag1[BagIteration];
             BagIteration++;
-            //nextPieceInt = random.Next(7);
-            //nextPieceInt = 0;
 
             // If not first move, clear next piece panel
             if (nextPiece.Contains(null) == false)
@@ -140,7 +145,7 @@ namespace Tetris
                 { box207, box210, box211, box212 }  // T piece
             };
 
-            // Select generated next piece
+            // Retrieve layout for next piece
             for (int x = 0; x < 4; x++)
             {
                 nextPiece[x] = nextPieceArray[nextPieceInt,x];
