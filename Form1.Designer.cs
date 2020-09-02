@@ -250,13 +250,13 @@
             this.box250 = new System.Windows.Forms.PictureBox();
             this.box251 = new System.Windows.Forms.PictureBox();
             this.box252 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.SpeedTimer = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.GameTimer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.box201 = new System.Windows.Forms.PictureBox();
             this.box202 = new System.Windows.Forms.PictureBox();
@@ -294,7 +294,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.timer3 = new System.Windows.Forms.Timer(this.components);
+            this.ScoreUpdateTimer = new System.Windows.Forms.Timer(this.components);
             this.grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.box1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.box2)).BeginInit();
@@ -3005,10 +3005,10 @@
             this.box252.TabIndex = 219;
             this.box252.TabStop = false;
             // 
-            // timer1
+            // SpeedTimer
             // 
-            this.timer1.Interval = 800;
-            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            this.SpeedTimer.Interval = 800;
+            this.SpeedTimer.Tick += new System.EventHandler(this.SpeedTimer_Tick);
             // 
             // label1
             // 
@@ -3061,10 +3061,10 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Level: 0";
             // 
-            // timer2
+            // GameTimer
             // 
-            this.timer2.Interval = 1000;
-            this.timer2.Tick += new System.EventHandler(this.Timer2_Tick);
+            this.GameTimer.Interval = 1000;
+            this.GameTimer.Tick += new System.EventHandler(this.GameTimer_Tick);
             // 
             // tableLayoutPanel1
             // 
@@ -3451,10 +3451,10 @@
             this.label8.TabIndex = 11;
             this.label8.Text = "label8";
             // 
-            // timer3
+            // ScoreUpdateTimer
             // 
-            this.timer3.Interval = 2000;
-            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
+            this.ScoreUpdateTimer.Interval = 2000;
+            this.ScoreUpdateTimer.Tick += new System.EventHandler(this.ScoreUpdateTimer_Tick);
             // 
             // Form1
             // 
@@ -3839,7 +3839,7 @@
         private System.Windows.Forms.PictureBox box98;
         private System.Windows.Forms.PictureBox box99;
         private System.Windows.Forms.PictureBox box100;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer SpeedTimer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -3945,7 +3945,7 @@
         private System.Windows.Forms.PictureBox box200;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Timer GameTimer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox box201;
         private System.Windows.Forms.PictureBox box202;
@@ -4003,7 +4003,7 @@
         private System.Windows.Forms.PictureBox box251;
         private System.Windows.Forms.PictureBox box252;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Timer ScoreUpdateTimer;
     }
 }
 

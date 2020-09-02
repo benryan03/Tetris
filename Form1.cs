@@ -54,8 +54,8 @@ namespace Tetris
             InitializeComponent();
 
             label8.Text = "";
-            timer1.Start();
-            timer2.Start();
+            SpeedTimer.Start();
+            GameTimer.Start();
 
             // Initialize/reset ghost piece
             activePiece2[0] = box1;
@@ -176,8 +176,8 @@ namespace Tetris
                 if (box.BackColor != Color.White & box.BackColor != Color.LightGray)
                 {
                     //Game over!
-                    timer1.Stop();
-                    timer2.Stop();
+                    SpeedTimer.Stop();
+                    GameTimer.Stop();
                     gameOver = true;
                     MessageBox.Show("Game over!");
                     return;
@@ -194,7 +194,7 @@ namespace Tetris
             }
         }
 
-        // Test if a potential move (left/right/down) would be outside the grid or overlapping another piece
+        // Test if a potential move (left/right/down) would be outside the grid or overlap another piece
         public bool TestMove(string direction)
         {
             int currentHighRow = 21;
@@ -329,10 +329,9 @@ namespace Tetris
                 square.BackColor = colorList[currentPiece];
                 x++;
             }
-
         }
 
-        // Test if a potential rotation would be inside another piece
+        // Test if a potential rotation would overlap another piece
         private bool TestOverlap()
         {
             foreach (PictureBox square in activePiece2)
@@ -345,7 +344,8 @@ namespace Tetris
             return true;
         }
         
-        // Detect inputs
+        // Handle inputs - triggered on any keypress
+        // Cleanup needed
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {   
             if (!CheckGameOver() & ((e.KeyCode == Keys.Left | e.KeyCode == Keys.A) & TestMove("left") == true))
@@ -955,9 +955,6 @@ namespace Tetris
                         x.BackColor = savedPieceColor;
                     }
 
-
-
-
                     //Populate new falling piece
                     if (currentPiece == 0)
                     {
@@ -1050,12 +1047,13 @@ namespace Tetris
         }
 
         // Timer for piece movement speed - increases with game level
-        private void Timer1_Tick(object sender, EventArgs e)
+        // Speed is controlled by LevelUp() method
+        private void SpeedTimer_Tick(object sender, EventArgs e)
         {
             if (CheckGameOver() == true)
             {
-                timer1.Stop();
-                timer2.Stop();
+                SpeedTimer.Stop();
+                GameTimer.Stop();
                 MessageBox.Show("Game over!");
             }
 
@@ -1070,8 +1068,8 @@ namespace Tetris
                 {
                     if (CheckGameOver() == true)
                     {
-                        timer1.Stop();
-                        timer2.Stop();
+                        SpeedTimer.Stop();
+                        GameTimer.Stop();
                         MessageBox.Show("Game over!");
                     }
                     if (CheckForCompleteRows() > -1)
@@ -1084,7 +1082,7 @@ namespace Tetris
         }
 
         // Game time (seconds elapsed)
-        private void Timer2_Tick(object sender, EventArgs e)
+        private void GameTimer_Tick(object sender, EventArgs e)
         {
             timeElapsed++;
             label2.Text = "Time: " + timeElapsed.ToString();
@@ -1126,7 +1124,7 @@ namespace Tetris
             {
                 score = score + 100;
                 label8.Text = "+100";
-                timer3.Start();
+                ScoreUpdateTimer.Start();
                 if (CheckForCompleteRows() == -1)
                 {
                     combo = -1;
@@ -1137,7 +1135,7 @@ namespace Tetris
             {
                 score = score + 100;
                 label8.Text = "+200";
-                timer3.Start();
+                ScoreUpdateTimer.Start();
                 if (CheckForCompleteRows() == -1)
                 {
                     combo = -1;
@@ -1148,7 +1146,7 @@ namespace Tetris
             {
                 score = score + 100;
                 label8.Text = "+300";
-                timer3.Start();
+                ScoreUpdateTimer.Start();
                 if (CheckForCompleteRows() == -1)
                 {
                     combo = -1;
@@ -1159,7 +1157,7 @@ namespace Tetris
             {
                 score = score + 500;
                 label8.Text = "+800";
-                timer3.Start();
+                ScoreUpdateTimer.Start();
             }
 
             else if (combo > 3)
@@ -1168,7 +1166,7 @@ namespace Tetris
                 {
                     score = score + 100;
                     label8.Text = "+100";
-                    timer3.Start();
+                    ScoreUpdateTimer.Start();
                     if (CheckForCompleteRows() == -1)
                     {
                         combo = -1;
@@ -1178,7 +1176,7 @@ namespace Tetris
                 {
                     score = score + 100;
                     label8.Text = "+200";
-                    timer3.Start();
+                    ScoreUpdateTimer.Start();
                     if (CheckForCompleteRows() == -1)
                     {
                         combo = -1;
@@ -1188,7 +1186,7 @@ namespace Tetris
                 {
                     score = score + 100;
                     label8.Text = "+300";
-                    timer3.Start();
+                    ScoreUpdateTimer.Start();
                     if (CheckForCompleteRows() == -1)
                     {
                         combo = -1;
@@ -1198,7 +1196,7 @@ namespace Tetris
                 {
                     score = score + 900;
                     label8.Text = "+1200";
-                    timer3.Start();
+                    ScoreUpdateTimer.Start();
                 }
 
             }
@@ -1239,49 +1237,49 @@ namespace Tetris
         // If no full rows, return -1
         private int CheckForCompleteRows()
         {
-            //For each row
+            // For each row
             for (int x = 21; x >= 2; x--)
             {
-
-
-                //For each square in row
+                // For each square in row
                 for (int y = 0; y <= 9; y++)
                 {
-                    Control z = grid.GetControlFromPosition(y /* col */, x /* row */);
+                    Control z = grid.GetControlFromPosition(y, x);
                     if (z.BackColor == Color.White)
                     {
                         break;
                     }
                     if (y == 9)
                     {
-                        //Return the row that is full
+                        // Return full row number
                         return x;
                     }
                 }
             }
-            return -1; //"null"
+            return -1; // "null"
         }
 
+        // Increase fall speed
         private void LevelUp()
         {
             level++;
             label5.Text = "Level: " + level.ToString();
 
-            //Milliseconds per square fall
-            //Level 1 = 800 ms per square, level 2 = 716 ms per square, etc.
+            // Milliseconds per square fall
+            // Level 1 = 800 ms per square, level 2 = 716 ms per square, etc.
             int[] levelSpeed =
             {
                 800, 716, 633, 555, 466, 383, 300, 216, 133, 100, 083, 083, 083, 066, 066,
                 066, 050, 050, 050, 033, 033, 033, 033, 033, 033, 033, 033, 033, 033, 016
             };
 
-            //Level speed does not change after level 29
+            // Speed does not change after level 29
             if (level <= 29)
             {
-                timer1.Interval = levelSpeed[level];
+                SpeedTimer.Interval = levelSpeed[level];
             }
         }
 
+        // Game ends if a piece is in the top row when the next piece is dropped
         private bool CheckGameOver()
         {
             Control[] topRow = { box1, box2, box3, box4, box5, box6, box7, box8, box9, box10 };
@@ -1304,6 +1302,7 @@ namespace Tetris
         }
 
         // Display gray preview of hard drop position
+        // Needs cleanup
         private void DrawGhost()
         {
 
@@ -1571,18 +1570,11 @@ namespace Tetris
             }
         }
 
-        // Timer for score notification
-        private void timer3_Tick(object sender, EventArgs e)
+        // Clear score update notification every 2 seconds
+        private void ScoreUpdateTimer_Tick(object sender, EventArgs e)
         {
                 label8.Text = "";
-                timer3.Stop();
+                ScoreUpdateTimer.Stop();
         }
-
-
-
-
-
-
-
     }   
 }
