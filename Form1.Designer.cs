@@ -1,6 +1,6 @@
 ﻿namespace Tetris
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -251,11 +251,11 @@
             this.box251 = new System.Windows.Forms.PictureBox();
             this.box252 = new System.Windows.Forms.PictureBox();
             this.SpeedTimer = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.TetrisLabel = new System.Windows.Forms.Label();
+            this.TimeLabel = new System.Windows.Forms.Label();
+            this.ScoreLabel = new System.Windows.Forms.Label();
+            this.ClearsLabel = new System.Windows.Forms.Label();
+            this.LevelLabel = new System.Windows.Forms.Label();
             this.GameTimer = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.box201 = new System.Windows.Forms.PictureBox();
@@ -293,7 +293,7 @@
             this.box232 = new System.Windows.Forms.PictureBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.ScoreUpdateLabel = new System.Windows.Forms.Label();
             this.ScoreUpdateTimer = new System.Windows.Forms.Timer(this.components);
             this.grid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.box1)).BeginInit();
@@ -3010,56 +3010,56 @@
             this.SpeedTimer.Interval = 800;
             this.SpeedTimer.Tick += new System.EventHandler(this.SpeedTimer_Tick);
             // 
-            // label1
+            // TetrisLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(72, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(387, 108);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "TETRIS";
+            this.TetrisLabel.AutoSize = true;
+            this.TetrisLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TetrisLabel.Location = new System.Drawing.Point(72, 19);
+            this.TetrisLabel.Name = "TetrisLabel";
+            this.TetrisLabel.Size = new System.Drawing.Size(387, 108);
+            this.TetrisLabel.TabIndex = 2;
+            this.TetrisLabel.Text = "TETRIS";
             // 
-            // label2
+            // TimeLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(540, 290);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 55);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Time: 0";
+            this.TimeLabel.AutoSize = true;
+            this.TimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TimeLabel.Location = new System.Drawing.Point(540, 290);
+            this.TimeLabel.Name = "TimeLabel";
+            this.TimeLabel.Size = new System.Drawing.Size(183, 55);
+            this.TimeLabel.TabIndex = 3;
+            this.TimeLabel.Text = "Time: 0";
             // 
-            // label3
+            // ScoreLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(540, 140);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(203, 55);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Score: 0";
+            this.ScoreLabel.AutoSize = true;
+            this.ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScoreLabel.Location = new System.Drawing.Point(540, 140);
+            this.ScoreLabel.Name = "ScoreLabel";
+            this.ScoreLabel.Size = new System.Drawing.Size(203, 55);
+            this.ScoreLabel.TabIndex = 4;
+            this.ScoreLabel.Text = "Score: 0";
             // 
-            // label4
+            // ClearsLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(543, 400);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 40);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Clears:";
+            this.ClearsLabel.AutoSize = true;
+            this.ClearsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearsLabel.ForeColor = System.Drawing.Color.Black;
+            this.ClearsLabel.Location = new System.Drawing.Point(543, 400);
+            this.ClearsLabel.Name = "ClearsLabel";
+            this.ClearsLabel.Size = new System.Drawing.Size(131, 40);
+            this.ClearsLabel.TabIndex = 5;
+            this.ClearsLabel.Text = "Clears:";
             // 
-            // label5
+            // LevelLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(540, 345);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(192, 55);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Level: 0";
+            this.LevelLabel.AutoSize = true;
+            this.LevelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LevelLabel.Location = new System.Drawing.Point(540, 345);
+            this.LevelLabel.Name = "LevelLabel";
+            this.LevelLabel.Size = new System.Drawing.Size(192, 55);
+            this.LevelLabel.TabIndex = 6;
+            this.LevelLabel.Text = "Level: 0";
             // 
             // GameTimer
             // 
@@ -3440,40 +3440,40 @@
             this.label7.TabIndex = 10;
             this.label7.Text = "Hold (Shift)";
             // 
-            // label8
+            // ScoreUpdateLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Green;
-            this.label8.Location = new System.Drawing.Point(545, 201);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(152, 55);
-            this.label8.TabIndex = 11;
-            this.label8.Text = "label8";
+            this.ScoreUpdateLabel.AutoSize = true;
+            this.ScoreUpdateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScoreUpdateLabel.ForeColor = System.Drawing.Color.Green;
+            this.ScoreUpdateLabel.Location = new System.Drawing.Point(545, 201);
+            this.ScoreUpdateLabel.Name = "ScoreUpdateLabel";
+            this.ScoreUpdateLabel.Size = new System.Drawing.Size(152, 55);
+            this.ScoreUpdateLabel.TabIndex = 11;
+            this.ScoreUpdateLabel.Text = "label8";
             // 
             // ScoreUpdateTimer
             // 
             this.ScoreUpdateTimer.Interval = 2000;
             this.ScoreUpdateTimer.Tick += new System.EventHandler(this.ScoreUpdateTimer_Tick);
             // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 1086);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.ScoreUpdateLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.LevelLabel);
+            this.Controls.Add(this.ClearsLabel);
+            this.Controls.Add(this.ScoreLabel);
+            this.Controls.Add(this.TimeLabel);
+            this.Controls.Add(this.TetrisLabel);
             this.Controls.Add(this.grid);
             this.KeyPreview = true;
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.Text = "Tetris";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.grid.ResumeLayout(false);
@@ -3840,9 +3840,9 @@
         private System.Windows.Forms.PictureBox box99;
         private System.Windows.Forms.PictureBox box100;
         private System.Windows.Forms.Timer SpeedTimer;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label TetrisLabel;
+        private System.Windows.Forms.Label TimeLabel;
+        private System.Windows.Forms.Label ScoreLabel;
         private System.Windows.Forms.PictureBox box101;
         private System.Windows.Forms.PictureBox box102;
         private System.Windows.Forms.PictureBox box103;
@@ -3943,8 +3943,8 @@
         private System.Windows.Forms.PictureBox box198;
         private System.Windows.Forms.PictureBox box199;
         private System.Windows.Forms.PictureBox box200;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label ClearsLabel;
+        private System.Windows.Forms.Label LevelLabel;
         private System.Windows.Forms.Timer GameTimer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox box201;
@@ -4002,7 +4002,7 @@
         private System.Windows.Forms.PictureBox box250;
         private System.Windows.Forms.PictureBox box251;
         private System.Windows.Forms.PictureBox box252;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label ScoreUpdateLabel;
         private System.Windows.Forms.Timer ScoreUpdateTimer;
     }
 }

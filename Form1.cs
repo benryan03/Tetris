@@ -16,7 +16,7 @@ using System.Xml;
 
 namespace Tetris
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
         Control[] activePiece = { null, null, null, null };
         Control[] activePiece2 = { null, null, null, null };
@@ -49,11 +49,12 @@ namespace Tetris
             Color.Purple    // T piece
         };
 
-        public Form1()      
+        // Load main window
+        public MainWindow()      
         {
             InitializeComponent();
 
-            label8.Text = "";
+            ScoreUpdateLabel.Text = "";
             SpeedTimer.Start();
             GameTimer.Start();
 
@@ -1085,7 +1086,7 @@ namespace Tetris
         private void GameTimer_Tick(object sender, EventArgs e)
         {
             timeElapsed++;
-            label2.Text = "Time: " + timeElapsed.ToString();
+            TimeLabel.Text = "Time: " + timeElapsed.ToString();
         }
 
         // Clear lowest full row
@@ -1123,7 +1124,7 @@ namespace Tetris
             if (combo == 0)
             {
                 score = score + 100;
-                label8.Text = "+100";
+                ScoreUpdateLabel.Text = "+100";
                 ScoreUpdateTimer.Start();
                 if (CheckForCompleteRows() == -1)
                 {
@@ -1134,7 +1135,7 @@ namespace Tetris
             else if (combo == 1)
             {
                 score = score + 100;
-                label8.Text = "+200";
+                ScoreUpdateLabel.Text = "+200";
                 ScoreUpdateTimer.Start();
                 if (CheckForCompleteRows() == -1)
                 {
@@ -1145,7 +1146,7 @@ namespace Tetris
             else if (combo == 2)
             {
                 score = score + 100;
-                label8.Text = "+300";
+                ScoreUpdateLabel.Text = "+300";
                 ScoreUpdateTimer.Start();
                 if (CheckForCompleteRows() == -1)
                 {
@@ -1156,7 +1157,7 @@ namespace Tetris
             else if (combo == 3)
             {
                 score = score + 500;
-                label8.Text = "+800";
+                ScoreUpdateLabel.Text = "+800";
                 ScoreUpdateTimer.Start();
             }
 
@@ -1165,7 +1166,7 @@ namespace Tetris
                 if (combo % 4 == 0)
                 {
                     score = score + 100;
-                    label8.Text = "+100";
+                    ScoreUpdateLabel.Text = "+100";
                     ScoreUpdateTimer.Start();
                     if (CheckForCompleteRows() == -1)
                     {
@@ -1175,7 +1176,7 @@ namespace Tetris
                 else if ((combo - 1) % 4 == 0)
                 {
                     score = score + 100;
-                    label8.Text = "+200";
+                    ScoreUpdateLabel.Text = "+200";
                     ScoreUpdateTimer.Start();
                     if (CheckForCompleteRows() == -1)
                     {
@@ -1185,7 +1186,7 @@ namespace Tetris
                 else if ((combo - 2) % 4 == 0)
                 {
                     score = score + 100;
-                    label8.Text = "+300";
+                    ScoreUpdateLabel.Text = "+300";
                     ScoreUpdateTimer.Start();
                     if (CheckForCompleteRows() == -1)
                     {
@@ -1195,7 +1196,7 @@ namespace Tetris
                 else if ((combo - 3) % 4 == 0)
                 {
                     score = score + 900;
-                    label8.Text = "+1200";
+                    ScoreUpdateLabel.Text = "+1200";
                     ScoreUpdateTimer.Start();
                 }
 
@@ -1212,10 +1213,10 @@ namespace Tetris
 
 
 
-            label3.Text = "Score: " + score.ToString();
+            ScoreLabel.Text = "Score: " + score.ToString();
 
             clears++;
-            label4.Text = "Clears: " + clears;
+            ClearsLabel.Text = "Clears: " + clears;
 
             if (clears % 10 == 0)
             {
@@ -1262,7 +1263,7 @@ namespace Tetris
         private void LevelUp()
         {
             level++;
-            label5.Text = "Level: " + level.ToString();
+            LevelLabel.Text = "Level: " + level.ToString();
 
             // Milliseconds per square fall
             // Level 1 = 800 ms per square, level 2 = 716 ms per square, etc.
@@ -1305,7 +1306,8 @@ namespace Tetris
         // Needs cleanup
         private void DrawGhost()
         {
-
+            // Ghost2 list is test position of Ghost
+            // Ghost list is actual ghost position, after testing
             Control[] Ghost2 = { null, null, null, null };
             bool ghostFound = false;
 
@@ -1317,7 +1319,6 @@ namespace Tetris
                     if (x.BackColor == Color.LightGray)
                     {
                         x.BackColor = Color.White;
-
                     }
                 }
             }
@@ -1334,8 +1335,6 @@ namespace Tetris
                 // Get position of test Ghost2, starting at bottom row
                 if (currentPiece == 0) //I piece
                 {
-
-
                     if (rotations == 0)
                     {
                         if (x == 2)
@@ -1573,7 +1572,7 @@ namespace Tetris
         // Clear score update notification every 2 seconds
         private void ScoreUpdateTimer_Tick(object sender, EventArgs e)
         {
-                label8.Text = "";
+                ScoreUpdateLabel.Text = "";
                 ScoreUpdateTimer.Stop();
         }
     }   
