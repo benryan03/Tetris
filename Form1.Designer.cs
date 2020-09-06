@@ -785,7 +785,7 @@
             this.grid.Controls.Add(this.box250, 7, 1);
             this.grid.Controls.Add(this.box251, 8, 1);
             this.grid.Controls.Add(this.box252, 9, 1);
-            this.grid.Location = new System.Drawing.Point(12, 140);
+            this.grid.Location = new System.Drawing.Point(12, 75);
             this.grid.Name = "grid";
             this.grid.RowCount = 25;
             this.grid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
@@ -3013,10 +3013,10 @@
             // TetrisLabel
             // 
             this.TetrisLabel.AutoSize = true;
-            this.TetrisLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TetrisLabel.Location = new System.Drawing.Point(72, 19);
+            this.TetrisLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TetrisLabel.Location = new System.Drawing.Point(154, 8);
             this.TetrisLabel.Name = "TetrisLabel";
-            this.TetrisLabel.Size = new System.Drawing.Size(387, 108);
+            this.TetrisLabel.Size = new System.Drawing.Size(226, 64);
             this.TetrisLabel.TabIndex = 2;
             this.TetrisLabel.Text = "TETRIS";
             // 
@@ -3024,7 +3024,7 @@
             // 
             this.TimeLabel.AutoSize = true;
             this.TimeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TimeLabel.Location = new System.Drawing.Point(540, 290);
+            this.TimeLabel.Location = new System.Drawing.Point(542, 228);
             this.TimeLabel.Name = "TimeLabel";
             this.TimeLabel.Size = new System.Drawing.Size(183, 55);
             this.TimeLabel.TabIndex = 3;
@@ -3034,7 +3034,7 @@
             // 
             this.ScoreLabel.AutoSize = true;
             this.ScoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScoreLabel.Location = new System.Drawing.Point(540, 140);
+            this.ScoreLabel.Location = new System.Drawing.Point(542, 78);
             this.ScoreLabel.Name = "ScoreLabel";
             this.ScoreLabel.Size = new System.Drawing.Size(203, 55);
             this.ScoreLabel.TabIndex = 4;
@@ -3045,7 +3045,7 @@
             this.ClearsLabel.AutoSize = true;
             this.ClearsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearsLabel.ForeColor = System.Drawing.Color.Black;
-            this.ClearsLabel.Location = new System.Drawing.Point(543, 400);
+            this.ClearsLabel.Location = new System.Drawing.Point(545, 338);
             this.ClearsLabel.Name = "ClearsLabel";
             this.ClearsLabel.Size = new System.Drawing.Size(131, 40);
             this.ClearsLabel.TabIndex = 5;
@@ -3055,7 +3055,7 @@
             // 
             this.LevelLabel.AutoSize = true;
             this.LevelLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LevelLabel.Location = new System.Drawing.Point(540, 345);
+            this.LevelLabel.Location = new System.Drawing.Point(542, 283);
             this.LevelLabel.Name = "LevelLabel";
             this.LevelLabel.Size = new System.Drawing.Size(192, 55);
             this.LevelLabel.TabIndex = 6;
@@ -3089,7 +3089,7 @@
             this.tableLayoutPanel1.Controls.Add(this.box214, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.box215, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.box216, 3, 3);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(550, 566);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(552, 488);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -3266,7 +3266,7 @@
             this.tableLayoutPanel2.Controls.Add(this.box230, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.box231, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.box232, 3, 3);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(550, 832);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(552, 754);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -3424,7 +3424,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(549, 526);
+            this.label6.Location = new System.Drawing.Point(551, 448);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 32);
             this.label6.TabIndex = 9;
@@ -3434,7 +3434,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(549, 795);
+            this.label7.Location = new System.Drawing.Point(551, 717);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(157, 32);
             this.label7.TabIndex = 10;
@@ -3445,7 +3445,7 @@
             this.ScoreUpdateLabel.AutoSize = true;
             this.ScoreUpdateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ScoreUpdateLabel.ForeColor = System.Drawing.Color.Green;
-            this.ScoreUpdateLabel.Location = new System.Drawing.Point(545, 201);
+            this.ScoreUpdateLabel.Location = new System.Drawing.Point(547, 139);
             this.ScoreUpdateLabel.Name = "ScoreUpdateLabel";
             this.ScoreUpdateLabel.Size = new System.Drawing.Size(152, 55);
             this.ScoreUpdateLabel.TabIndex = 11;
@@ -3460,7 +3460,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 1086);
+            this.ClientSize = new System.Drawing.Size(890, 1024);
             this.Controls.Add(this.ScoreUpdateLabel);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
