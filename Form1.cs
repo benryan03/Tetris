@@ -90,12 +90,12 @@ namespace Tetris
             // Move next piece to current piece
             currentPiece = nextPieceInt;
 
-            // If last piece of Bag1 set, generate new set
+            // If last piece of PieceSequence, generate new PieceSequence
             if (PieceSequenceIteration == 7)
             {
                 PieceSequenceIteration = 0;
 
-                // Scramble Bag1
+                // Scramble PieceSequence
                 PieceSequence.Clear();
                 System.Random random = new System.Random();
                 while (PieceSequence.Count < 7)
@@ -108,7 +108,7 @@ namespace Tetris
                 }
             }
 
-            // Select next piece from Bag1 set
+            // Select next piece from PieceSequence
             nextPieceInt = PieceSequence[PieceSequenceIteration];
             PieceSequenceIteration++;
 
