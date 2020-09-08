@@ -18,6 +18,7 @@ namespace Tetris
 {
     public partial class MainWindow : Form
     {
+        // Initialize global variables
         Control[] activePiece = { null, null, null, null };
         Control[] activePiece2 = { null, null, null, null };
         Control[] nextPiece = { null, null, null, null };
@@ -59,6 +60,7 @@ namespace Tetris
             GameTimer.Start();
 
             // Initialize/reset ghost piece
+            // box1 through box4 are invisible
             activePiece2[0] = box1;
             activePiece2[1] = box2;
             activePiece2[2] = box3;
