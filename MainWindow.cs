@@ -381,7 +381,6 @@ namespace Tetris
         }
 
         // Clear lowest full row
-        // This is very messy :(
         private void ClearFullRow()
         {
             int completedRow = CheckForCompleteRows();
@@ -470,44 +469,42 @@ namespace Tetris
                 ScoreUpdateTimer.Start();
             }
 
-            else if (combo > 3)
+            else if (combo > 3 && combo % 4 == 0)
             {
-                if (combo % 4 == 0)
+                score = score + 100;
+                ScoreUpdateLabel.Text = "+100";
+                ScoreUpdateTimer.Start();
+                if (CheckForCompleteRows() == -1)
                 {
-                    score = score + 100;
-                    ScoreUpdateLabel.Text = "+100";
-                    ScoreUpdateTimer.Start();
-                    if (CheckForCompleteRows() == -1)
-                    {
-                        combo = -1;
-                    }
+                    combo = -1;
                 }
-                else if ((combo - 1) % 4 == 0)
+            }
+
+            else if (combo > 3 && ((combo - 1) % 4 == 0))
+            {
+                score = score + 100;
+                ScoreUpdateLabel.Text = "+200";
+                ScoreUpdateTimer.Start();
+                if (CheckForCompleteRows() == -1)
                 {
-                    score = score + 100;
-                    ScoreUpdateLabel.Text = "+200";
-                    ScoreUpdateTimer.Start();
-                    if (CheckForCompleteRows() == -1)
-                    {
-                        combo = -1;
-                    }
+                    combo = -1;
                 }
-                else if ((combo - 2) % 4 == 0)
+            }
+            else if (combo > 3 && ((combo - 2) % 4 == 0))
+            {
+                score = score + 100;
+                ScoreUpdateLabel.Text = "+300";
+                ScoreUpdateTimer.Start();
+                if (CheckForCompleteRows() == -1)
                 {
-                    score = score + 100;
-                    ScoreUpdateLabel.Text = "+300";
-                    ScoreUpdateTimer.Start();
-                    if (CheckForCompleteRows() == -1)
-                    {
-                        combo = -1;
-                    }
+                    combo = -1;
                 }
-                else if ((combo - 3) % 4 == 0)
-                {
-                    score = score + 900;
-                    ScoreUpdateLabel.Text = "+1200";
-                    ScoreUpdateTimer.Start();
-                }
+            }
+            else if (combo > 3 && ((combo - 3) % 4 == 0))
+            {
+                score = score + 900;
+                ScoreUpdateLabel.Text = "+1200";
+                ScoreUpdateTimer.Start();
             }
 
             combo++;
