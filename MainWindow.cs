@@ -409,7 +409,7 @@ namespace Tetris
                 }
             }
 
-            updateScore();
+            UpdateScore();
 
             clears++;
             ClearsLabel.Text = "Clears: " + clears;
@@ -425,7 +425,7 @@ namespace Tetris
             }
         }
 
-        private void updateScore()
+        private void UpdateScore()
         {
             // 1-3 line clear is worth 100 per line
             // Quad line clear (no combo) is worth 800
