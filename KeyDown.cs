@@ -83,8 +83,6 @@ namespace Tetris
                             return;
                         }
                     }
-
-
                 }
                 else if (currentPiece == 1) //The normal L
                 {
@@ -432,8 +430,6 @@ namespace Tetris
                     }
                 }
 
-
-
                 //Set old position of piece to white
                 foreach (PictureBox square in activePiece)
                 {
@@ -441,7 +437,6 @@ namespace Tetris
                 }
 
                 DrawGhost();
-
 
                 //Set new position of piece to that piece's color
                 int x = 0;
@@ -451,11 +446,6 @@ namespace Tetris
                     activePiece[x] = square;
                     x++;
                 }
-
-
-
-
-
             }
             else if (!CheckGameOver() & e.KeyCode == Keys.ShiftKey)
             {
@@ -685,11 +675,7 @@ namespace Tetris
                     {
                         activePiece[x] = activePiece2[x];
                     }
-
                 }
-
-
-
             }
             else if (!CheckGameOver() & e.KeyCode == Keys.Space)
             {
