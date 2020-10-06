@@ -113,7 +113,6 @@ namespace Tetris
                 }
             }
 
-            ////////////////////////////////
             // Layout options for next piece
             Control[,] nextPieceArray = 
             {
@@ -138,7 +137,6 @@ namespace Tetris
                 square.BackColor = colorList[nextPieceInt];
             }
 
-            ///////////////////////////////////
             // Layout options for falling piece
             Control[,] activePieceArray =
             {
@@ -157,7 +155,7 @@ namespace Tetris
                 activePiece[x] = activePieceArray[currentPiece, x];
             }
 
-            // This is needed for DrawGhost
+            // This is needed for DrawGhost()
             for (int x = 0; x < 4; x++)
             {
                 activePiece2[x] = activePieceArray[currentPiece, x];
@@ -234,6 +232,7 @@ namespace Tetris
                 }
                 else if (direction == "left" & squareCol == 0)
                 {
+                    // Move would be outside of grid, left
                     return false;
                 }
 
@@ -245,6 +244,7 @@ namespace Tetris
                 }
                 else if (direction == "right" & squareCol == 9)
                 {
+                    // Move would be outside of grid, right
                     return false;
                 }
 
@@ -257,6 +257,7 @@ namespace Tetris
                 else if (direction == "down" & squareRow == 21)
                 {
                     return false;
+                    // Move would be below grid
                 }
 
                 // Test if potential move would overlap another piece
@@ -384,7 +385,6 @@ namespace Tetris
         private void ClearFullRow()
         {
             int completedRow = CheckForCompleteRows();
-            bool resetCombo = false;
 
             //Turn that row white
             for (int x = 0; x <= 9; x++)
@@ -394,7 +394,7 @@ namespace Tetris
             }
 
             //Move all other squares down
-            for (int x = completedRow - 1; x >= 0; x--)             //For each row above cleared row
+            for (int x = completedRow - 1; x >= 0; x--) //For each row above cleared row
             {
                 //For each square in row
                 for (int y = 0; y <= 9; y++)
@@ -410,7 +410,26 @@ namespace Tetris
                 }
             }
 
-            //Update score
+            updateScore();
+
+            clears++;
+            ClearsLabel.Text = "Clears: " + clears;
+
+            if (clears % 10 == 0)
+            {
+                LevelUp();
+            }
+
+            if (CheckForCompleteRows() > -1)
+            {
+                ClearFullRow();
+            }
+        }
+
+        private void updateScore()
+        {
+            bool resetCombo = false;
+
             if (combo == 0)
             {
                 score = score + 100;
@@ -489,39 +508,16 @@ namespace Tetris
                     ScoreUpdateLabel.Text = "+1200";
                     ScoreUpdateTimer.Start();
                 }
-
             }
 
-
             combo++;
-
 
             if (resetCombo == true)
             {
                 combo = 0;
             }
 
-
-
             ScoreLabel.Text = "Score: " + score.ToString();
-
-            clears++;
-            ClearsLabel.Text = "Clears: " + clears;
-
-            if (clears % 10 == 0)
-            {
-                LevelUp();
-            }
-
-            if (CheckForCompleteRows() > -1)
-            {
-                ClearFullRow();
-        
-            }
-
-            //label1.Text = combo.ToString(); //debug
-
-
         }
 
         // Return row number of lowest full row
