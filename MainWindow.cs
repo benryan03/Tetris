@@ -427,26 +427,34 @@ namespace Tetris
 
         private void updateScore()
         {
+            // 1-3 line clear is worth 100 per line
+            // Quad line clear (no combo) is worth 800
+            // 2 or more quad line clears in a row is worth 1200 
+
             bool skipComboReset = false;
 
+            // Single clear
             if (combo == 0)
             {
                 score += 100;
                 ScoreUpdateLabel.Text = "+100";
             }
 
+            // Double clear
             else if (combo == 1)
             {
                 score += 100;
                 ScoreUpdateLabel.Text = "+200";
             }
 
+            // Triple clear
             else if (combo == 2)
             {
                 score += 100;
                 ScoreUpdateLabel.Text = "+300";
             }
 
+            // Quad clear, start combo
             else if (combo == 3)
             {
                 score += 500;
@@ -454,22 +462,28 @@ namespace Tetris
                 skipComboReset = true;
             }
 
+            // Single clear, broken combo
             else if (combo > 3 && combo % 4 == 0)
             {
                 score += 100;
                 ScoreUpdateLabel.Text = "+100";
             }
 
+            // Double clear, broken combo
             else if (combo > 3 && ((combo - 1) % 4 == 0))
             {
                 score += 100;
                 ScoreUpdateLabel.Text = "+200";
             }
+
+            // Triple clear, broken combo
             else if (combo > 3 && ((combo - 2) % 4 == 0))
             {
                 score += 100;
                 ScoreUpdateLabel.Text = "+300";
             }
+
+            // Quad clear, continue combo
             else if (combo > 3 && ((combo - 3) % 4 == 0))
             {
                 score += 900;
@@ -479,10 +493,12 @@ namespace Tetris
 
             if (CheckForCompleteRows() == -1 && skipComboReset == false)
             {
+                // 1-3 line clear
                 combo = 0;
             }
             else
             {
+                // Quad clear
                 combo++;
             }
 
