@@ -427,94 +427,67 @@ namespace Tetris
 
         private void updateScore()
         {
-            bool resetCombo = false;
+            bool skipComboReset = false;
 
             if (combo == 0)
             {
-                score = score + 100;
+                score += 100;
                 ScoreUpdateLabel.Text = "+100";
-                ScoreUpdateTimer.Start();
-                if (CheckForCompleteRows() == -1)
-                {
-                    combo = -1;
-                }
             }
 
             else if (combo == 1)
             {
-                score = score + 100;
+                score += 100;
                 ScoreUpdateLabel.Text = "+200";
-                ScoreUpdateTimer.Start();
-                if (CheckForCompleteRows() == -1)
-                {
-                    combo = -1;
-                }
             }
 
             else if (combo == 2)
             {
-                score = score + 100;
+                score += 100;
                 ScoreUpdateLabel.Text = "+300";
-                ScoreUpdateTimer.Start();
-                if (CheckForCompleteRows() == -1)
-                {
-                    combo = -1;
-                }
             }
 
             else if (combo == 3)
             {
-                score = score + 500;
+                score += 500;
                 ScoreUpdateLabel.Text = "+800";
-                ScoreUpdateTimer.Start();
+                skipComboReset = true;
             }
 
             else if (combo > 3 && combo % 4 == 0)
             {
-                score = score + 100;
+                score += 100;
                 ScoreUpdateLabel.Text = "+100";
-                ScoreUpdateTimer.Start();
-                if (CheckForCompleteRows() == -1)
-                {
-                    combo = -1;
-                }
             }
 
             else if (combo > 3 && ((combo - 1) % 4 == 0))
             {
-                score = score + 100;
+                score += 100;
                 ScoreUpdateLabel.Text = "+200";
-                ScoreUpdateTimer.Start();
-                if (CheckForCompleteRows() == -1)
-                {
-                    combo = -1;
-                }
             }
             else if (combo > 3 && ((combo - 2) % 4 == 0))
             {
-                score = score + 100;
+                score += 100;
                 ScoreUpdateLabel.Text = "+300";
-                ScoreUpdateTimer.Start();
-                if (CheckForCompleteRows() == -1)
-                {
-                    combo = -1;
-                }
             }
             else if (combo > 3 && ((combo - 3) % 4 == 0))
             {
-                score = score + 900;
+                score += 900;
                 ScoreUpdateLabel.Text = "+1200";
-                ScoreUpdateTimer.Start();
+                skipComboReset = true;
             }
 
-            combo++;
-
-            if (resetCombo == true)
+            if (CheckForCompleteRows() == -1 && skipComboReset == false)
             {
                 combo = 0;
             }
+            else
+            {
+                combo++;
+            }
 
             ScoreLabel.Text = "Score: " + score.ToString();
+            ScoreUpdateTimer.Start();
         }
 
         // Return row number of lowest full row
