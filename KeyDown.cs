@@ -454,6 +454,7 @@ namespace Tetris
                 //If no piece has been saved yet
                 if (savedPieceInt == -1)
                 {
+                    // Erase falling piece
                     foreach (Control x in activePiece)
                     {
                         x.BackColor = Color.White;
@@ -461,69 +462,32 @@ namespace Tetris
 
                     savedPieceInt = currentPiece;
 
-                    if (savedPieceInt == 0)
+                    // Layout options for saved piece
+                    Control[,] savedPieceArray =
                     {
-                        savedPiece[0] = box219;
-                        savedPiece[1] = box223;
-                        savedPiece[2] = box227;
-                        savedPiece[3] = box231;
-                        savedPieceColor = Color.Cyan;
-                    }
-                    else if (savedPieceInt == 1)
+                        { box219, box223, box227, box231 }, // I piece
+                        { box218, box222, box226, box227 }, // L piece
+                        { box219, box223, box227, box226 }, // J piece
+                        { box222, box223, box219, box220 }, // S piece
+                        { box218, box219, box223, box224 }, // Z piece
+                        { box222, box223, box226, box227 }, // O piece
+                        { box223, box226, box227, box228 }  // T piece
+                    };
+
+                    // Retrieve layout for saved piece
+                    for (int x = 0; x < 4; x++)
                     {
-                        savedPiece[0] = box218;
-                        savedPiece[1] = box222;
-                        savedPiece[2] = box226;
-                        savedPiece[3] = box227;
-                        savedPieceColor = Color.Orange;
-                    }
-                    else if (savedPieceInt == 2)
-                    {
-                        savedPiece[0] = box219;
-                        savedPiece[1] = box223;
-                        savedPiece[2] = box227;
-                        savedPiece[3] = box210;
-                        savedPieceColor = Color.Blue;
-                    }
-                    else if (savedPieceInt == 3)
-                    {
-                        savedPiece[0] = box222;
-                        savedPiece[1] = box223;
-                        savedPiece[2] = box219;
-                        savedPiece[3] = box220;
-                        savedPieceColor = Color.Green;
-                    }
-                    else if (savedPieceInt == 4)
-                    {
-                        savedPiece[0] = box218;
-                        savedPiece[1] = box219;
-                        savedPiece[2] = box223;
-                        savedPiece[3] = box224;
-                        savedPieceColor = Color.Red;
-                    }
-                    else if (savedPieceInt == 5)
-                    {
-                        savedPiece[0] = box222;
-                        savedPiece[1] = box223;
-                        savedPiece[2] = box226;
-                        savedPiece[3] = box227;
-                        savedPieceColor = Color.Yellow;
-                    }
-                    else if (savedPieceInt == 6)
-                    {
-                        savedPiece[0] = box223;
-                        savedPiece[1] = box226;
-                        savedPiece[2] = box227;
-                        savedPiece[3] = box228;
-                        savedPieceColor = Color.Purple;
+                        savedPiece[x] = savedPieceArray[savedPieceInt, x];
                     }
 
-                    DropNewPiece();
-
+                    // Populate saved piece box
+                    savedPieceColor = colorList[savedPieceInt];
                     foreach (Control x in savedPiece)
                     {
                         x.BackColor = savedPieceColor;
                     }
+
+                    DropNewPiece();
                 }
                 else
                 {
@@ -543,64 +507,25 @@ namespace Tetris
                     currentPiece = savedPieceInt;
                     savedPieceInt = savedPieceTemp;
 
-                    //Populate squares in saved piece panel
-                    if (savedPieceInt == 0)
+                    Control[,] savedPieceArray =
                     {
-                        savedPiece[0] = box219;
-                        savedPiece[1] = box223;
-                        savedPiece[2] = box227;
-                        savedPiece[3] = box231;
-                        savedPieceColor = Color.Cyan;
-                    }
-                    else if (savedPieceInt == 1)
+                        { box219, box223, box227, box231 }, // I piece
+                        { box218, box222, box226, box227 }, // L piece
+                        { box219, box223, box227, box226 }, // J piece
+                        { box222, box223, box219, box220 }, // S piece
+                        { box218, box219, box223, box224 }, // Z piece
+                        { box222, box223, box226, box227 }, // O piece
+                        { box223, box226, box227, box228 }  // T piece
+                    };
+
+                    for (int x = 0; x < 4; x++)
                     {
-                        savedPiece[0] = box218;
-                        savedPiece[1] = box222;
-                        savedPiece[2] = box226;
-                        savedPiece[3] = box227;
-                        savedPieceColor = Color.Orange;
-                    }
-                    else if (savedPieceInt == 2)
-                    {
-                        savedPiece[0] = box219;
-                        savedPiece[1] = box223;
-                        savedPiece[2] = box227;
-                        savedPiece[3] = box226;
-                        savedPieceColor = Color.Blue;
-                    }
-                    else if (savedPieceInt == 3)
-                    {
-                        savedPiece[0] = box222;
-                        savedPiece[1] = box223;
-                        savedPiece[2] = box219;
-                        savedPiece[3] = box220;
-                        savedPieceColor = Color.Green;
-                    }
-                    else if (savedPieceInt == 4)
-                    {
-                        savedPiece[0] = box218;
-                        savedPiece[1] = box219;
-                        savedPiece[2] = box223;
-                        savedPiece[3] = box224;
-                        savedPieceColor = Color.Red;
-                    }
-                    else if (savedPieceInt == 5)
-                    {
-                        savedPiece[0] = box222;
-                        savedPiece[1] = box223;
-                        savedPiece[2] = box226;
-                        savedPiece[3] = box227;
-                        savedPieceColor = Color.Yellow;
-                    }
-                    else if (savedPieceInt == 6)
-                    {
-                        savedPiece[0] = box223;
-                        savedPiece[1] = box226;
-                        savedPiece[2] = box227;
-                        savedPiece[3] = box228;
-                        savedPieceColor = Color.Purple;
+                        savedPiece[x] = savedPieceArray[savedPieceInt, x];
                     }
 
+                    savedPieceColor = colorList[savedPieceInt];
+
+                    //Populate squares in saved piece panel
                     foreach (Control x in savedPiece)
                     {
                         x.BackColor = savedPieceColor;
