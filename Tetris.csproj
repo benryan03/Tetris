@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrawGhost.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="KeyDown.cs">
       <SubType>Form</SubType>
     </Compile>
