@@ -451,20 +451,9 @@ namespace Tetris
             {
                 rotations = 0;
 
-                //If no piece has been saved yet
-                if (savedPieceInt == -1)
+                // Layout options for saved piece
+                Control[,] savedPieceArray =
                 {
-                    // Erase falling piece
-                    foreach (Control x in activePiece)
-                    {
-                        x.BackColor = Color.White;
-                    }
-
-                    savedPieceInt = currentPiece;
-
-                    // Layout options for saved piece
-                    Control[,] savedPieceArray =
-                    {
                         { box219, box223, box227, box231 }, // I piece
                         { box218, box222, box226, box227 }, // L piece
                         { box219, box223, box227, box226 }, // J piece
@@ -472,15 +461,37 @@ namespace Tetris
                         { box218, box219, box223, box224 }, // Z piece
                         { box222, box223, box226, box227 }, // O piece
                         { box223, box226, box227, box228 }  // T piece
-                    };
+                };
 
+                // Layout options for falling piece
+                Control[,] activePieceArray =
+                {
+                        { box6, box16, box26, box36 }, // I piece
+                        { box4, box14, box24, box25 }, // L piece
+                        { box5, box15, box25, box24 }, // J piece
+                        { box14, box15, box5, box6 },  // S piece
+                        { box5, box6, box16, box17 },  // Z piece
+                        { box5, box6, box15, box16 },  // O piece
+                        { box6, box15, box16, box17 }  // T piece
+                };
+
+                // Erase falling piece
+                foreach (Control x in activePiece)
+                {
+                    x.BackColor = Color.White;
+                }
+
+                // If no piece has been saved yet
+                if (savedPieceInt == -1)
+                {
                     // Retrieve layout for saved piece
+                    savedPieceInt = currentPiece;
                     for (int x = 0; x < 4; x++)
                     {
                         savedPiece[x] = savedPieceArray[savedPieceInt, x];
                     }
 
-                    // Populate saved piece box
+                    // Draw saved piece
                     savedPieceColor = colorList[savedPieceInt];
                     foreach (Control x in savedPiece)
                     {
@@ -489,106 +500,36 @@ namespace Tetris
 
                     DropNewPiece();
                 }
+
+                // If a piece has already been saved
                 else
                 {
-                    //Erase falling piece
-                    foreach (Control x in activePiece)
-                    {
-                        x.BackColor = Color.White;
-                    }
-                    //Erase saved piece
+
+                    // Erase saved piece
                     foreach (Control x in savedPiece)
                     {
                         x.BackColor = Color.White;
                     }
 
-                    //Swap pieces
+                    // Swap pieces
                     int savedPieceTemp = currentPiece;
                     currentPiece = savedPieceInt;
                     savedPieceInt = savedPieceTemp;
-
-                    Control[,] savedPieceArray =
-                    {
-                        { box219, box223, box227, box231 }, // I piece
-                        { box218, box222, box226, box227 }, // L piece
-                        { box219, box223, box227, box226 }, // J piece
-                        { box222, box223, box219, box220 }, // S piece
-                        { box218, box219, box223, box224 }, // Z piece
-                        { box222, box223, box226, box227 }, // O piece
-                        { box223, box226, box227, box228 }  // T piece
-                    };
-
                     for (int x = 0; x < 4; x++)
                     {
                         savedPiece[x] = savedPieceArray[savedPieceInt, x];
+                        activePiece2[x] = activePieceArray[currentPiece, x];
                     }
 
+                    // Draw saved piece
                     savedPieceColor = colorList[savedPieceInt];
-
-                    //Populate squares in saved piece panel
                     foreach (Control x in savedPiece)
                     {
                         x.BackColor = savedPieceColor;
                     }
 
-                    //Populate new falling piece
-                    if (currentPiece == 0)
-                    {
-                        activePiece2[0] = box6;
-                        activePiece2[1] = box16;
-                        activePiece2[2] = box26;
-                        activePiece2[3] = box36;
-                        pieceColor = Color.Cyan;
-                    }
-                    else if (currentPiece == 1)
-                    {
-                        activePiece2[0] = box4;
-                        activePiece2[1] = box14;
-                        activePiece2[2] = box24;
-                        activePiece2[3] = box25;
-                        pieceColor = Color.Orange;
-                    }
-                    else if (currentPiece == 2)
-                    {
-                        activePiece2[0] = box5;
-                        activePiece2[1] = box15;
-                        activePiece2[2] = box25;
-                        activePiece2[3] = box24;
-                        pieceColor = Color.Blue;
-                    }
-                    else if (currentPiece == 3)
-                    {
-                        activePiece2[0] = box14;
-                        activePiece2[1] = box15;
-                        activePiece2[2] = box5;
-                        activePiece2[3] = box6;
-                        pieceColor = Color.Green;
-                    }
-                    else if (currentPiece == 4)
-                    {
-                        activePiece2[0] = box5;
-                        activePiece2[1] = box6;
-                        activePiece2[2] = box16;
-                        activePiece2[3] = box17;
-                        pieceColor = Color.Red;
-                    }
-                    else if (currentPiece == 5)
-                    {
-                        activePiece2[0] = box5;
-                        activePiece2[1] = box6;
-                        activePiece2[2] = box15;
-                        activePiece2[3] = box16;
-                        pieceColor = Color.Yellow;
-                    }
-                    else if (currentPiece == 6)
-                    {
-                        activePiece2[0] = box6;
-                        activePiece2[1] = box15;
-                        activePiece2[2] = box16;
-                        activePiece2[3] = box17;
-                        pieceColor = Color.Purple;
-                    }
-
+                    // Draw falling piece
+                    pieceColor = colorList[currentPiece];
                     foreach (Control square in activePiece2)
                     {
                         square.BackColor = pieceColor;
@@ -602,6 +543,7 @@ namespace Tetris
                     }
                 }
             }
+
             else if (!CheckGameOver() & e.KeyCode == Keys.Space)
             {
                 // Hard drop
